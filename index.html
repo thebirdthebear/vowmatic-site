@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vowmatic — AI-Powered Wedding Video Editing</title>
+<meta name="description" content="Multicam autocut, clip organization, ratings, and story assembly for wedding videographers. Edit smarter, not longer.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0B0F;
+  --surface: #161519;
+  --surface-2: #1E1D22;
+  --border: #2A292E;
+  --text: #F0EDE6;
+  --text-muted: #8A8790;
+  --accent: #D4A853;
+  --accent-soft: rgba(212, 168, 83, 0.12);
+  --accent-glow: rgba(212, 168, 83, 0.25);
+  --green: #5CB85C;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.nav-link:hover { color: var(--text); }
+
+/* ═══ HERO ═══ */
+.hero { text-align: center; padding: 100px 0 60px; position: relative; }
+.hero::before {
+  content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 500px;
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 65%);
+  opacity: 0.25; pointer-events: none;
+}
+
+.badge {
+  display: inline-block; background: var(--accent-soft); color: var(--accent);
+  padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.5px; margin-bottom: 28px; position: relative;
+}
+
+.hero h1 {
+  font-family: 'Instrument Serif', serif; font-size: clamp(44px, 7vw, 72px);
+  line-height: 1.08; margin-bottom: 24px; position: relative; letter-spacing: -1px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+
+.hero .subtitle {
+  color: var(--text-muted); font-size: 19px; max-width: 560px;
+  margin: 0 auto 48px; line-height: 1.7; position: relative;
+}
+
+/* ═══ SIGNUP FORM ═══ */
+.signup-form {
+  display: flex; gap: 10px; max-width: 480px; margin: 0 auto 20px; position: relative;
+}
+
+.signup-form input[type="email"] {
+  flex: 1; padding: 16px 20px; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font-size: 15px;
+  font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s;
+}
+.signup-form input[type="email"]::placeholder { color: var(--text-muted); }
+.signup-form input[type="email"]:focus { border-color: var(--accent); }
+
+.signup-form button {
+  padding: 16px 28px; border-radius: 10px; border: none; background: var(--accent);
+  color: var(--bg); font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.signup-form button:hover {
+  box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px);
+}
+.signup-form button:disabled {
+  opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none;
+}
+
+.signup-note { color: var(--text-muted); font-size: 13px; text-align: center; position: relative; }
+
+.success-msg {
+  display: none; text-align: center; color: var(--green); font-weight: 600;
+  font-size: 16px; padding: 16px; position: relative;
+}
+
+/* Hidden iframe for Google Form submission */
+.hidden-iframe { display: none; }
+
+/* ═══ FEATURES ═══ */
+.features { padding: 80px 0; border-top: 1px solid var(--border); }
+.features h2 { font-family: 'Instrument Serif', serif; font-size: 36px; text-align: center; margin-bottom: 12px; }
+.features .section-sub { text-align: center; color: var(--text-muted); font-size: 16px; margin-bottom: 56px; }
+
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.feature-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px 24px; transition: all 0.3s;
+}
+.feature-card:hover { border-color: rgba(212, 168, 83, 0.2); transform: translateY(-3px); }
+.feature-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+.feature-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.feature-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+/* ═══ HOW IT WORKS ═══ */
+.how-it-works { padding: 80px 0; border-top: 1px solid var(--border); }
+.how-it-works h2 { font-family: 'Instrument Serif', serif; font-size: 36px; text-align: center; margin-bottom: 56px; }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+.step { text-align: center; position: relative; }
+.step::after { content: '\2192'; position: absolute; right: -16px; top: 30px; color: var(--accent); font-size: 20px; }
+.step:last-child::after { display: none; }
+.step-num {
+  width: 48px; height: 48px; border-radius: 50%; background: var(--accent-soft);
+  color: var(--accent); display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 18px; margin: 0 auto 16px;
+}
+.step h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.step p { color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+
+/* ═══ STATS ═══ */
+.stats { padding: 60px 0; border-top: 1px solid var(--border); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.stat-num { font-family: 'Instrument Serif', serif; font-size: 40px; color: var(--accent); margin-bottom: 4px; }
+.stat-label { color: var(--text-muted); font-size: 14px; }
+
+/* ═══ PRIVACY ═══ */
+.privacy-banner { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; }
+.privacy-banner p { color: var(--text-muted); font-size: 15px; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+.privacy-banner strong { color: var(--text); }
+
+/* ═══ BOTTOM CTA ═══ */
+.bottom-cta {
+  text-align: center; padding: 80px 0 100px; border-top: 1px solid var(--border); position: relative;
+}
+.bottom-cta::before {
+  content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+  opacity: 0.2; pointer-events: none;
+}
+.bottom-cta h2 { font-family: 'Instrument Serif', serif; font-size: 40px; margin-bottom: 16px; position: relative; }
+.bottom-cta p { color: var(--text-muted); font-size: 16px; margin-bottom: 36px; position: relative; }
+
+/* ═══ FOOTER ═══ */
+footer {
+  padding: 32px 0; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer .logo { font-size: 20px; }
+footer .footer-links { display: flex; gap: 24px; list-style: none; }
+footer .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+footer .footer-links a:hover { color: var(--text); }
+.footer-copy { color: var(--text-muted); font-size: 12px; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .step::after { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .signup-form { flex-direction: column; }
+  .signup-form button { padding: 16px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hidden iframe targets for Google Form submission -->
+<iframe name="gform_iframe_hero" class="hidden-iframe"></iframe>
+<iframe name="gform_iframe_bottom" class="hidden-iframe"></iframe>
+
+<div class="container">
+  <nav>
+    <a href="/" class="logo">Vow<span>matic</span></a>
+    <div class="nav-right">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#how" class="nav-link">How It Works</a>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+
+  <section class="hero">
+    <div class="badge">Coming Soon — Join the Waitlist</div>
+    <h1>Your wedding edits,<br><em>hours faster</em></h1>
+    <p class="subtitle">AI-powered multicam autocut, clip organization, ratings, and story assembly — built by a wedding videographer who's been in your shoes for 10+ years.</p>
+
+    <form class="signup-form" id="heroForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse"
+          method="POST" target="gform_iframe_hero"
+          onsubmit="return handleSubmit(this, 'heroSuccess')">
+      <input type="email" name="entry.1351082672" placeholder="you@yourstudio.com" required>
+      <button type="submit">Join Waitlist</button>
+    </form>
+    <p class="signup-note" id="heroNote">Free during beta. No spam, just launch updates.</p>
+    <div class="success-msg" id="heroSuccess">You're on the list! We'll be in touch soon.</div>
+  </section>
+
+  <section class="features" id="features">
+    <h2>What Vowmatic does for you</h2>
+    <p class="section-sub">Point it at your footage. Get a ready-to-edit timeline.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🎬</span>
+        <h3>Multicam Autocut</h3>
+        <p>AI edits your ceremony and toasts with angle switching, reaction cuts, and act detection. Vision-powered — it reads the emotion, not just the audio.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔄</span>
+        <h3>Audio-Based Sync</h3>
+        <p>Cross-correlates audio across all your cameras and board recordings. No manual sync in FCP or Resolve.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏷️</span>
+        <h3>Clip Organization</h3>
+        <p>AI classifies every clip by event — ceremony, toasts, first look, portraits, getting ready. Browse by keyword in your NLE's sidebar.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⭐</span>
+        <h3>Smart Ratings</h3>
+        <p>Favorites, approves, and flags low-quality clips. Range-based ratings highlight the best moments within long clips.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📖</span>
+        <h3>A-Roll Story Editor</h3>
+        <p>Transcribes audio, scores moments for emotional impact, and lets you build the narrative. Exports a timeline with matching multicam video.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎞️</span>
+        <h3>B-Roll Timeline</h3>
+        <p>Auto-builds a browsable B-roll timeline from your best footage, grouped by event. Layer it on top of your story spine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Point</h3>
+        <p>Select your footage folder and audio files</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Review</h3>
+        <p>Check clip classifications, assign camera roles and audio</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Process</h3>
+        <p>AI syncs, cuts, rates, and organizes. ~45 min unattended.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Edit</h3>
+        <p>Import one file into your NLE. Start editing immediately.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">45 min</div>
+        <div class="stat-label">Unattended processing</div>
+      </div>
+      <div>
+        <div class="stat-num">285+</div>
+        <div class="stat-label">Clips organized per wedding</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Local processing</div>
+      </div>
+      <div>
+        <div class="stat-num">2 NLEs</div>
+        <div class="stat-label">FCP & Resolve</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-banner">
+    <p><strong>Your footage never leaves your computer.</strong> Vowmatic runs locally on your Mac. Only small frame thumbnails are sent to the AI for clip classification. No video or audio is uploaded anywhere.</p>
+  </section>
+
+  <section class="bottom-cta">
+    <h2>Get early access</h2>
+    <p>Be first in line when we launch. Beta testers get a lifetime discount.</p>
+
+    <form class="signup-form" id="bottomForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse"
+          method="POST" target="gform_iframe_bottom"
+          onsubmit="return handleSubmit(this, 'bottomSuccess')">
+      <input type="email" name="entry.1351082672" placeholder="you@yourstudio.com" required>
+      <button type="submit">Join Waitlist</button>
+    </form>
+    <p class="signup-note" id="bottomNote">Questions? <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="523a373e3e3d12263a37303b2036263a37303733207c313d3f">[email&#160;protected]</a></p>
+    <div class="success-msg" id="bottomSuccess">You're on the list! We'll be in touch soon.</div>
+  </section>
+
+</div>
+
+<div class="container">
+  <footer>
+    <a href="/" class="logo">Vow<span>matic</span></a>
+    <ul class="footer-links">
+      <li><a href="/cdn-cgi/l/email-protection#b8d0ddd4d4d7f8ccd0dddad1cadcccd0dddaddd9ca96dbd7d5">Contact</a></li>
+      <li><a href="#">Privacy</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Canatella Productions, LLC</span>
+  </footer>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function handleSubmit(form, successId) {
+  var email = form.querySelector('input[type="email"]').value;
+  var btn = form.querySelector('button');
+
+  // Disable button while submitting
+  btn.disabled = true;
+  btn.textContent = 'Joining...';
+
+  // Form submits to hidden iframe (no redirect)
+  // Show success after brief delay
+  setTimeout(function() {
+    form.style.display = 'none';
+    // Hide the note text below the form
+    var note

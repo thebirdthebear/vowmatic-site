@@ -353,4 +353,16 @@ function handleSubmit(form, successId) {
   setTimeout(function() {
     form.style.display = 'none';
     // Hide the note text below the form
-    var note
+    var note = form.nextElementSibling;
+    if (note && note.classList.contains('signup-note')) {
+      note.style.display = 'none';
+    }
+    document.getElementById(successId).style.display = 'block';
+  }, 1000);
+
+  return true;
+}
+</script>
+
+</body>
+</html>

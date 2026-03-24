@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vowmatic — Privacy Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0C0B0F;
+  --surface: #161519;
+  --border: #2A292E;
+  --text: #F0EDE6;
+  --text-muted: #8A8790;
+  --accent: #D4A853;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.8; }
+.container { max-width: 740px; margin: 0 auto; padding: 60px 24px 100px; }
+h1 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 8px; }
+.last-updated { color: var(--text-muted); font-size: 14px; margin-bottom: 48px; }
+h2 { font-size: 18px; font-weight: 600; margin-top: 36px; margin-bottom: 12px; color: var(--accent); }
+h3 { font-size: 16px; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
+a { color: var(--accent); }
+ul { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; padding-left: 24px; }
+li { margin-bottom: 6px; }
+.highlight-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 24px 0; }
+.highlight-box p { margin-bottom: 8px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+.logo { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--text); text-decoration: none; }
+.logo span { color: var(--accent); }
+nav { padding: 24px 0; max-width: 740px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<nav class="container" style="padding-bottom:0">
+  <a href="/" class="logo">Vow<span>matic</span></a>
+</nav>
+<div class="container">
+<h1>Privacy Policy</h1>
+<p class="last-updated">Last updated: March 23, 2026</p>
+
+<div class="highlight-box">
+<p style="color: var(--text); font-weight: 600;">The short version:</p>
+<p>Your video and audio files never leave your computer. Vowmatic sends only small thumbnail images to AI for clip classification. These thumbnails are processed and discarded — never stored or used for AI training.</p>
+</div>
+
+<h2>1. Who We Are</h2>
+<p>Vowmatic is operated by Canatella Productions, LLC, based in Cedar Park, Texas. We can be reached at <a href="mailto:vowmaticbeta@gmail.com">vowmaticbeta@gmail.com</a>.</p>
+
+<h2>2. What Vowmatic Processes</h2>
+
+<h3>On Your Computer (never leaves your machine)</h3>
+<ul>
+  <li>All video files (.MP4, .MOV, etc.)</li>
+  <li>All audio files (.WAV, .MP3, etc.)</li>
+  <li>Generated FCPXML timeline files</li>
+  <li>Whisper transcriptions (runs locally)</li>
+  <li>Audio cross-correlation sync (runs locally)</li>
+  <li>Rating calculations and cut decisions (runs locally)</li>
+  <li>All footage metadata and project files</li>
+</ul>
+
+<h3>Sent to AI Service (via our API proxy)</h3>
+<ul>
+  <li><strong>Frame thumbnails:</strong> Individual JPEG images extracted from your video footage, typically one frame every 30 seconds. These are small images (under 100KB each, approximately 1280 pixels wide) used for AI-powered clip classification ("is this ceremony or reception?") and quality assessment.</li>
+  <li><strong>Text prompts:</strong> Classification instructions and scoring prompts sent alongside thumbnails. These contain no personal information.</li>
+  <li><strong>Transcript text:</strong> For story assembly scoring, text transcriptions (generated locally by Whisper) may be sent to the AI service for emotional scoring. These contain spoken words from your wedding audio but no identifying metadata.</li>
+</ul>
+
+<h3>What is NOT sent</h3>
+<ul>
+  <li>Full video files</li>
+  <li>Full audio files</li>
+  <li>Client names, venue names, or event details</li>
+  <li>File paths or computer information</li>
+  <li>GPS data or location metadata</li>
+</ul>
+
+<h2>3. How Thumbnails Are Handled</h2>
+<p>Thumbnails are transmitted over encrypted HTTPS to our API proxy (hosted on Cloudflare Workers), which forwards them to Anthropic's Claude AI API for analysis. Per Anthropic's API data policy:</p>
+<ul>
+  <li>API inputs are not used to train AI models</li>
+  <li>Data is processed for the request and not retained long-term</li>
+  <li>Anthropic's full privacy policy is available at <a href="https://www.anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></li>
+</ul>
+<p>Our API proxy does not store thumbnails. It logs only: timestamp, token identifier, model name, and token counts (for usage tracking and billing). No image data is logged.</p>
+
+<h2>4. Your API Token</h2>
+<p>Your API token identifies your Vowmatic account for usage tracking and access control. It is stored locally in <code>~/.wedding_analyzer/config.json</code> on your computer. We use it to:</p>
+<ul>
+  <li>Authenticate your API requests</li>
+  <li>Track usage for billing (subscription or per-wedding credits)</li>
+  <li>Enforce rate limits</li>
+</ul>
+
+<h2>5. Website Data Collection</h2>
+<p>Our website (vowmatic.ai) collects:</p>
+<ul>
+  <li><strong>Waitlist signups:</strong> Email address, submitted via Google Forms, stored in Google Sheets</li>
+  <li><strong>Basic analytics:</strong> Cloudflare provides anonymous traffic analytics (page views, country). No cookies or tracking pixels are used.</li>
+</ul>
+<p>We do not sell, rent, or share your email address with third parties. We will only email you about Vowmatic updates, launch announcements, and product information. You can unsubscribe at any time.</p>
+
+<h2>6. Payment Information</h2>
+<p>Payments are processed by Stripe. We do not store credit card numbers or financial details on our servers. Stripe's privacy policy applies to payment processing. See <a href="https://stripe.com/privacy" target="_blank">stripe.com/privacy</a>.</p>
+
+<h2>7. Data Retention</h2>
+<ul>
+  <li><strong>Local project data:</strong> Stays on your computer. We never access it. You control deletion.</li>
+  <li><strong>API proxy logs:</strong> Retained for 30 days for debugging and billing, then automatically deleted.</li>
+  <li><strong>Waitlist emails:</strong> Retained until you unsubscribe or request deletion.</li>
+  <li><strong>Payment records:</strong> Retained as required by tax and accounting regulations.</li>
+</ul>
+
+<h2>8. Your Rights</h2>
+<p>You can:</p>
+<ul>
+  <li>Request deletion of your email from our waitlist at any time</li>
+  <li>Request information about what data we hold about you</li>
+  <li>Delete all local Vowmatic data by removing <code>~/.wedding_analyzer/</code> and your project folders</li>
+  <li>Revoke API access by contacting us to deactivate your token</li>
+</ul>
+
+<h2>9. Children's Privacy</h2>
+<p>Vowmatic is a professional tool for wedding videographers. We do not knowingly collect information from children under 13.</p>
+
+<h2>10. Changes to This Policy</h2>
+<p>We may update this policy as our product evolves. Material changes will be communicated via email. The "last updated" date at the top reflects the most recent revision.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about privacy? Email us at <a href="mailto:vowmaticbeta@gmail.com">vowmaticbeta@gmail.com</a>.</p>
+
+</div>
+</body>
+</html>

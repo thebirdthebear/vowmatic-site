@@ -161,7 +161,7 @@ footer .footer-links a:hover { color: var(--text); }
       <a href="/" class="nav-link">Home</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
       <a href="/help.html" class="nav-link" style="color: var(--text);">Help</a>
-      <a href="/" class="nav-cta">Try Free</a>
+      <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg" class="nav-cta">Download Free</a>
     </div>
   </nav>
 </div>
@@ -178,16 +178,17 @@ footer .footer-links a:hover { color: var(--text); }
     <h2>Getting Started</h2>
 
     <h3>Install Vowmatic</h3>
-    <p>Open <strong>Terminal</strong> on your Mac (search "Terminal" in Spotlight) and paste this command:</p>
-    <div class="code-block">
-      <code id="installCmd">curl -fsSL https://raw.githubusercontent.com/thebirdthebear/wedding-analyzer/main/install.sh | bash</code>
-      <button class="copy-btn" onclick="copyCmd()">Copy</button>
-    </div>
-    <p>This downloads Vowmatic and sets up your free trial (1 wedding, all features). A <strong>Vowmatic</strong> shortcut appears on your Desktop.</p>
+    <p><a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg" style="color: var(--accent); font-weight: 600;">Download Vowmatic.dmg</a> (681MB — includes everything you need).</p>
+    <ol class="step-list">
+      <li>Open the downloaded <strong>Vowmatic.dmg</strong></li>
+      <li>Drag <strong>Vowmatic</strong> to your <strong>Applications</strong> folder</li>
+      <li>Double-click <strong>Vowmatic</strong> to launch — your first wedding is free, no account needed</li>
+    </ol>
+    <p><em>Note: On first launch, macOS may show a "developer cannot be verified" warning. Right-click the app and choose "Open" to bypass this. This only happens once.</em></p>
 
     <h3>Run your first wedding</h3>
     <ol class="step-list">
-      <li>Double-click <strong>Vowmatic</strong> on your Desktop</li>
+      <li>Launch <strong>Vowmatic</strong> from your Applications folder</li>
       <li>A browser window opens. Click <strong>Choose Folder</strong> and select your wedding footage folder</li>
       <li>Select your NLE (<strong>Final Cut Pro</strong> or <strong>DaVinci Resolve</strong>) and choose <strong>Full Analysis</strong> mode</li>
       <li>Click <strong>Start</strong> — Vowmatic scans and classifies all clips (~10 min depending on footage volume)</li>
@@ -200,11 +201,12 @@ footer .footer-links a:hover { color: var(--text); }
     <p>After import, you'll find every clip classified by event keyword (ceremony, toasts, first look, portraits, getting ready, etc.) with favorites marked, low-quality clips flagged, and multicam autocut timelines for ceremony and toasts ready to fine-tune.</p>
 
     <h3>Upgrading from free trial</h3>
-    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. Then re-run the install command with your token:</p>
+    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. You'll receive a personal API token by email. To activate it, open Terminal and run:</p>
     <div class="code-block">
       <code>curl -fsSL https://raw.githubusercontent.com/thebirdthebear/wedding-analyzer/main/install.sh | bash -s -- --token YOUR_TOKEN</code>
+      <button class="copy-btn" onclick="copyCmd()">Copy</button>
     </div>
-    <p>Your token is emailed to you after purchase. This replaces the trial token — all your existing project data is preserved.</p>
+    <p>This updates your token — all existing project data is preserved. Or, you can manually edit <code>~/.wedding_analyzer/config.json</code> and replace the token value.</p>
   </section>
 
   <!-- ═══ FAQ ═══ -->
@@ -242,7 +244,7 @@ footer .footer-links a:hover { color: var(--text); }
       </div>
       <div class="faq-item">
         <h3>How do I update Vowmatic?</h3>
-        <p>Re-run the same install command. It downloads the latest version and preserves your settings and token.</p>
+        <p>Download the latest DMG from <a href="https://github.com/thebirdthebear/wedding-analyzer/releases" style="color: var(--accent);">our releases page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p>
       </div>
     </div>
   </section>
@@ -252,7 +254,7 @@ footer .footer-links a:hover { color: var(--text); }
     <h2>Troubleshooting</h2>
 
     <h3>Vowmatic won't launch</h3>
-    <p>Make sure you're on macOS 12+. Try re-running the install command to get the latest version. If the Desktop shortcut doesn't work, open Terminal and run: <code>cd ~/vowmatic && python3 launcher.py</code></p>
+    <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading the <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg">latest DMG</a>.</p>
 
     <h3>Clips not linking in FCP / Resolve</h3>
     <p>Make sure your footage drive is connected before importing the FCPXML. Vowmatic references your original file paths — if the drive letter or mount point changed, you'll need to relink manually in your NLE.</p>

@@ -242,7 +242,7 @@ footer .footer-links a:hover { color: var(--text); }
       <a href="#features" class="nav-link hide-mobile">Features</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
       <a href="/help.html" class="nav-link">Help</a>
-      <a href="#" class="nav-cta" onclick="showInstall(); return false;">Try Free</a>
+      <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg" class="nav-cta" onclick="trackDownload()">Download Free</a>
     </div>
   </nav>
 </div>
@@ -255,26 +255,9 @@ footer .footer-links a:hover { color: var(--text); }
     <p class="subtitle">AI-powered multicam autocut, clip organization, ratings, and story assembly — built by a wedding videographer who's been in your shoes for 10+ years.</p>
 
     <div class="hero-cta-group" id="get-started">
-      <a href="#" class="btn-primary" onclick="showInstall(); return false;">Try Free — No Credit Card</a>
+      <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg" class="btn-primary" onclick="trackDownload()">Download Free for Mac</a>
       <a href="/pricing.html" class="btn-secondary">View pricing &rarr;</a>
-      <p class="hero-note">macOS only. Your first wedding includes every feature.</p>
-    </div>
-
-    <div class="install-box" id="installBox">
-      <h3>Get started in 2 minutes</h3>
-      <ol class="install-steps">
-        <li>Open <strong>Terminal</strong> on your Mac (search "Terminal" in Spotlight)</li>
-        <li>Paste this command and press Enter:
-          <div class="install-code">
-            <code id="installCmd">curl -fsSL https://raw.githubusercontent.com/thebirdthebear/wedding-analyzer/main/install.sh | bash</code>
-            <button class="copy-btn" onclick="copyInstall()">Copy</button>
-          </div>
-          <p class="install-note">Downloads Vowmatic and configures your free trial — 1 wedding, all features.</p>
-        </li>
-        <li>Double-click <strong>Vowmatic</strong> on your Desktop to launch</li>
-        <li>Point it at your footage folder and go</li>
-      </ol>
-      <p style="color: var(--text-muted); font-size: 13px; margin-top: 16px;">Need help? Check the <a href="/help.html" style="color: var(--accent);">getting started guide</a> or email <a href="mailto:vowmaticbeta@gmail.com" style="color: var(--accent);">vowmaticbeta@gmail.com</a></p>
+      <p class="hero-note">macOS 12+. Your first wedding includes every feature. No credit card required.</p>
     </div>
   </section>
 
@@ -370,7 +353,7 @@ footer .footer-links a:hover { color: var(--text); }
   <section class="bottom-cta">
     <h2>Try it on your next wedding</h2>
     <p>Your first wedding is free. Every feature included. No credit card required.</p>
-    <a href="#" class="btn-primary" onclick="showInstall(); window.scrollTo({top: document.getElementById('installBox').offsetTop - 120, behavior: 'smooth'}); return false;">Download Free</a>
+    <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg" class="btn-primary" onclick="trackDownload()">Download Free for Mac</a>
   </section>
 
 </div>
@@ -390,22 +373,9 @@ footer .footer-links a:hover { color: var(--text); }
 </div>
 
 <script>
-function showInstall() {
-  var box = document.getElementById('installBox');
-  box.classList.add('visible');
-  // Track with Meta pixel
+function trackDownload() {
   if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-}
-
-function copyInstall() {
-  var cmd = document.getElementById('installCmd').textContent;
-  navigator.clipboard.writeText(cmd).then(function() {
-    var btn = document.querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
-    // Track install intent
-    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
-  });
+  if (typeof gtag !== 'undefined') gtag('event', 'download', { event_category: 'engagement' });
 }
 </script>
 

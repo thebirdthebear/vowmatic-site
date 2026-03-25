@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vowmatic — Thank You!</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2697047640663826');
+fbq('track', 'PageView');
+fbq('track', 'Purchase');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
+
+<style>
+:root {
+  --bg: #0C0B0F;
+  --surface: #161519;
+  --border: #2A292E;
+  --text: #F0EDE6;
+  --text-muted: #8A8790;
+  --accent: #D4A853;
+  --accent-soft: rgba(212, 168, 83, 0.12);
+  --green: #5CB85C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.8; }
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+.container { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+.logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+nav { padding: 24px 0; text-align: center; }
+
+.thanks-box { text-align: center; padding: 80px 0 60px; }
+.thanks-icon { font-size: 48px; margin-bottom: 20px; }
+.thanks-box h1 { font-family: 'Instrument Serif', serif; font-size: 40px; margin-bottom: 16px; }
+.thanks-box p { color: var(--text-muted); font-size: 17px; margin-bottom: 12px; }
+
+.next-steps {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 32px; margin: 40px 0; text-align: left;
+}
+.next-steps h2 { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+.next-steps ol { list-style: none; counter-reset: nsteps; }
+.next-steps li {
+  counter-increment: nsteps; padding: 10px 0 10px 40px; position: relative;
+  color: var(--text-muted); font-size: 15px; line-height: 1.7;
+}
+.next-steps li::before {
+  content: counter(nsteps); position: absolute; left: 0; top: 10px;
+  width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft);
+  color: var(--accent); font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.next-steps li strong { color: var(--text); }
+.next-steps a { color: var(--accent); }
+.next-steps code {
+  background: #1E1D22; padding: 2px 8px; border-radius: 4px;
+  font-size: 13px; color: var(--accent);
+}
+
+.help-link { text-align: center; padding: 20px 0 80px; }
+.help-link p { color: var(--text-muted); font-size: 14px; }
+.help-link a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <nav>
+    <a href="/" class="logo">Vow<span>matic</span></a>
+  </nav>
+
+  <div class="thanks-box">
+    <div class="thanks-icon">🎉</div>
+    <h1>You're in!</h1>
+    <p>Check your email for your API token and install instructions.</p>
+  </div>
+
+  <div class="next-steps">
+    <h2>Next steps</h2>
+    <ol>
+      <li><strong>Check your email</strong> — we'll send your personal API token within a few minutes</li>
+      <li><strong>Install Vowmatic</strong> — open Terminal on your Mac and run the install command from your email (includes your token)</li>
+      <li><strong>Double-click Vowmatic</strong> on your Desktop to launch</li>
+      <li><strong>Point it at your footage</strong> — and let it do the heavy lifting</li>
+    </ol>
+  </div>
+
+  <div class="help-link">
+    <p>Need help getting set up? Check the <a href="/help.html">getting started guide</a> or email <a href="mailto:vowmaticbeta@gmail.com">vowmaticbeta@gmail.com</a></p>
+  </div>
+</div>
+
+</body>
+</html>

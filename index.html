@@ -4,8 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vowmatic — AI-Powered Wedding Video Editing</title>
-<meta name="description" content="Multicam autocut, clip organization, ratings, and story assembly for wedding videographers. Edit smarter, not longer.">
+<meta name="description" content="Multicam autocut, clip organization, ratings, and story assembly for wedding videographers. Your first wedding is free.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2697047640663826');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
+
 <style>
 :root {
   --bg: #0C0B0F;
@@ -47,6 +72,8 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
 .nav-right { display: flex; align-items: center; gap: 24px; }
 .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
 .nav-link:hover { color: var(--text); }
+.nav-cta { background: var(--accent); color: var(--bg); padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
+.nav-cta:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px); }
 
 /* ═══ HERO ═══ */
 .hero { text-align: center; padding: 100px 0 60px; position: relative; }
@@ -74,40 +101,56 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
   margin: 0 auto 48px; line-height: 1.7; position: relative;
 }
 
-/* ═══ SIGNUP FORM ═══ */
-.signup-form {
-  display: flex; gap: 10px; max-width: 480px; margin: 0 auto 20px; position: relative;
+/* ═══ HERO CTA ═══ */
+.hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 16px; position: relative; }
+.btn-primary {
+  display: inline-block; background: var(--accent); color: var(--bg);
+  padding: 18px 40px; border-radius: 10px; text-decoration: none;
+  font-size: 17px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s; border: none; cursor: pointer;
 }
+.btn-primary:hover { box-shadow: 0 0 32px var(--accent-glow); transform: translateY(-2px); }
+.btn-secondary {
+  display: inline-block; color: var(--text-muted); text-decoration: none;
+  font-size: 14px; font-weight: 500; transition: color 0.2s; padding: 8px 16px;
+}
+.btn-secondary:hover { color: var(--text); }
+.hero-note { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
 
-.signup-form input[type="email"] {
-  flex: 1; padding: 16px 20px; border-radius: 10px; border: 1px solid var(--border);
-  background: var(--surface); color: var(--text); font-size: 15px;
-  font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s;
+/* ═══ INSTALL BOX ═══ */
+.install-box {
+  display: none; max-width: 600px; margin: 32px auto 0; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 14px; padding: 28px 28px 24px;
+  text-align: left; position: relative;
 }
-.signup-form input[type="email"]::placeholder { color: var(--text-muted); }
-.signup-form input[type="email"]:focus { border-color: var(--accent); }
-
-.signup-form button {
-  padding: 16px 28px; border-radius: 10px; border: none; background: var(--accent);
-  color: var(--bg); font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
-  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+.install-box.visible { display: block; animation: fadeSlideIn 0.3s ease-out; }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.install-box h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+.install-steps { list-style: none; counter-reset: steps; }
+.install-steps li {
+  counter-increment: steps; padding: 8px 0 8px 36px; position: relative;
+  color: var(--text-muted); font-size: 14px; line-height: 1.6;
 }
-.signup-form button:hover {
-  box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px);
+.install-steps li::before {
+  content: counter(steps); position: absolute; left: 0; top: 8px;
+  width: 24px; height: 24px; border-radius: 50%; background: var(--accent-soft);
+  color: var(--accent); font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
 }
-.signup-form button:disabled {
-  opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none;
+.install-steps li a { color: var(--accent); }
+.install-code {
+  display: flex; align-items: center; gap: 8px; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+  margin: 12px 0 4px; font-family: monospace; font-size: 13px; color: var(--accent);
 }
-
-.signup-note { color: var(--text-muted); font-size: 13px; text-align: center; position: relative; }
-
-.success-msg {
-  display: none; text-align: center; color: var(--green); font-weight: 600;
-  font-size: 16px; padding: 16px; position: relative;
+.install-code code { flex: 1; word-break: break-all; }
+.copy-btn {
+  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted);
+  padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap; font-family: 'DM Sans', sans-serif;
 }
-
-/* Hidden iframe for Google Form submission */
-.hidden-iframe { display: none; }
+.copy-btn:hover { border-color: var(--accent); color: var(--text); }
+.install-note { color: var(--text-muted); font-size: 12px; margin-top: 8px; }
 
 /* ═══ FEATURES ═══ */
 .features { padding: 80px 0; border-top: 1px solid var(--border); }
@@ -182,24 +225,24 @@ footer .footer-links a:hover { color: var(--text); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .step::after { display: none; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-  .signup-form { flex-direction: column; }
-  .signup-form button { padding: 16px; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
+  .nav-right { gap: 12px; }
+  .nav-link.hide-mobile { display: none; }
+  .install-code { flex-direction: column; align-items: stretch; }
+  .install-code code { font-size: 11px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Hidden iframe targets for Google Form submission -->
-<iframe name="gform_iframe_hero" class="hidden-iframe"></iframe>
-<iframe name="gform_iframe_bottom" class="hidden-iframe"></iframe>
-
 <div class="container">
   <nav>
     <a href="/" class="logo">Vow<span>matic</span></a>
     <div class="nav-right">
-      <a href="#features" class="nav-link">Features</a>
-      <a href="#how" class="nav-link">How It Works</a>
+      <a href="#features" class="nav-link hide-mobile">Features</a>
+      <a href="/pricing.html" class="nav-link">Pricing</a>
+      <a href="/help.html" class="nav-link">Help</a>
+      <a href="#" class="nav-cta" onclick="showInstall(); return false;">Try Free</a>
     </div>
   </nav>
 </div>
@@ -207,19 +250,32 @@ footer .footer-links a:hover { color: var(--text); }
 <div class="container">
 
   <section class="hero">
-    <div class="badge">Coming Soon — Join the Waitlist</div>
+    <div class="badge">Now Available — First Wedding Free</div>
     <h1>Your wedding edits,<br><em>hours faster</em></h1>
     <p class="subtitle">AI-powered multicam autocut, clip organization, ratings, and story assembly — built by a wedding videographer who's been in your shoes for 10+ years.</p>
 
-    <form class="signup-form" id="heroForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse"
-          method="POST" target="gform_iframe_hero"
-          onsubmit="return handleSubmit(this, 'heroSuccess')">
-      <input type="email" name="entry.1351082672" placeholder="you@yourstudio.com" required>
-      <button type="submit">Join Waitlist</button>
-    </form>
-    <p class="signup-note" id="heroNote">Free during beta. No spam, just launch updates.</p>
-    <div class="success-msg" id="heroSuccess">You're on the list! We'll be in touch soon.</div>
+    <div class="hero-cta-group" id="get-started">
+      <a href="#" class="btn-primary" onclick="showInstall(); return false;">Try Free — No Credit Card</a>
+      <a href="/pricing.html" class="btn-secondary">View pricing &rarr;</a>
+      <p class="hero-note">macOS only. Your first wedding includes every feature.</p>
+    </div>
+
+    <div class="install-box" id="installBox">
+      <h3>Get started in 2 minutes</h3>
+      <ol class="install-steps">
+        <li>Open <strong>Terminal</strong> on your Mac (search "Terminal" in Spotlight)</li>
+        <li>Paste this command and press Enter:
+          <div class="install-code">
+            <code id="installCmd">curl -fsSL https://raw.githubusercontent.com/thebirdthebear/wedding-analyzer/main/install.sh | bash</code>
+            <button class="copy-btn" onclick="copyInstall()">Copy</button>
+          </div>
+          <p class="install-note">Downloads Vowmatic and configures your free trial — 1 wedding, all features.</p>
+        </li>
+        <li>Double-click <strong>Vowmatic</strong> on your Desktop to launch</li>
+        <li>Point it at your footage folder and go</li>
+      </ol>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 16px;">Need help? Check the <a href="/help.html" style="color: var(--accent);">getting started guide</a> or email <a href="mailto:vowmaticbeta@gmail.com" style="color: var(--accent);">vowmaticbeta@gmail.com</a></p>
+    </div>
   </section>
 
   <section class="features" id="features">
@@ -253,9 +309,9 @@ footer .footer-links a:hover { color: var(--text); }
         <p>Transcribes audio, scores moments for emotional impact, and lets you build the narrative. Exports a timeline with matching multicam video.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-icon">🎞️</span>
-        <h3>B-Roll Timeline</h3>
-        <p>Auto-builds a browsable B-roll timeline from your best footage, grouped by event. Layer it on top of your story spine.</p>
+        <span class="feature-icon">🧠</span>
+        <h3>Learns Your Style</h3>
+        <p>Import your edited timeline back and Vowmatic learns your preferences — camera choices, hold durations, cut timing. Every wedding gets better.</p>
       </div>
     </div>
   </section>
@@ -312,18 +368,9 @@ footer .footer-links a:hover { color: var(--text); }
   </section>
 
   <section class="bottom-cta">
-    <h2>Get early access</h2>
-    <p>Be first in line when we launch. Beta testers get a lifetime discount.</p>
-
-    <form class="signup-form" id="bottomForm"
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse"
-          method="POST" target="gform_iframe_bottom"
-          onsubmit="return handleSubmit(this, 'bottomSuccess')">
-      <input type="email" name="entry.1351082672" placeholder="you@yourstudio.com" required>
-      <button type="submit">Join Waitlist</button>
-    </form>
-    <p class="signup-note" id="bottomNote">Questions? vowmaticbeta@gmail.com</p>
-    <div class="success-msg" id="bottomSuccess">You're on the list! We'll be in touch soon.</div>
+    <h2>Try it on your next wedding</h2>
+    <p>Your first wedding is free. Every feature included. No credit card required.</p>
+    <a href="#" class="btn-primary" onclick="showInstall(); window.scrollTo({top: document.getElementById('installBox').offsetTop - 120, behavior: 'smooth'}); return false;">Download Free</a>
   </section>
 
 </div>
@@ -332,35 +379,33 @@ footer .footer-links a:hover { color: var(--text); }
   <footer>
     <a href="/" class="logo">Vow<span>matic</span></a>
     <ul class="footer-links">
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/help.html">Help</a></li>
       <li><a href="mailto:vowmaticbeta@gmail.com">Contact</a></li>
       <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
     </ul>
     <span class="footer-copy">&copy; 2026 Canatella Productions, LLC</span>
   </footer>
 </div>
 
 <script>
-function handleSubmit(form, successId) {
-  var email = form.querySelector('input[type="email"]').value;
-  var btn = form.querySelector('button');
+function showInstall() {
+  var box = document.getElementById('installBox');
+  box.classList.add('visible');
+  // Track with Meta pixel
+  if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+}
 
-  // Disable button while submitting
-  btn.disabled = true;
-  btn.textContent = 'Joining...';
-
-  // Form submits to hidden iframe (no redirect)
-  // Show success after brief delay
-  setTimeout(function() {
-    form.style.display = 'none';
-    // Hide the note text below the form
-    var note = form.nextElementSibling;
-    if (note && note.classList.contains('signup-note')) {
-      note.style.display = 'none';
-    }
-    document.getElementById(successId).style.display = 'block';
-  }, 1000);
-
-  return true;
+function copyInstall() {
+  var cmd = document.getElementById('installCmd').textContent;
+  navigator.clipboard.writeText(cmd).then(function() {
+    var btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    // Track install intent
+    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+  });
 }
 </script>
 

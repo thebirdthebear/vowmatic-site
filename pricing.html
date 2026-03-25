@@ -5,6 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vowmatic — Pricing</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2697047640663826');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
+
 <style>
 :root {
   --bg: #0C0B0F;
@@ -153,7 +178,7 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/help.html">Help</a></li>
     </ul>
     <a href="/" class="nav-cta">Try Free</a>
   </nav>
@@ -316,9 +341,23 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
   <!-- BOTTOM CTA -->
   <section class="bottom-cta">
     <h2>Ready to get hours back?</h2>
-    <p>Your first wedding is free. Every feature included.</p>
-    <a href="/">Try Free</a>
+    <p>Your first wedding is free. Every feature included. No credit card required.</p>
+    <a href="/">Download Free</a>
   </section>
+</div>
+
+<div class="container">
+  <footer style="padding: 32px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+    <a href="/" class="logo" style="font-size: 20px;">Vow<span>matic</span></a>
+    <ul style="display: flex; gap: 24px; list-style: none;">
+      <li><a href="/pricing.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Pricing</a></li>
+      <li><a href="/help.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Help</a></li>
+      <li><a href="mailto:vowmaticbeta@gmail.com" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Contact</a></li>
+      <li><a href="/privacy.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Privacy</a></li>
+      <li><a href="/terms.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Terms</a></li>
+    </ul>
+    <span style="color: var(--text-muted); font-size: 12px;">&copy; 2026 Canatella Productions, LLC</span>
+  </footer>
 </div>
 
 <script>

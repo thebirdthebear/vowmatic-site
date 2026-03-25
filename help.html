@@ -201,12 +201,14 @@ footer .footer-links a:hover { color: var(--text); }
     <p>After import, you'll find every clip classified by event keyword (ceremony, toasts, first look, portraits, getting ready, etc.) with favorites marked, low-quality clips flagged, and multicam autocut timelines for ceremony and toasts ready to fine-tune.</p>
 
     <h3>Upgrading from free trial</h3>
-    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. You'll receive a personal API token by email. To activate it, open Terminal and run:</p>
-    <div class="code-block">
-      <code>curl -fsSL https://raw.githubusercontent.com/thebirdthebear/wedding-analyzer/main/install.sh | bash -s -- --token YOUR_TOKEN</code>
-      <button class="copy-btn" onclick="copyCmd()">Copy</button>
-    </div>
-    <p>This updates your token — all existing project data is preserved. Or, you can manually edit <code>~/.wedding_analyzer/config.json</code> and replace the token value.</p>
+    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. You'll receive a personal API token by email. To activate it:</p>
+    <ol class="step-list">
+      <li>Open <strong>Finder</strong> and press <strong>Cmd+Shift+G</strong></li>
+      <li>Paste <code>~/.wedding_analyzer</code> and press Enter</li>
+      <li>Open <strong>config.json</strong> in any text editor</li>
+      <li>Replace <code>trial_shared_2026</code> with your new token and save</li>
+    </ol>
+    <p>That's it — next time you launch Vowmatic, your paid plan is active. All existing project data is preserved.</p>
   </section>
 
   <!-- ═══ FAQ ═══ -->

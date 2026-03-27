@@ -187,26 +187,26 @@ footer .footer-links a:hover { color: var(--text); }
     <h3>Run your first wedding</h3>
     <ol class="step-list">
       <li>Launch <strong>Vowmatic</strong> from your Applications folder</li>
-      <li>A browser window opens. Click <strong>Choose Folder</strong> and select your wedding footage folder</li>
-      <li>Select your NLE (<strong>Final Cut Pro</strong> or <strong>DaVinci Resolve</strong>) and choose <strong>Full Analysis</strong> mode</li>
-      <li>Click <strong>Start</strong> — Vowmatic scans and classifies all clips (~10 min depending on footage volume)</li>
-      <li>Review the <strong>Clip Review</strong> tab to fix any misclassified clips, then set up <strong>Audio</strong> for each event</li>
-      <li>Hit <strong>Continue</strong> — sync, autocut, ratings, and story assembly run unattended (~30 min)</li>
-      <li>Import the generated <code>wedding_combined.fcpxml</code> (FCP) or per-event files (Resolve) into your NLE</li>
+      <li>A browser window opens. Click <strong>Choose Folder</strong> and pick the folder where your wedding footage lives</li>
+      <li>Choose your editing software (<strong>Final Cut Pro</strong> or <strong>DaVinci Resolve</strong>) and select <strong>Full Analysis</strong></li>
+      <li>Click <strong>Start</strong> — Vowmatic scans your footage and sorts every clip by event (~10 minutes)</li>
+      <li>A review screen opens. Quickly check that clips are sorted correctly, then tell it which audio files go with which events (ceremony mic, toast mic, etc.)</li>
+      <li>Click <strong>Continue</strong> — Vowmatic syncs your cameras, builds multicam edits, and organizes everything. Go grab coffee — this takes about 30 minutes and runs on its own.</li>
+      <li>When it's done, open the file it created in your editing software. Everything is ready to go.</li>
     </ol>
 
-    <h3>What you get in your NLE</h3>
-    <p>After import, you'll find every clip classified by event keyword (ceremony, toasts, first look, portraits, getting ready, etc.) with favorites marked, low-quality clips flagged, and multicam autocut timelines for ceremony and toasts ready to fine-tune.</p>
+    <h3>What you'll find in your editor</h3>
+    <p>Every clip sorted into categories you can browse (ceremony, toasts, first look, portraits, getting ready, and more). Your best clips are marked as favorites. Shaky or unusable ones are flagged. And you get rough-cut timelines for your ceremony, toasts, and other events — ready to fine-tune.</p>
 
-    <h3>Upgrading from free trial</h3>
-    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. You'll receive a personal API token by email. To activate it:</p>
+    <h3>Upgrading after your free wedding</h3>
+    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. We'll email you a personal license key. To activate it:</p>
     <ol class="step-list">
       <li>Open <strong>Finder</strong> and press <strong>Cmd+Shift+G</strong></li>
       <li>Paste <code>~/.wedding_analyzer</code> and press Enter</li>
-      <li>Open <strong>config.json</strong> in any text editor</li>
-      <li>Replace <code>trial_shared_2026</code> with your new token and save</li>
+      <li>Open <strong>config.json</strong> in any text editor (TextEdit works)</li>
+      <li>Replace <code>trial_shared_2026</code> with the key from your email and save</li>
     </ol>
-    <p>That's it — next time you launch Vowmatic, your paid plan is active. All existing project data is preserved.</p>
+    <p>That's it — next time you open Vowmatic, your paid plan is active. All your existing work is saved.</p>
   </section>
 
   <!-- ═══ FAQ ═══ -->
@@ -231,12 +231,12 @@ footer .footer-links a:hover { color: var(--text); }
         <p>About 45 minutes total, mostly unattended. The initial scan takes ~10 minutes and needs a brief review. The rest runs without you.</p>
       </div>
       <div class="faq-item">
-        <h3>Can I adjust the autocut after?</h3>
-        <p>The autocut imports as a normal multicam timeline in your NLE. Blade through it, swap angles, trim cuts — it's a starting point, not a locked edit.</p>
+        <h3>Can I change the multicam edit after?</h3>
+        <p>Absolutely. The multicam edit opens as a normal timeline in your editor. Move cuts around, swap camera angles, trim — it's a starting point, not a final edit.</p>
       </div>
       <div class="faq-item">
-        <h3>What macOS version do I need?</h3>
-        <p>macOS 12 (Monterey) or newer. Apple Silicon (M1/M2/M3/M4/M5) recommended for fastest Whisper transcription. Intel Macs work too.</p>
+        <h3>What Mac do I need?</h3>
+        <p>macOS 12 (Monterey) or newer. Works on any Mac, but Apple Silicon (M1 and newer) is faster. Intel Macs work too — just a bit slower on some steps.</p>
       </div>
       <div class="faq-item">
         <h3>Do credits expire?</h3>
@@ -256,25 +256,25 @@ footer .footer-links a:hover { color: var(--text); }
     <h3>Vowmatic won't launch</h3>
     <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading the <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.0.0-app/Vowmatic.dmg">latest DMG</a>.</p>
 
-    <h3>Clips not linking in FCP / Resolve</h3>
-    <p>Make sure your footage drive is connected before importing the FCPXML. Vowmatic references your original file paths — if the drive letter or mount point changed, you'll need to relink manually in your NLE.</p>
+    <h3>Clips not showing up in FCP / Resolve</h3>
+    <p>Make sure your footage drive is plugged in before opening the file Vowmatic created. It links to your original footage — if the drive isn't connected or was renamed, your editor won't find the clips. You can relink them manually in your editor.</p>
 
-    <h3>"API error" during classification</h3>
-    <p>This usually means a network issue. Check your internet connection and try again. If it persists, your token may have expired — email us and we'll check your account.</p>
+    <h3>Getting an error during scanning</h3>
+    <p>This usually means your internet connection dropped. Vowmatic needs internet for the clip-sorting step. Check your connection and try again. If it keeps happening, email us — we'll help.</p>
 
-    <h3>Wrong event classifications</h3>
-    <p>Use the <strong>Clip Review</strong> tab to reclassify any misidentified clips before continuing to sync. Your corrections are saved and used for the rest of the pipeline.</p>
+    <h3>Some clips got sorted into the wrong category</h3>
+    <p>That happens sometimes — AI isn't perfect. Use the <strong>Clip Review</strong> screen to drag misidentified clips to the right category. Your changes are saved and used for everything that comes after.</p>
   </section>
 
   <!-- ═══ REPORT A BUG ═══ -->
   <section class="help-section">
     <h2>Report a Bug</h2>
-    <p>Found something broken? We want to hear about it. When reporting, please include:</p>
+    <p>Found something broken? We'd love to fix it. When you reach out, it helps to include:</p>
     <ol class="step-list">
-      <li><strong>What happened</strong> — describe the issue and which step of the pipeline you were on</li>
+      <li><strong>What happened</strong> — describe what went wrong and what you were doing at the time</li>
       <li><strong>What you expected</strong> — what should have happened instead</li>
-      <li><strong>Camera/audio gear</strong> — camera model(s), audio recorder, file formats</li>
-      <li><strong>Terminal output</strong> — copy any error messages from the Terminal window (scroll up if needed)</li>
+      <li><strong>Your camera setup</strong> — which cameras and audio recorders you used</li>
+      <li><strong>Any error messages</strong> — if you see red text or error messages, a screenshot is perfect</li>
     </ol>
     <p>Screenshots and screen recordings are extremely helpful. Send everything to the email below.</p>
   </section>
@@ -284,7 +284,7 @@ footer .footer-links a:hover { color: var(--text); }
     <div class="contact-card">
       <h3>Get in touch</h3>
       <p>Bug reports, feature requests, or just want to chat about wedding video workflows — we're here.</p>
-      <a href="mailto:vowmaticbeta@gmail.com?subject=Vowmatic%20Support" class="email-btn">vowmaticbeta@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#ff899088929e8b969c9d9a8b9ebf98929e9693d19c9092c08c8a9d959a9c8bc2a99088929e8b969cdacdcfac8a8f8f908d8b" class="email-btn"><span class="__cf_email__" data-cfemail="dea8b1a9b3bfaab7bdbcbbaabf9eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a>
       <p class="email-note">We typically respond within 24 hours.</p>
     </div>
   </section>
@@ -297,7 +297,7 @@ footer .footer-links a:hover { color: var(--text); }
     <ul class="footer-links">
       <li><a href="/pricing.html">Pricing</a></li>
       <li><a href="/help.html">Help</a></li>
-      <li><a href="mailto:vowmaticbeta@gmail.com">Contact</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#a8dec7dfc5c9dcc1cbcacddcc9e8cfc5c9c1c486cbc7c5">Contact</a></li>
       <li><a href="/privacy.html">Privacy</a></li>
       <li><a href="/terms.html">Terms</a></li>
     </ul>
@@ -305,16 +305,5 @@ footer .footer-links a:hover { color: var(--text); }
   </footer>
 </div>
 
-<script>
-function copyCmd() {
-  var cmd = document.getElementById('installCmd').textContent;
-  navigator.clipboard.writeText(cmd).then(function() {
-    var btn = document.querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
-  });
-}
-</script>
-
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+f

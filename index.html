@@ -370,6 +370,21 @@ footer .footer-links a:hover { color: var(--text); }
   </footer>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+function joinWaitlist(bottom) {
+  var el = document.getElementById(bottom ? "waitlist-email-bottom" : "waitlist-email");
+  var email = el.value;
+  if (!email) return;
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse", {
+    method: "POST", mode: "no-cors",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    body: "entry.1351082672=" + encodeURIComponent(email)
+  });
+  el.value = "";
+  el.placeholder = "You are on the list!";
+  if (typeof fbq !== "undefined") fbq("track", "Lead");
+}
+
+</script><script>
 function trackDownload() {
   if (typeof fbq !== 'undefi

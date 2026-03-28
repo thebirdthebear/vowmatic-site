@@ -370,7 +370,8 @@ footer .footer-links a:hover { color: var(--text); }
   </footer>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
 function joinWaitlist(bottom) {
   var el = document.getElementById(bottom ? "waitlist-email-bottom" : "waitlist-email");
   var email = el.value;
@@ -384,7 +385,6 @@ function joinWaitlist(bottom) {
   el.placeholder = "You are on the list!";
   if (typeof fbq !== "undefined") fbq("track", "Lead");
 }
-
 </script><script>
 function trackDownload() {
   if (typeof fbq !== 'undefi

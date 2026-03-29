@@ -333,6 +333,11 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
         <h3>How long does it take?</h3>
         <p>About 45 minutes total. You'll spend about 5 minutes reviewing clips, then it runs on its own for the rest. Come back to a ready-to-edit project.</p>
       </div>
+      <div class="faq-item">
+        <h3>Do you have a referral program?</h3>
+        <p>Yes. After your first purchase, you'll get a personal referral code. Share it with a friend — they get an extra free wedding, and you get one too.</p>
+      </div>
+</div>
     </div>
   </section>
 
@@ -379,4 +384,11 @@ function toggleBilling() {
 
   // Switch Stripe payment links for annual/monthly
   document.querySelectorAll('.sub-cta').forEach(function(el) {
-    if
+    if (el.dataset.monthly && el.dataset.annual) {
+      el.href = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    }
+  });
+}
+</script>
+</body>
+</html>

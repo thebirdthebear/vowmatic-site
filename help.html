@@ -204,14 +204,11 @@ footer .footer-links a:hover { color: var(--text); }
     <p>Every clip sorted into categories you can browse (ceremony, toasts, first look, portraits, getting ready, and more). Your best clips are marked as favorites. Shaky or unusable ones are flagged. And you get rough-cut timelines for your ceremony, toasts, and other events — ready to fine-tune.</p>
 
     <h3>Upgrading after your free wedding</h3>
-    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. We'll email you a personal license key. To activate it:</p>
-    <ol class="step-list">
-      <li>Open <strong>Finder</strong> and press <strong>Cmd+Shift+G</strong></li>
-      <li>Paste <code>~/.wedding_analyzer</code> and press Enter</li>
-      <li>Open <strong>config.json</strong> in any text editor (TextEdit works)</li>
-      <li>Replace <code>trial_shared_2026</code> with the key from your email and save</li>
-    </ol>
-    <p>That's it — next time you open Vowmatic, your paid plan is active. All your existing work is saved.</p>
+    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. We'll email you a personal license key. To activate it, open <strong>Terminal</strong> on your Mac and paste the command from your email. It looks like this:</p>
+    <div class="code-block">
+      <code>python3 -c "import json; from pathlib import Path; p=Path.home()/'.wedding_analyzer/config.json'; d=json.loads(p.read_text()); d['api_token']='YOUR_KEY_HERE'; p.write_text(json.dumps(d,indent=2)); print('Done')"</code>
+    </div>
+    <p>Your email will have this command with your key already filled in — just copy, paste, done. All your existing work is saved.</p>
   </section>
 
   <!-- ═══ FAQ ═══ -->

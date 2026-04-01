@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Vowmatic — Free for Mac</title>
+<meta name="description" content="Download Vowmatic for Mac. AI-powered wedding video editing — sorts clips, syncs cameras, builds multicam edits.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0NYCHRR4FP');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2697047640663826');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
+
+<style>
+:root {
+  --bg: #0C0B0F;
+  --surface: #161519;
+  --surface-2: #1E1D22;
+  --border: #2A292E;
+  --text: #F0EDE6;
+  --text-muted: #8A8790;
+  --accent: #D4A853;
+  --accent-soft: rgba(212, 168, 83, 0.12);
+  --accent-glow: rgba(212, 168, 83, 0.25);
+  --green: #5CB85C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.8; min-height: 100vh; display: flex; flex-direction: column; }
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.container { max-width: 540px; margin: 0 auto; padding: 0 24px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+nav { max-width: 1100px; margin: 0 auto; padding: 24px 24px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.nav-link:hover { color: var(--text); }
+
+.download-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px 40px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.download-card h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.download-card .subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.form-group input {
+  flex: 1;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-download {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.btn-download:hover {
+  box-shadow: 0 0 24px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.btn-download:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.fine-print {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.fine-print a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.features-note {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  line-height: 1.7;
+}
+
+/* Success state */
+.download-success {
+  display: none;
+}
+
+.download-success h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.download-success p {
+  color: var(--text-muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.download-success .steps {
+  text-align: left;
+  background: var(--surface-2);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--text-muted);
+}
+
+.download-success .steps strong {
+  color: var(--text);
+}
+
+.download-success .steps .num {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.download-direct {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 13px;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+.download-direct:hover {
+  text-decoration: underline;
+}
+
+footer {
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  padding: 32px 24px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer .logo { font-size: 20px; }
+footer .footer-links { display: flex; gap: 24px; list-style: none; }
+footer .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+footer .footer-links a:hover { color: var(--text); }
+.footer-copy { color: var(--text-muted); font-size: 12px; }
+
+@media (max-width: 768px) {
+  .download-card { padding: 32px 24px; }
+  .form-group { flex-direction: column; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Vow<span>matic</span></a>
+  <div class="nav-right">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/pricing.html" class="nav-link">Pricing</a>
+    <a href="/help.html" class="nav-link">Help</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="download-card">
+    <!-- Form state -->
+    <div id="formState">
+      <h1>Download Vowmatic</h1>
+      <p class="subtitle">Free for Mac — your first wedding is on us.</p>
+
+      <div class="form-group">
+        <input type="email" id="downloadEmail" placeholder="Your email address" required>
+        <button class="btn-download" id="downloadBtn" onclick="startDownload()">Download</button>
+      </div>
+      <p class="fine-print">We'll send you tips and updates. No spam. <a href="/privacy.html">Privacy policy</a></p>
+
+      <div class="features-note">
+        macOS 12+ required. 521 MB download. Includes everything — no Python, no Terminal, no dependencies. Works with Final Cut Pro, DaVinci Resolve, and Premiere Pro.
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <div id="successState" class="download-success">
+      <h2>Your download is starting</h2>
+      <p>Check your Downloads folder for <strong>Vowmatic.dmg</strong></p>
+
+      <div class="steps">
+        <span class="num">1.</span> Open <strong>Vowmatic.dmg</strong><br>
+        <span class="num">2.</span> Drag <strong>Vowmatic</strong> to <strong>Applications</strong><br>
+        <span class="num">3.</span> Double-click to launch — first wedding is free<br>
+      </div>
+
+      <p class="fine-print">macOS may show a "developer cannot be verified" warning on first launch. Right-click the app and choose "Open" to bypass it.</p>
+
+      <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" class="download-direct">Download didn't start? Click here.</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="/" class="logo">Vow<span>matic</span></a>
+  <ul class="footer-links">
+    <li><a href="/pricing.html">Pricing</a></li>
+    <li><a href="/help.html">Help</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
+  <span class="footer-copy">&copy; 2026 Canatella Productions, LLC</span>
+</footer>
+
+<script>
+function startDownload() {
+  var email = document.getElementById('downloadEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('downloadEmail').focus();
+    document.getElementById('downloadEmail').style.borderColor = '#e74c3c';
+    return;
+  }
+
+  // Disable button
+  var btn = document.getElementById('downloadBtn');
+  btn.disabled = true;
+  btn.textContent = 'Starting...';
+
+  // Submit to Google Forms (waitlist form — captures email)
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse", {
+    method: "POST", mode: "no-cors",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    body: "entry.1351082672=" + encodeURIComponent(email)
+  });
+
+  // Track in GA
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'download', {
+      'event_category': 'engagement',
+      'event_label': 'vowmatic_dmg',
+      'value': 1
+    });
+  }
+
+  // Track in Meta Pixel
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Download');
+  }
+
+  // Show success state
+  document.getElementById('formState').style.display = 'none';
+  document.getElementById('successState').style.display = 'block';
+
+  // Start download
+  setTimeout(function() {
+    window.location.href = 'https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg';
+  }, 500);
+}
+
+// Allow Enter key to submit
+document.getElementById('downloadEmail').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') startDownload();
+});
+</script>
+
+</body>
+</html>

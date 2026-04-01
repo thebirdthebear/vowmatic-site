@@ -7,11 +7,12 @@
 <meta name="description" content="Get started with Vowmatic, troubleshoot common issues, and contact support.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-0NYCHRR4FP');
 </script>
 
 <!-- Meta Pixel -->
@@ -159,7 +160,7 @@ footer .footer-links a:hover { color: var(--text); }
       <a href="/" class="nav-link">Home</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
       <a href="/help.html" class="nav-link" style="color: var(--text);">Help</a>
-      <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" class="nav-cta">Download Free</a>
+      <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.1.0-app/Vowmatic.dmg" class="nav-cta">Download Free</a>
     </div>
   </nav>
 </div>
@@ -187,7 +188,7 @@ footer .footer-links a:hover { color: var(--text); }
 
 
     <h3>Install Vowmatic</h3>
-    <p><a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" style="color: var(--accent); font-weight: 600;">Download Vowmatic.dmg</a> (includes everything you need).</p>
+    <p><a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.1.0-app/Vowmatic.dmg" style="color: var(--accent); font-weight: 600;">Download Vowmatic.dmg</a> (includes everything you need).</p>
     <ol class="step-list">
       <li>Open the downloaded <strong>Vowmatic.dmg</strong></li>
       <li>Drag <strong>Vowmatic</strong> to your <strong>Applications</strong> folder</li>
@@ -199,7 +200,7 @@ footer .footer-links a:hover { color: var(--text); }
     <ol class="step-list">
       <li>Launch <strong>Vowmatic</strong> from your Applications folder</li>
       <li>A browser window opens. Click <strong>Choose Folder</strong> and pick the folder where your wedding footage lives</li>
-      <li>Choose your editing software (<strong>Final Cut Pro</strong> or <strong>DaVinci Resolve</strong>) and select <strong>Full Analysis</strong></li>
+      <li>Choose your editing software (<strong>Final Cut Pro</strong>, <strong>DaVinci Resolve</strong>, or <strong>Premiere Pro</strong>) and select <strong>Full Analysis</strong></li>
       <li>Click <strong>Start</strong> — Vowmatic scans your footage and sorts every clip by event (~10 minutes)</li>
       <li>A review screen opens. Quickly check that clips are sorted correctly, then tell it which audio files go with which events (ceremony mic, toast mic, etc.)</li>
       <li>Click <strong>Continue</strong> — Vowmatic syncs your cameras, builds multicam edits, and organizes everything. Go grab coffee — this takes about 30 minutes and runs on its own.</li>
@@ -208,6 +209,16 @@ footer .footer-links a:hover { color: var(--text); }
 
     <h3>What you'll find in your editor</h3>
     <p>Every clip sorted into categories you can browse (ceremony, toasts, first look, portraits, getting ready, and more). Your best clips are marked as favorites. Shaky or unusable ones are flagged. And you get rough-cut timelines for your ceremony, toasts, and other events — ready to fine-tune.</p>
+
+    <h3>Premiere Pro: What to expect</h3>
+    <p>Premiere Pro gets a multi-track XML file. When you import it (<strong>File → Import</strong>), you'll see a sequence for each event (ceremony, toasts, etc.) with this layout:</p>
+    <ol class="step-list">
+      <li><strong>Top video track</strong> — Vowmatic's suggested autocut edit. This is the rough cut with camera angles already chosen for you.</li>
+      <li><strong>Lower video tracks (V1–V4)</strong> — All your synced cameras at their correct positions. Blade through the autocut to reveal the camera you want underneath.</li>
+      <li><strong>Audio tracks</strong> — Board audio and lav mics, synced to video.</li>
+    </ol>
+    <p>To get Premiere's native multicam angle switching, select the synced camera clips on V1–V4, right-click, and choose <strong>Create Multi-Camera Source Sequence</strong>. Then you can use the multicam viewer to switch angles in real time — just like any multicam project.</p>
+    <p>Premiere may ask you to relink media on import. Click <strong>Locate</strong>, navigate to any one clip on your footage drive, and check <strong>"Relink others automatically"</strong> — Premiere will find the rest.</p>
 
     <h3>Upgrading after your free wedding</h3>
     <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. We'll email you a personal license key. To activate it, open <strong>Terminal</strong> on your Mac and paste the command from your email. It looks like this:</p>
@@ -224,7 +235,7 @@ footer .footer-links a:hover { color: var(--text); }
     <div class="faq-grid">
       <div class="faq-item">
         <h3>What NLEs are supported?</h3>
-        <p>Final Cut Pro and DaVinci Resolve. Each gets native-format output optimized for that editor. Premiere Pro support is in progress.</p>
+        <p>Final Cut Pro, DaVinci Resolve, and Premiere Pro. Each gets native-format output optimized for that editor.</p>
       </div>
       <div class="faq-item">
         <h3>What cameras work?</h3>
@@ -252,7 +263,7 @@ footer .footer-links a:hover { color: var(--text); }
       </div>
       <div class="faq-item">
         <h3>How do I update Vowmatic?</h3>
-        <p>Download the latest DMG from <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" style="color: var(--accent);">our releases page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p>
+        <p>Download the latest DMG from <a href="https://github.com/thebirdthebear/wedding-analyzer/releases" style="color: var(--accent);">our releases page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p>
       </div>
     </div>
   </section>
@@ -262,7 +273,7 @@ footer .footer-links a:hover { color: var(--text); }
     <h2>Troubleshooting</h2>
 
     <h3>Vowmatic won't launch</h3>
-    <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading the <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg">latest DMG</a>.</p>
+    <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading the <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.1.0-app/Vowmatic.dmg">latest DMG</a>.</p>
 
     <h3>Clips not showing up in FCP / Resolve</h3>
     <p>Make sure your footage drive is plugged in before opening the file Vowmatic created. It links to your original footage — if the drive isn't connected or was renamed, your editor won't find the clips. You can relink them manually in your editor.</p>
@@ -272,6 +283,12 @@ footer .footer-links a:hover { color: var(--text); }
 
     <h3>Some clips got sorted into the wrong category</h3>
     <p>That happens sometimes — AI isn't perfect. Use the <strong>Clip Review</strong> screen to drag misidentified clips to the right category. Your changes are saved and used for everything that comes after.</p>
+
+    <h3>Premiere Pro: media shows as offline</h3>
+    <p>This means your footage drive wasn't connected when you imported the XML, or the drive letter changed. Go to <strong>File → Link Media</strong>, click <strong>Locate</strong> on any clip, navigate to it on your drive, and check <strong>"Relink others automatically."</strong> Premiere will chain-link the rest.</p>
+
+    <h3>Premiere Pro: autocut track shows wrong angle</h3>
+    <p>Make sure you imported the file ending in <code>_multitrack.xml</code> (not the selects file). The autocut should be on the top video track. If you only see synced cameras, the autocut file may not have been generated for that event — check that you selected the event for autocut in the review screen.</p>
   </section>
 
   <!-- ═══ REPORT A BUG ═══ -->

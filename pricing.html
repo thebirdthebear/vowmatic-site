@@ -4,168 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vowmatic — Pricing</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0NYCHRR4FP');
-</script>
-
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2697047640663826');
-fbq('track', 'PageView');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0NYCHRR4FP');</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2697047640663826');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
-
 <style>
-:root {
-  --bg: #0C0B0F;
-  --surface: #161519;
-  --surface-2: #1E1D22;
-  --border: #2A292E;
-  --text: #F0EDE6;
-  --text-muted: #8A8790;
-  --accent: #D4A853;
-  --accent-soft: rgba(212, 168, 83, 0.12);
-  --accent-glow: rgba(212, 168, 83, 0.25);
-  --green: #5CB85C;
-  --popular-gradient: linear-gradient(135deg, #D4A853, #E8C97A);
-}
+.hero{text-align:center;padding:80px 0 20px;position:relative;}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(36px,5vw,56px);line-height:1.1;margin-bottom:16px;color:var(--ink);letter-spacing:-1px;}
+.hero h1 em{font-style:italic;color:var(--accent-light);}
+.hero p{color:var(--text-dim);font-size:16px;max-width:540px;margin:0 auto;line-height:1.7;}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:14px;margin:44px 0 36px;font-size:14px;}
+.billing-toggle span{color:var(--text-muted);transition:color 0.2s;font-weight:500;}
+.billing-toggle span.active{color:var(--text);font-weight:650;}
+.toggle-switch{width:48px;height:26px;background:var(--surface-2);border:1px solid var(--border);border-radius:13px;cursor:pointer;position:relative;transition:background 0.3s;}
+.toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;background:var(--accent);border-radius:50%;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
+.toggle-switch.annual::after{transform:translateX(22px);}
+.toggle-switch.annual{background:var(--accent-bg);border-color:var(--accent-border);}
+.save-badge{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;}
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:40px;align-items:start;max-width:960px;margin:0 auto;}
+.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 28px;position:relative;transition:all 0.3s;}
+.pricing-card:hover{border-color:var(--border-hover);box-shadow:0 8px 24px rgba(0,0,0,0.04);transform:translateY(-3px);}
+.pricing-card.popular{border-color:var(--accent);box-shadow:0 8px 32px rgba(139,104,52,0.1);transform:scale(1.02);z-index:2;}
+.pricing-card.popular:hover{transform:scale(1.02) translateY(-3px);}
+.popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:4px 18px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
 
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1000;
-}
+.card-tier{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:6px;}
+.card-name{font-family:'Instrument Serif',serif;font-size:24px;margin-bottom:14px;color:var(--ink);}
+.price{margin-bottom:6px;}
+.price .amount{font-size:44px;font-weight:700;letter-spacing:-2px;color:var(--ink);}
+.price .period{color:var(--text-muted);font-size:14px;}
+.price-detail{color:var(--text-dim);font-size:13px;margin-bottom:20px;min-height:36px;line-height:1.6;}
+.savings{color:var(--green);font-weight:600;font-size:12px;}
+.card-desc{color:var(--text-dim);font-size:13px;line-height:1.6;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.card-cta{display:block;width:100%;padding:13px;border-radius:8px;border:none;font-size:14px;font-weight:650;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:all 0.3s;text-align:center;text-decoration:none;}
+.card-cta.primary{background:var(--ink);color:var(--bg);}
+.card-cta.primary:hover{box-shadow:0 8px 24px rgba(0,0,0,0.12);transform:translateY(-1px);}
+.card-cta.secondary{background:var(--surface);color:var(--text);border:1px solid var(--border);}
+.card-cta.secondary:hover{border-color:var(--border-hover);background:var(--surface-2);}
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.all-features{padding:60px 0 80px;text-align:center;}
+.all-features h2{font-family:'Instrument Serif',serif;font-size:32px;margin-bottom:10px;color:var(--ink);}
+.all-features .subtitle{color:var(--text-dim);font-size:15px;margin-bottom:40px;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left;max-width:900px;margin:0 auto;}
+.feature-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-body);line-height:1.5;padding:10px 0;}
+.feature-item::before{content:'\2713';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
 
-nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-.logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-.nav-links a:hover { color: var(--text); }
-.nav-cta { background: var(--accent); color: var(--bg); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
-.nav-cta:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px); }
+.comparison{padding:60px 0 80px;}
+.comparison h2{font-family:'Instrument Serif',serif;font-size:32px;text-align:center;margin-bottom:10px;color:var(--ink);}
+.comparison .subtitle{text-align:center;color:var(--text-dim);font-size:15px;margin-bottom:40px;}
+.compare-table{width:100%;border-collapse:collapse;max-width:700px;margin:0 auto;}
+.compare-table th,.compare-table td{padding:12px 18px;text-align:left;font-size:13px;border-bottom:1px solid var(--border);}
+.compare-table th{color:var(--text-muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;}
+.compare-table .check{color:var(--green);font-weight:700;}
+.compare-table .dash{color:var(--text-muted);}
+.compare-table .vowmatic-col{color:var(--accent);font-weight:600;}
+.compare-table tr:hover td{background:var(--surface-tint);}
+.compare-price-row td{padding-top:18px;font-weight:650;font-size:14px;}
 
-.hero { text-align: center; padding: 80px 0 20px; position: relative; }
-.hero::before {
-  content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 400px;
-  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
-  opacity: 0.3; pointer-events: none;
-}
-.hero h1 { font-family: 'Instrument Serif', serif; font-size: clamp(40px, 6vw, 64px); line-height: 1.1; margin-bottom: 20px; position: relative; }
-.hero h1 em { font-style: italic; color: var(--accent); }
-.hero p { color: var(--text-muted); font-size: 18px; max-width: 580px; margin: 0 auto; line-height: 1.7; }
+.faq{padding:60px 0 80px;}
+.faq h2{font-family:'Instrument Serif',serif;font-size:32px;text-align:center;margin-bottom:40px;color:var(--ink);}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:860px;margin:0 auto;}
+.faq-item{padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:12px;}
+.faq-item h3{font-size:14px;font-weight:650;margin-bottom:6px;color:var(--ink);}
+.faq-item p{color:var(--text-dim);font-size:13px;line-height:1.6;}
 
-.billing-toggle { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 48px 0 40px; font-size: 15px; }
-.billing-toggle span { color: var(--text-muted); transition: color 0.2s; }
-.billing-toggle span.active { color: var(--text); font-weight: 600; }
-.toggle-switch { width: 52px; height: 28px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; cursor: pointer; position: relative; transition: background 0.3s; }
-.toggle-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; background: var(--accent); border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-.toggle-switch.annual::after { transform: translateX(24px); }
-.toggle-switch.annual { background: var(--accent-soft); }
-.save-badge { background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.bottom-cta{text-align:center;padding:80px 0;position:relative;}
+.bottom-cta h2{font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,40px);margin-bottom:14px;color:var(--ink);}
+.bottom-cta p{color:var(--text-dim);font-size:15px;margin-bottom:32px;}
 
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 40px; align-items: start; }
-
-.pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; position: relative; transition: all 0.3s; }
-.pricing-card:hover { border-color: rgba(212, 168, 83, 0.2); transform: translateY(-4px); }
-.pricing-card.popular { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow), 0 20px 60px rgba(0,0,0,0.4); transform: scale(1.03); z-index: 2; }
-.pricing-card.popular:hover { transform: scale(1.03) translateY(-4px); }
-
-.popular-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--popular-gradient); color: var(--bg); padding: 5px 20px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-
-.card-tier { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 8px; }
-.card-name { font-family: 'Instrument Serif', serif; font-size: 28px; margin-bottom: 16px; }
-
-.price { margin-bottom: 8px; }
-.price .amount { font-size: 48px; font-weight: 700; letter-spacing: -2px; }
-.price .period { color: var(--text-muted); font-size: 15px; }
-
-.price-detail { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; min-height: 40px; }
-.savings { color: var(--green); font-weight: 600; font-size: 13px; }
-
-.card-desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
-
-.card-cta { display: block; width: 100%; padding: 14px; border-radius: 10px; border: none; font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: all 0.2s; text-align: center; text-decoration: none; margin-bottom: 0; }
-.card-cta.primary { background: var(--accent); color: var(--bg); }
-.card-cta.primary:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px); }
-.card-cta.secondary { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
-.card-cta.secondary:hover { border-color: var(--accent); background: var(--accent-soft); }
-
-/* ═══ FEATURES SECTION ═══ */
-.all-features { padding: 60px 0 80px; text-align: center; }
-.all-features h2 { font-family: 'Instrument Serif', serif; font-size: 36px; margin-bottom: 12px; }
-.all-features .subtitle { color: var(--text-muted); font-size: 16px; margin-bottom: 48px; }
-
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; max-width: 960px; margin: 0 auto; }
-.feature-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.5; padding: 12px 0; }
-.feature-item::before { content: '\2713'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-
-/* ═══ COMPARISON ═══ */
-.comparison { padding: 60px 0 80px; border-top: 1px solid var(--border); }
-.comparison h2 { font-family: 'Instrument Serif', serif; font-size: 36px; text-align: center; margin-bottom: 12px; }
-.comparison .subtitle { text-align: center; color: var(--text-muted); font-size: 16px; margin-bottom: 48px; }
-
-.compare-table { width: 100%; border-collapse: collapse; max-width: 760px; margin: 0 auto; }
-.compare-table th, .compare-table td { padding: 14px 20px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--border); }
-.compare-table th { color: var(--text-muted); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-.compare-table .check { color: var(--green); font-weight: 700; }
-.compare-table .dash { color: var(--text-muted); }
-.compare-table .vowmatic-col { color: var(--accent); font-weight: 600; }
-.compare-table tr:hover td { background: var(--surface); }
-.compare-price-row td { padding-top: 20px; font-weight: 600; font-size: 15px; }
-
-.faq { padding: 60px 0 100px; border-top: 1px solid var(--border); }
-.faq h2 { font-family: 'Instrument Serif', serif; font-size: 36px; text-align: center; margin-bottom: 48px; }
-.faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
-.faq-item { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
-.faq-item h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-.faq-item p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
-
-.bottom-cta { text-align: center; padding: 80px 0; border-top: 1px solid var(--border); position: relative; }
-.bottom-cta::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%); opacity: 0.2; pointer-events: none; }
-.bottom-cta h2 { font-family: 'Instrument Serif', serif; font-size: 40px; margin-bottom: 16px; position: relative; }
-.bottom-cta p { color: var(--text-muted); font-size: 16px; margin-bottom: 32px; position: relative; }
-.bottom-cta a { display: inline-block; background: var(--accent); color: var(--bg); padding: 14px 36px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s; position: relative; }
-.bottom-cta a:hover { box-shadow: 0 0 32px var(--accent-glow); transform: translateY(-2px); }
-
-@media (max-width: 900px) {
-  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; padding-bottom: 40px; }
-  .pricing-card.popular { transform: none; }
-  .pricing-card.popular:hover { transform: translateY(-4px); }
-  .features-grid { grid-template-columns: 1fr; }
-  .faq-grid { grid-template-columns: 1fr; }
-  .compare-table { font-size: 13px; }
-  .nav-links { display: none; }
+@media(max-width:900px){
+  .pricing-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto;}
+  .pricing-card.popular{transform:none;}.pricing-card.popular:hover{transform:translateY(-3px);}
+  .features-grid,.faq-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -174,12 +88,12 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
 <div class="container">
   <nav>
     <a href="/" class="logo">Vow<span>matic</span></a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/help.html">Help</a></li>
-    </ul>
-    <a href="/download.html" class="nav-cta">Download Free</a>
+    <div class="nav-right">
+      <a href="/" class="nav-link hide-mobile">Home</a>
+      <a href="/pricing.html" class="nav-link hide-mobile">Pricing</a>
+      <a href="/help.html" class="nav-link">Help</a>
+      <a href="/download.html" class="nav-cta">Download Free</a>
+    </div>
   </nav>
 </div>
 
@@ -197,54 +111,40 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
   </div>
 
   <section class="pricing-grid">
-
-    <!-- CREDIT -->
     <div class="pricing-card">
       <div class="card-tier">Credit</div>
       <div class="card-name">Per Wedding</div>
-      <div class="price">
-        <span class="amount">$20</span>
-        <span class="period"> / wedding</span>
-      </div>
+      <div class="price"><span class="amount">$20</span><span class="period"> / wedding</span></div>
       <div class="price-detail">No subscription. Credits never expire.<br>&nbsp;</div>
       <div class="card-desc">Try the full Vowmatic experience on a single project. Every feature included — no limits, no watermarks, no catch.</div>
       <a href="https://buy.stripe.com/28E4gB3yCbgb7Q460Z3gk00" class="card-cta secondary">Buy a Credit</a>
     </div>
 
-    <!-- PRO (POPULAR) -->
     <div class="pricing-card popular">
       <div class="popular-badge">Most Popular</div>
       <div class="card-tier">Pro</div>
       <div class="card-name">3 Weddings / mo</div>
-      <div class="price">
-        <span class="amount sub-price" data-monthly="35" data-annual="28">$35</span>
-        <span class="period sub-period"> / month</span>
-      </div>
+      <div class="price"><span class="amount sub-price" data-monthly="35" data-annual="28">$35</span><span class="period sub-period"> / month</span></div>
       <div class="price-detail sub-detail" data-monthly="$11.67 per wedding<br><span class='savings'>Save 42% vs credits</span>" data-annual="$9.33 per wedding &middot; billed annually<br><span class='savings'>Save 53% vs credits</span>">$11.67 per wedding<br><span class="savings">Save 42% vs credits</span></div>
       <div class="card-desc">For working videographers editing a few weddings per month. Additional weddings just $12 each.</div>
       <a href="https://buy.stripe.com/bJecN7d9cac76M01KJ3gk01" class="card-cta primary sub-cta" data-monthly="https://buy.stripe.com/bJecN7d9cac76M01KJ3gk01" data-annual="https://buy.stripe.com/eVqdRb7OS4RNfiwblj3gk02">Subscribe</a>
     </div>
 
-    <!-- STUDIO -->
     <div class="pricing-card">
       <div class="card-tier">Studio</div>
       <div class="card-name">10 Weddings / mo</div>
-      <div class="price">
-        <span class="amount sub-price" data-monthly="59" data-annual="47">$59</span>
-        <span class="period sub-period"> / month</span>
-      </div>
+      <div class="price"><span class="amount sub-price" data-monthly="59" data-annual="47">$59</span><span class="period sub-period"> / month</span></div>
       <div class="price-detail sub-detail" data-monthly="$5.90 per wedding<br><span class='savings'>Save 70% vs credits</span>" data-annual="$4.70 per wedding &middot; billed annually<br><span class='savings'>Save 76% vs credits</span>">$5.90 per wedding<br><span class="savings">Save 70% vs credits</span></div>
       <div class="card-desc">For studios and high-volume shooters. 10 weddings included, additional just $12 each. Priority support.</div>
       <a href="https://buy.stripe.com/28E5kF6KOckf9Yc0GF3gk03" class="card-cta secondary sub-cta" data-monthly="https://buy.stripe.com/28E5kF6KOckf9Yc0GF3gk03" data-annual="https://buy.stripe.com/cNi8wR1qu2JF2vK9db3gk04">Subscribe</a>
     </div>
-
   </section>
 
-  <!-- ALL FEATURES -->
+  <div class="section-divider"></div>
+
   <section class="all-features">
     <h2>Every plan includes everything</h2>
     <p class="subtitle">No feature limits. No upsells. You get everything from day one.</p>
-
     <div class="features-grid">
       <div class="feature-item">Automatic camera sync from audio</div>
       <div class="feature-item">Ceremony multicam edit with camera switching</div>
@@ -264,19 +164,13 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
     </div>
   </section>
 
-  <!-- COMPARISON vs PLOTLINE -->
+  <div class="section-divider"></div>
+
   <section class="comparison">
     <h2>Vowmatic vs Plotline</h2>
     <p class="subtitle">They handle story assembly. We handle your entire post-production workflow.</p>
-
     <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Plotline</th>
-          <th class="vowmatic-col">Vowmatic</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Feature</th><th>Plotline</th><th class="vowmatic-col">Vowmatic</th></tr></thead>
       <tbody>
         <tr><td>Automatic camera sync</td><td class="dash">&mdash;</td><td class="check">&check;</td></tr>
         <tr><td>Ceremony & toasts multicam edits</td><td class="dash">&mdash;</td><td class="check">&check;</td></tr>
@@ -288,106 +182,62 @@ nav { padding: 24px 0; display: flex; align-items: center; justify-content: spac
         <tr><td>Export to your editor</td><td class="check">&check; (from $69/mo)</td><td class="check">&check; (all plans)</td></tr>
         <tr><td>Footage stays on your computer</td><td class="dash">Upload required</td><td class="check">&check;</td></tr>
         <tr><td>FCP + Resolve</td><td class="check">&check;</td><td class="check">&check;</td></tr>
-        <tr class="compare-price-row">
-          <td>Full-featured plan</td>
-          <td>$129/mo</td>
-          <td class="vowmatic-col">From $20</td>
-        </tr>
+        <tr class="compare-price-row"><td>Full-featured plan</td><td>$129/mo</td><td class="vowmatic-col">From $20</td></tr>
       </tbody>
     </table>
   </section>
 
-  <!-- FAQ -->
+  <div class="section-divider"></div>
+
   <section class="faq">
     <h2>Questions</h2>
     <div class="faq-grid">
-      <div class="faq-item">
-        <h3>Is the free trial really free?</h3>
-        <p>Yes. Your first wedding includes everything — multicam edits, clip sorting, ratings, story builder, the works. No limits, no watermarks, no credit card.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What if I need more weddings than my plan allows?</h3>
-        <p>Extra weddings are $12 each on Pro and Studio plans. Or upgrade to the next tier anytime.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Does my footage get uploaded anywhere?</h3>
-        <p>No. Everything runs on your Mac. Only small thumbnail images get sent to AI for clip sorting. Your video and audio files never leave your computer.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Which editing software works with it?</h3>
-        <p>Final Cut Pro, Premiere Pro, and DaVinci Resolve. The output is built specifically for each editor so everything just works when you import it.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I cancel anytime?</h3>
-        <p>Yes. Cancel anytime and keep access through the end of your billing period. Credits never expire.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Do credits expire?</h3>
-        <p>Never. Buy a credit today, use it six months from now.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What cameras does it work with?</h3>
-        <p>Anything that shoots MP4 or MOV. Tested with Sony, Canon, DJI drones, and GoPro. Audio works with MixPre, Zoom, and standard WAV files.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How long does it take?</h3>
-        <p>About 45 minutes total. You'll spend about 5 minutes reviewing clips, then it runs on its own for the rest. Come back to a ready-to-edit project.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Do you have a referral program?</h3>
-        <p>Yes. After your first purchase, you'll get a personal referral code. Share it with a friend — they get an extra free wedding, and you get one too.</p>
-      </div>
-</div>
+      <div class="faq-item"><h3>Is the free trial really free?</h3><p>Yes. Your first wedding includes everything — multicam edits, clip sorting, ratings, story builder, the works. No limits, no watermarks, no credit card.</p></div>
+      <div class="faq-item"><h3>What if I need more weddings than my plan allows?</h3><p>Extra weddings are $12 each on Pro and Studio plans. Or upgrade to the next tier anytime.</p></div>
+      <div class="faq-item"><h3>Does my footage get uploaded anywhere?</h3><p>No. Everything runs on your Mac. Only small thumbnail images get sent to AI for clip sorting. Your video and audio files never leave your computer.</p></div>
+      <div class="faq-item"><h3>Which editing software works with it?</h3><p>Final Cut Pro, Premiere Pro, and DaVinci Resolve. The output is built specifically for each editor so everything just works when you import it.</p></div>
+      <div class="faq-item"><h3>Can I cancel anytime?</h3><p>Yes. Cancel anytime and keep access through the end of your billing period. Credits never expire.</p></div>
+      <div class="faq-item"><h3>Do credits expire?</h3><p>Never. Buy a credit today, use it six months from now.</p></div>
+      <div class="faq-item"><h3>What cameras does it work with?</h3><p>Anything that shoots MP4 or MOV. Tested with Sony, Canon, DJI drones, and GoPro. Audio works with MixPre, Zoom, and standard WAV files.</p></div>
+      <div class="faq-item"><h3>How long does it take?</h3><p>About 45 minutes total. You'll spend about 5 minutes reviewing clips, then it runs on its own for the rest.</p></div>
+      <div class="faq-item"><h3>Do you have a referral program?</h3><p>Yes. After your first purchase, you'll get a personal referral code. Share it with a friend — they get an extra free wedding, and you get one too.</p></div>
     </div>
   </section>
 
-  <!-- BOTTOM CTA -->
+  <div class="section-divider"></div>
+
   <section class="bottom-cta">
     <h2>Ready to get hours back?</h2>
     <p>Your first wedding is free. Every feature included. No credit card required.</p>
-    <a href="/download.html">Download Free for Mac</a>
+    <a href="/download.html" class="btn-primary">Download Free for Mac</a>
   </section>
 </div>
 
 <div class="container">
-  <footer style="padding: 32px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
-    <a href="/" class="logo" style="font-size: 20px;">Vow<span>matic</span></a>
-    <ul style="display: flex; gap: 24px; list-style: none;">
-      <li><a href="/pricing.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Pricing</a></li>
-      <li><a href="/help.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Help</a></li>
-      <li><a href="mailto:bryan@vowmatic.ai" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Contact</a></li>
-      <li><a href="/privacy.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Privacy</a></li>
-      <li><a href="/terms.html" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">Terms</a></li>
+  <footer>
+    <a href="/" class="logo">Vow<span>matic</span></a>
+    <ul class="footer-links">
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/help.html">Help</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#d2b0a0abb3bc92a4bda5bfb3a6bbb1fcb3bb">Contact</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li><a href="/terms.html">Terms</a></li>
     </ul>
-    <span style="color: var(--text-muted); font-size: 12px;">&copy; 2026 Vowmatic</span>
+    <span class="footer-copy">&copy; 2026 Vowmatic</span>
   </footer>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var isAnnual = false;
-
-function toggleBilling() {
-  isAnnual = !isAnnual;
-  document.getElementById('billingToggle').classList.toggle('annual', isAnnual);
-  document.getElementById('monthlyLabel').classList.toggle('active', !isAnnual);
-  document.getElementById('annualLabel').classList.toggle('active', isAnnual);
-
-  document.querySelectorAll('.sub-price').forEach(function(el) {
-    el.textContent = '$' + (isAnnual ? el.dataset.annual : el.dataset.monthly);
-  });
-
-  document.querySelectorAll('.sub-detail').forEach(function(el) {
-    if (el.dataset.monthly && el.dataset.annual) {
-      el.innerHTML = isAnnual ? el.dataset.annual : el.dataset.monthly;
-    }
-  });
-
-  // Switch Stripe payment links for annual/monthly
-  document.querySelectorAll('.sub-cta').forEach(function(el) {
-    if (el.dataset.monthly && el.dataset.annual) {
-      el.href = isAnnual ? el.dataset.annual : el.dataset.monthly;
-    }
-  });
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+var isAnnual=false;
+function toggleBilling(){
+  isAnnual=!isAnnual;
+  document.getElementById('billingToggle').classList.toggle('annual',isAnnual);
+  document.getElementById('monthlyLabel').classList.toggle('active',!isAnnual);
+  document.getElementById('annualLabel').classList.toggle('active',isAnnual);
+  document.querySelectorAll('.sub-price').forEach(function(el){el.textContent='$'+(isAnnual?el.dataset.annual:el.dataset.monthly);});
+  document.querySelectorAll('.sub-detail').forEach(function(el){if(el.dataset.monthly&&el.dataset.annual){el.innerHTML=isAnnual?el.dataset.annual:el.dataset.monthly;}});
+  document.querySelectorAll('.sub-cta').forEach(function(el){if(el.dataset.monthly&&el.dataset.annual){el.href=isAnnual?el.dataset.annual:el.dataset.monthly;}});
 }
 </script>
 </body>

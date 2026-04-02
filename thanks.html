@@ -4,101 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vowmatic — Thank You!</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0NYCHRR4FP');
-</script>
-
-<!-- Meta Pixel -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2697047640663826');
-fbq('track', 'PageView');
-fbq('track', 'Purchase');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0NYCHRR4FP');</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2697047640663826');fbq('track','PageView');fbq('track','Purchase');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
-
 <style>
-:root {
-  --bg: #0C0B0F;
-  --surface: #161519;
-  --border: #2A292E;
-  --text: #F0EDE6;
-  --text-muted: #8A8790;
-  --accent: #D4A853;
-  --accent-soft: rgba(212, 168, 83, 0.12);
-  --green: #5CB85C;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.8; }
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1000;
-}
-.container { max-width: 640px; margin: 0 auto; padding: 0 24px; }
-.logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-.logo span { color: var(--accent); }
-nav { padding: 24px 0; text-align: center; }
-
-.thanks-box { text-align: center; padding: 80px 0 60px; }
-.thanks-icon { font-size: 48px; margin-bottom: 20px; }
-.thanks-box h1 { font-family: 'Instrument Serif', serif; font-size: 40px; margin-bottom: 16px; }
-.thanks-box p { color: var(--text-muted); font-size: 17px; margin-bottom: 12px; }
-
-.next-steps {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-  padding: 32px; margin: 40px 0; text-align: left;
-}
-.next-steps h2 { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
-.next-steps ol { list-style: none; counter-reset: nsteps; }
-.next-steps li {
-  counter-increment: nsteps; padding: 10px 0 10px 40px; position: relative;
-  color: var(--text-muted); font-size: 15px; line-height: 1.7;
-}
-.next-steps li::before {
-  content: counter(nsteps); position: absolute; left: 0; top: 10px;
-  width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft);
-  color: var(--accent); font-size: 13px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-}
-.next-steps li strong { color: var(--text); }
-.next-steps a { color: var(--accent); }
-.next-steps code {
-  background: #1E1D22; padding: 2px 8px; border-radius: 4px;
-  font-size: 13px; color: var(--accent);
-}
-
-.help-link { text-align: center; padding: 20px 0 80px; }
-.help-link p { color: var(--text-muted); font-size: 14px; }
-.help-link a { color: var(--accent); }
+.thanks-box{text-align:center;padding:80px 0 40px;}
+.thanks-box h1{font-family:'Instrument Serif',serif;font-size:clamp(36px,5vw,44px);margin-bottom:14px;color:var(--ink);}
+.thanks-box p{color:var(--text-dim);font-size:16px;line-height:1.7;}
+.next-steps{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px;margin:40px 0;text-align:left;}
+.next-steps h2{font-size:17px;font-weight:650;margin-bottom:18px;color:var(--ink);}
+.next-steps ol{list-style:none;counter-reset:nsteps;}
+.next-steps li{counter-increment:nsteps;padding:10px 0 10px 44px;position:relative;color:var(--text-dim);font-size:14px;line-height:1.75;}
+.next-steps li::before{content:counter(nsteps);position:absolute;left:0;top:10px;width:28px;height:28px;border-radius:50%;background:var(--accent-bg);border:1px solid var(--accent-border);color:var(--accent);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.next-steps li strong{color:var(--text);}
+.next-steps a{color:var(--accent);}
+.help-link{text-align:center;padding:20px 0 80px;}
+.help-link p{color:var(--text-muted);font-size:14px;}
+.help-link a{color:var(--accent);}
 </style>
 </head>
 <body>
-
-<div class="container">
-  <nav>
-    <a href="/" class="logo">Vow<span>matic</span></a>
-  </nav>
+<div class="container-tight">
+  <nav style="max-width:100%;border:none;"><a href="/" class="logo">Vow<span>matic</span></a></nav>
 
   <div class="thanks-box">
-    <div class="thanks-icon">🎉</div>
+    <div style="width:56px;height:56px;border-radius:50%;background:var(--green-bg);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
     <h1>You're in!</h1>
     <p>Check your email for your license key and setup instructions.</p>
   </div>
@@ -114,4 +49,9 @@ nav { padding: 24px 0; text-align: center; }
   </div>
 
   <div class="help-link">
-    <p>Need help getting set up? Check the <a href="/help.html">getting started guide</a> or email <a href="/cdn-cgi/l/email-protection#20564f574d415449434245544160474d41494c0e434f4d"><span class="__cf_e
+    <p>Need help getting set up? Check the <a href="/help.html">getting started guide</a> or email <a href="/cdn-cgi/l/email-protection#20564f574d415449434245544160474d41494c0e434f4d"><span class="__cf_email__" data-cfemail="83f5ecf4eee2f7eae0e1e6f7e2c3e4eee2eaefade0ecee">[email&#160;protected]</span></a>.</p>
+  </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</body>
+</html>

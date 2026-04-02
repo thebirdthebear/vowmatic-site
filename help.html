@@ -6,7 +6,6 @@
 <title>Vowmatic — Help & Support</title>
 <meta name="description" content="Get started with Vowmatic, troubleshoot common issues, and contact support.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,194 +13,104 @@
   gtag('js', new Date());
   gtag('config', 'G-0NYCHRR4FP');
 </script>
-
 <!-- Meta Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2697047640663826');
-fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2697047640663826');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
-
 <style>
-:root {
-  --bg: #0C0B0F;
-  --surface: #161519;
-  --surface-2: #1E1D22;
-  --border: #2A292E;
-  --text: #F0EDE6;
-  --text-muted: #8A8790;
-  --accent: #D4A853;
-  --accent-soft: rgba(212, 168, 83, 0.12);
-  --accent-glow: rgba(212, 168, 83, 0.25);
-  --green: #5CB85C;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.8; }
-
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1000;
-}
-
-.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-.container-wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-nav { padding: 24px 0; display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
-.logo span { color: var(--accent); }
-.nav-right { display: flex; align-items: center; gap: 24px; }
-.nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-.nav-link:hover { color: var(--text); }
-.nav-cta { background: var(--accent); color: var(--bg); padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
-.nav-cta:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px); }
-
-.page-header { text-align: center; padding: 60px 0 48px; }
-.page-header h1 { font-family: 'Instrument Serif', serif; font-size: 44px; margin-bottom: 12px; }
-.page-header p { color: var(--text-muted); font-size: 17px; }
-
-/* ═══ SECTIONS ═══ */
-.help-section { padding: 40px 0; border-top: 1px solid var(--border); }
-.help-section h2 { font-family: 'Instrument Serif', serif; font-size: 28px; margin-bottom: 24px; }
-.help-section h3 { font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; color: var(--accent); }
-.help-section p { color: var(--text-muted); font-size: 15px; margin-bottom: 12px; }
-.help-section a { color: var(--accent); }
-.help-section code {
-  background: var(--surface-2); padding: 2px 8px; border-radius: 4px;
-  font-size: 13px; color: var(--accent);
-}
-.help-section strong { color: var(--text); }
-
-/* ═══ INSTALL CODE ═══ */
-.code-block {
-  display: flex; align-items: center; gap: 8px; background: var(--surface);
-  border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px;
-  margin: 12px 0 16px; font-family: monospace; font-size: 13px; color: var(--accent);
-}
-.code-block code { flex: 1; word-break: break-all; }
-.copy-btn {
-  background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted);
-  padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s; white-space: nowrap; font-family: 'DM Sans', sans-serif;
-}
-.copy-btn:hover { border-color: var(--accent); color: var(--text); }
-
-/* ═══ STEP LIST ═══ */
-.step-list { list-style: none; counter-reset: helpsteps; margin: 16px 0; }
-.step-list li {
-  counter-increment: helpsteps; padding: 10px 0 10px 40px; position: relative;
-  color: var(--text-muted); font-size: 15px; line-height: 1.7;
-}
-.step-list li::before {
-  content: counter(helpsteps); position: absolute; left: 0; top: 10px;
-  width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft);
-  color: var(--accent); font-size: 13px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-}
-.step-list li strong { color: var(--text); }
-
-/* ═══ FAQ ═══ */
-.faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 24px; }
-.faq-item { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
-.faq-item h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; margin-top: 0; color: var(--text); }
-.faq-item p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 0; }
-
-/* ═══ CONTACT CARD ═══ */
-.contact-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-  padding: 32px; margin-top: 24px; text-align: center;
-}
-.contact-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; margin-top: 0; color: var(--text); }
-.contact-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; }
-.contact-card .email-btn {
-  display: inline-block; background: var(--accent); color: var(--bg);
-  padding: 14px 32px; border-radius: 10px; text-decoration: none;
-  font-weight: 600; font-size: 15px; transition: all 0.2s;
-}
-.contact-card .email-btn:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-1px); }
-.contact-card .email-note { color: var(--text-muted); font-size: 13px; margin-top: 12px; margin-bottom: 0; }
-
-/* ═══ FOOTER ═══ */
-footer {
-  padding: 32px 0; border-top: 1px solid var(--border); margin-top: 60px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-footer .logo { font-size: 20px; }
-footer .footer-links { display: flex; gap: 24px; list-style: none; }
-footer .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
-footer .footer-links a:hover { color: var(--text); }
-.footer-copy { color: var(--text-muted); font-size: 12px; }
-
-@media (max-width: 768px) {
-  .faq-grid { grid-template-columns: 1fr; }
-  .nav-right { gap: 12px; }
-  footer { flex-direction: column; gap: 16px; text-align: center; }
-  .code-block { flex-direction: column; align-items: stretch; }
-}
+:root{--bg:#0C0B0F;--surface:#161519;--surface-2:#1E1D22;--border:#2A292E;--text:#F0EDE6;--text-muted:#8A8790;--accent:#D4A853;--accent-soft:rgba(212,168,83,0.12);--accent-glow:rgba(212,168,83,0.25);--green:#5CB85C}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.8}
+body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+.container-wide{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{padding:24px 0;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Instrument Serif',serif;font-size:28px;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-link{color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-link:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:var(--bg);padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.2s}
+.nav-cta:hover{box-shadow:0 0 24px var(--accent-glow);transform:translateY(-1px)}
+.page-header{text-align:center;padding:60px 0 48px}
+.page-header h1{font-family:'Instrument Serif',serif;font-size:44px;margin-bottom:12px}
+.page-header p{color:var(--text-muted);font-size:17px}
+.help-section{padding:40px 0;border-top:1px solid var(--border)}
+.help-section h2{font-family:'Instrument Serif',serif;font-size:28px;margin-bottom:24px}
+.help-section h3{font-size:16px;font-weight:600;margin-top:24px;margin-bottom:8px;color:var(--accent)}
+.help-section p{color:var(--text-muted);font-size:15px;margin-bottom:12px}
+.help-section a{color:var(--accent)}
+.help-section code{background:var(--surface-2);padding:2px 8px;border-radius:4px;font-size:13px;color:var(--accent)}
+.help-section strong{color:var(--text)}
+.code-block{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin:12px 0 16px;font-family:monospace;font-size:13px;color:var(--accent)}
+.code-block code{flex:1;word-break:break-all}
+.step-list{list-style:none;counter-reset:helpsteps;margin:16px 0}
+.step-list li{counter-increment:helpsteps;padding:10px 0 10px 40px;position:relative;color:var(--text-muted);font-size:15px;line-height:1.7}
+.step-list li::before{content:counter(helpsteps);position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step-list li strong{color:var(--text)}
+.nle-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border)}
+.nle-tab{padding:14px 28px;border:1px solid var(--border);border-bottom:none;border-radius:10px 10px 0 0;background:var(--surface);color:var(--text-muted);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.2s;position:relative;bottom:-1px}
+.nle-tab:hover{color:var(--text);background:var(--surface-2)}
+.nle-tab.active{color:var(--accent);background:var(--bg);border-color:var(--border);border-bottom-color:var(--bg)}
+.nle-panel{display:none;padding:28px 0 0}
+.nle-panel.active{display:block}
+.loom-embed{position:relative;padding-bottom:56.25%;height:0;margin:16px 0 28px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.loom-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+.file-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:8px 0}
+.file-card code{font-size:14px;font-weight:600;color:var(--accent)}
+.file-card p{margin:4px 0 0;font-size:14px}
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:24px}
+.faq-item{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+.faq-item h3{font-size:15px;font-weight:600;margin-bottom:8px;margin-top:0;color:var(--text)}
+.faq-item p{color:var(--text-muted);font-size:14px;line-height:1.6;margin-bottom:0}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px;margin-top:24px;text-align:center}
+.contact-card h3{font-size:18px;font-weight:600;margin-bottom:8px;margin-top:0;color:var(--text)}
+.contact-card p{color:var(--text-muted);font-size:15px;margin-bottom:20px}
+.contact-card .email-btn{display:inline-block;background:var(--accent);color:var(--bg);padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s}
+.contact-card .email-btn:hover{box-shadow:0 0 24px var(--accent-glow);transform:translateY(-1px)}
+.contact-card .email-note{color:var(--text-muted);font-size:13px;margin-top:12px;margin-bottom:0}
+footer{padding:40px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+footer .logo{font-size:20px}
+footer .footer-links{display:flex;gap:24px;list-style:none}
+footer .footer-links a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color 0.2s}
+footer .footer-links a:hover{color:var(--text)}
+.footer-copy{color:var(--text-muted);font-size:12px}
+@media(max-width:768px){.faq-grid{grid-template-columns:1fr}.nle-tabs{flex-wrap:wrap}.nle-tab{flex:1;text-align:center;padding:12px 16px;font-size:13px}footer{flex-direction:column;gap:16px;text-align:center}}
 </style>
 </head>
 <body>
-
 <div class="container-wide">
   <nav>
     <a href="/" class="logo">Vow<span>matic</span></a>
     <div class="nav-right">
       <a href="/" class="nav-link">Home</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
-      <a href="/help.html" class="nav-link" style="color: var(--text);">Help</a>
+      <a href="/help.html" class="nav-link">Help</a>
       <a href="/download.html" class="nav-cta">Download Free</a>
     </div>
   </nav>
 </div>
-
 <div class="container">
-
   <div class="page-header">
     <h1>Help & Support</h1>
-    <p>Get started, troubleshoot issues, or get in touch.</p>
+    <p>Everything you need to get started, troubleshoot, and get the most out of Vowmatic.</p>
   </div>
 
-  <!-- ═══ GETTING STARTED ═══ -->
   <section class="help-section">
-    <h2>Getting Started</h2>
-
-    <h3>Walkthrough: Final Cut Pro</h3>
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 16px 0 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
-      <iframe src="https://www.loom.com/embed/1993d5ca00ea42a8a9b152fccdf019b0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
-
-    <h3>Walkthrough: DaVinci Resolve</h3>
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 16px 0 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
-      <iframe src="https://www.loom.com/embed/5cc9f75a7cef417faab7fc6af4ee3683" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
-
-    <h3>Walkthrough: Premiere Pro</h3>
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 16px 0 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
-      <iframe src="https://www.loom.com/embed/4338b0b030a3411ebc210a3899f306be" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
-
-
-    <h3>Install Vowmatic</h3>
-    <p><a href="/download.html" style="color: var(--accent); font-weight: 600;">Download Vowmatic</a> (includes everything you need).</p>
+    <h2>Install Vowmatic</h2>
+    <p><a href="/download.html" style="color:var(--accent);font-weight:600;">Download Vowmatic</a> (includes everything you need).</p>
     <ol class="step-list">
       <li>Open the downloaded <strong>Vowmatic.dmg</strong></li>
       <li>Drag <strong>Vowmatic</strong> to your <strong>Applications</strong> folder</li>
       <li>Double-click <strong>Vowmatic</strong> to launch — your first wedding is free, no account needed</li>
     </ol>
     <p><em>Note: On first launch, macOS may show a "developer cannot be verified" warning. Right-click the app and choose "Open" to bypass this. This only happens once.</em></p>
+  </section>
 
-    <h3>Run your first wedding</h3>
+  <section class="help-section">
+    <h2>Run Your First Wedding</h2>
     <ol class="step-list">
       <li>Launch <strong>Vowmatic</strong> from your Applications folder</li>
       <li>A browser window opens. Click <strong>Choose Folder</strong> and pick the folder where your wedding footage lives</li>
@@ -209,95 +118,115 @@ footer .footer-links a:hover { color: var(--text); }
       <li>Click <strong>Start</strong> — Vowmatic scans your footage and sorts every clip by event (~10 minutes)</li>
       <li>A review screen opens. Quickly check that clips are sorted correctly, then tell it which audio files go with which events (ceremony mic, toast mic, etc.)</li>
       <li>Click <strong>Continue</strong> — Vowmatic syncs your cameras, builds multicam edits, and organizes everything. Go grab coffee — this takes about 30 minutes and runs on its own.</li>
-      <li>When it's done, open the file it created in your editing software. Everything is ready to go.</li>
+      <li>When it's done, open the files it created in your editing software. Everything is ready to go.</li>
     </ol>
+  </section>
 
-    <h3>What you'll find in your editor</h3>
-    <p>Every clip sorted into categories you can browse (ceremony, toasts, first look, portraits, getting ready, and more). Your best clips are marked as favorites. Shaky or unusable ones are flagged. And you get rough-cut timelines for your ceremony, toasts, and other events — ready to fine-tune.</p>
-
-    <h3>Premiere Pro: What to expect</h3>
-    <p>Premiere Pro gets three XML files. Import them via <strong>File → Import</strong>:</p>
-    <ol class="step-list">
-      <li><strong>premiere_selects.xml</strong> — All your clips organized into bins by event (ceremony, toasts, portraits, etc.) with favorites marked. This is your clip library.</li>
-      <li><strong>premiere_multitrack.xml</strong> — A sequence for each event with the autocut rough cut on the top track and all synced cameras on the tracks below. Blade through the autocut to reveal the camera you want.</li>
-      <li><strong>premiere_story.xml</strong> — The AI-assembled story edit with the best angle on top and all synced cameras below, same multi-track layout. This is your starting point for the highlight film.</li>
-    </ol>
-    <p><strong>Audio:</strong> Board audio is active on all sequences. Lav mics (groom, officiant) are imported but muted — unmute them if you prefer lav audio.</p>
-    <p>To get Premiere's native multicam angle switching, select the synced camera clips on the lower tracks, right-click, and choose <strong>Create Multi-Camera Source Sequence</strong>. Then you can use the multicam viewer to switch angles in real time — just like any multicam project.</p>
-    <p>Premiere may ask you to relink media on import. Click <strong>Locate</strong>, navigate to any one clip on your footage drive, and check <strong>"Relink others automatically"</strong> — Premiere will find the rest.</p>
-
-    <h3>Upgrading after your free wedding</h3>
-    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. We'll email you a personal license key. To activate it, open <strong>Terminal</strong> on your Mac and paste the command from your email. It looks like this:</p>
-    <div class="code-block">
-      <code>python3 -c "import json; from pathlib import Path; p=Path.home()/'.wedding_analyzer/config.json'; d=json.loads(p.read_text()); d['api_token']='YOUR_KEY_HERE'; p.write_text(json.dumps(d,indent=2)); print('Done')"</code>
+  <section class="help-section">
+    <h2>Your Editor</h2>
+    <p style="margin-bottom:20px;">Select your NLE below for a walkthrough video and import instructions specific to your editor.</p>
+    <div class="nle-tabs">
+      <button class="nle-tab active" onclick="showTab('fcp')">Final Cut Pro</button>
+      <button class="nle-tab" onclick="showTab('premiere')">Premiere Pro</button>
+      <button class="nle-tab" onclick="showTab('resolve')">DaVinci Resolve</button>
     </div>
+
+    <div id="panel-fcp" class="nle-panel active">
+      <h3>Walkthrough</h3>
+      <div class="loom-embed"><iframe src="https://www.loom.com/embed/1993d5ca00ea42a8a9b152fccdf019b0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+      <h3>What you'll get</h3>
+      <p>Vowmatic creates an FCPXML bundle that opens directly in Final Cut Pro:</p>
+      <div class="file-card"><code>Selects library</code><p>All your clips sorted into keyword collections by event (ceremony, toasts, portraits, getting ready, etc.). Favorites are marked. Shaky or unusable clips are flagged.</p></div>
+      <div class="file-card"><code>Multicam edits</code><p>A multicam timeline for each event — ceremony, toasts, and more. All cameras are synced and Vowmatic has already made the cut decisions for you. Use the Angle Viewer to switch angles.</p></div>
+      <div class="file-card"><code>Story edit</code><p>An AI-assembled highlight reel pulling the best moments from your ceremony and toasts. This is your starting point for the final film.</p></div>
+      <h3>Importing</h3>
+      <ol class="step-list">
+        <li>Open <strong>Final Cut Pro</strong></li>
+        <li>Go to <strong>File → Import → XML</strong> and select the <code>.fcpxml</code> file from your project folder</li>
+        <li>FCP will create a new event with all selects, multicam timelines, and story edits organized inside</li>
+        <li>Open a multicam timeline and use <strong>Window → Show in Workspace → Angle Viewer</strong> to switch cameras</li>
+      </ol>
+    </div>
+
+    <div id="panel-premiere" class="nle-panel">
+      <h3>Walkthrough</h3>
+      <div class="loom-embed"><iframe src="https://www.loom.com/embed/4338b0b030a3411ebc210a3899f306be" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+      <h3>What you'll get</h3>
+      <p>Vowmatic creates three XML files. Import them via <strong>File → Import</strong>:</p>
+      <div class="file-card"><code>premiere_selects.xml</code><p>All your clips organized into bins by event (ceremony, toasts, portraits, etc.) with favorites marked. This is your clip library — import this first.</p></div>
+      <div class="file-card"><code>premiere_multitrack.xml</code><p>A sequence for each event with the autocut rough cut on the top video track and all synced cameras on the tracks below. Blade through the autocut to reveal the camera you want.</p></div>
+      <div class="file-card"><code>premiere_story.xml</code><p>The AI-assembled story edit with the best angle on top and all synced cameras below — same multi-track layout. This is your starting point for the highlight film.</p></div>
+      <h3>Importing</h3>
+      <ol class="step-list">
+        <li>Open <strong>Premiere Pro</strong> and create or open your project</li>
+        <li><strong>File → Import</strong> → select <code>premiere_selects.xml</code> first — brings in all clips organized into bins by event, with favorites marked</li>
+        <li><strong>File → Import</strong> → select <code>premiere_multitrack.xml</code> — each event appears as a sequence with the autocut on the top track and synced cameras below</li>
+        <li><strong>File → Import</strong> → select <code>premiere_story.xml</code> for the AI-assembled story edit</li>
+        <li>If prompted to relink media, click <strong>Locate</strong>, find one clip on your drive, and check <strong>Relink others automatically</strong></li>
+      </ol>
+      <h3>Tips</h3>
+      <p><strong>Audio:</strong> Board audio is active on all sequences. Lav mics (groom, officiant) are imported but muted — unmute them if you prefer lav audio.</p>
+      <p><strong>Multicam switching:</strong> To get Premiere's native multicam angle switching, select the synced camera clips on the lower tracks, right-click, and choose <strong>Create Multi-Camera Source Sequence</strong>. Then use the multicam viewer to switch angles in real time.</p>
+      <h3>Troubleshooting</h3>
+      <p><strong>Media shows as offline:</strong> Your footage drive wasn't connected when you imported, or the drive letter changed. Go to <strong>File → Link Media</strong>, click <strong>Locate</strong> on any clip, navigate to it on your drive, and check <strong>"Relink others automatically."</strong></p>
+      <p><strong>Autocut track shows wrong angle:</strong> Make sure you imported <code>premiere_multitrack.xml</code> (not the selects file). The autocut should be on the top video track.</p>
+    </div>
+
+    <div id="panel-resolve" class="nle-panel">
+      <h3>Walkthrough</h3>
+      <div class="loom-embed"><iframe src="https://www.loom.com/embed/5cc9f75a7cef417faab7fc6af4ee3683" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+      <h3>What you'll get</h3>
+      <p>Vowmatic creates FCPXML files optimized for DaVinci Resolve:</p>
+      <div class="file-card"><code>Selects library</code><p>All your clips sorted into bins by event (ceremony, toasts, portraits, getting ready, etc.). Favorites are marked. Shaky or unusable clips are flagged.</p></div>
+      <div class="file-card"><code>Multicam edits</code><p>A multicam timeline for each event with synced cameras and Vowmatic's suggested cuts. Switch angles in the timeline or use Resolve's multicam viewer.</p></div>
+      <div class="file-card"><code>Story edit</code><p>An AI-assembled highlight reel — your starting point for the final film.</p></div>
+      <h3>Importing</h3>
+      <ol class="step-list">
+        <li>Open <strong>DaVinci Resolve</strong> and create or open a project</li>
+        <li>Go to <strong>File → Import → Timeline</strong> (or <strong>File → Import AAF, EDL, XML</strong>)</li>
+        <li>Select the <code>.fcpxml</code> file from your project folder</li>
+        <li>Resolve will import the selects, multicam timelines, and story edit</li>
+        <li>If media appears offline, right-click a clip and choose <strong>Relink Selected Clips</strong>, then navigate to your footage drive</li>
+      </ol>
+      <h3>Tips</h3>
+      <p><strong>Timeline settings:</strong> Make sure your project timeline framerate matches your footage (typically 23.976 or 29.97) before importing.</p>
+      <p><strong>Multicam:</strong> You can switch angles directly in the Edit page timeline, or use Resolve's multicam viewer for real-time switching.</p>
+    </div>
+  </section>
+
+  <section class="help-section">
+    <h2>Upgrading After Your Free Wedding</h2>
+    <p>After your first wedding, visit <a href="/pricing.html">pricing</a> to purchase credits or a subscription. We'll email you a personal license key. To activate it, open <strong>Terminal</strong> on your Mac and paste the command from your email. It looks like this:</p>
+    <div class="code-block"><code>python3 -c "import json; from pathlib import Path; p=Path.home()/'.wedding_analyzer/config.json'; d=json.loads(p.read_text()); d['api_token']='YOUR_KEY_HERE'; p.write_text(json.dumps(d,indent=2)); print('Done')"</code></div>
     <p>Your email will have this command with your key already filled in — just copy, paste, done. All your existing work is saved.</p>
   </section>
 
-  <!-- ═══ FAQ ═══ -->
   <section class="help-section">
     <h2>Common Questions</h2>
-
     <div class="faq-grid">
-      <div class="faq-item">
-        <h3>What NLEs are supported?</h3>
-        <p>Final Cut Pro, DaVinci Resolve, and Premiere Pro. Each gets native-format output optimized for that editor.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What cameras work?</h3>
-        <p>Anything that shoots MP4 or MOV. Tested with Sony (A7, FX, A1), Canon (R5, R6), DJI drones, and GoPro. Audio supports MixPre, Zoom, and standard WAV files.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Does my footage get uploaded?</h3>
-        <p>No. All video and audio stays on your Mac. Only small frame thumbnails (~100KB each) are sent to AI for clip classification. Nothing is stored or used for training.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How long does processing take?</h3>
-        <p>About 45 minutes total, mostly unattended. The initial scan takes ~10 minutes and needs a brief review. The rest runs without you.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I change the multicam edit after?</h3>
-        <p>Absolutely. The multicam edit opens as a normal timeline in your editor. Move cuts around, swap camera angles, trim — it's a starting point, not a final edit.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What Mac do I need?</h3>
-        <p>macOS 12 (Monterey) or newer. Works on any Mac, but Apple Silicon (M1 and newer) is faster. Intel Macs work too — just a bit slower on some steps.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Do credits expire?</h3>
-        <p>Never. Buy a credit today, use it whenever you need it.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How do I update Vowmatic?</h3>
-        <p>Download the latest DMG from <a href="/download.html" style="color: var(--accent);">our download page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p>
-      </div>
+      <div class="faq-item"><h3>What NLEs are supported?</h3><p>Final Cut Pro, DaVinci Resolve, and Premiere Pro. Each gets native-format output optimized for that editor.</p></div>
+      <div class="faq-item"><h3>What cameras work?</h3><p>Anything that shoots MP4 or MOV. Tested with Sony (A7, FX, A1), Canon (R5, R6), DJI drones, and GoPro. Audio supports MixPre, Zoom, and standard WAV files.</p></div>
+      <div class="faq-item"><h3>Does my footage get uploaded?</h3><p>No. All video and audio stays on your Mac. Only small frame thumbnails (~100KB each) are sent to AI for clip classification. Nothing is stored or used for training.</p></div>
+      <div class="faq-item"><h3>How long does processing take?</h3><p>About 45 minutes total, mostly unattended. The initial scan takes ~10 minutes and needs a brief review. The rest runs without you.</p></div>
+      <div class="faq-item"><h3>Can I change the edit after?</h3><p>Absolutely. Everything opens as a normal timeline in your editor. Move cuts around, swap camera angles, trim — it's a starting point, not a final edit.</p></div>
+      <div class="faq-item"><h3>What Mac do I need?</h3><p>macOS 12 (Monterey) or newer. Works on any Mac, but Apple Silicon (M1+) is faster. Intel Macs work too.</p></div>
+      <div class="faq-item"><h3>Do credits expire?</h3><p>Never. Buy a credit today, use it whenever you need it.</p></div>
+      <div class="faq-item"><h3>How do I update Vowmatic?</h3><p>Download the latest DMG from <a href="/download.html" style="color:var(--accent);">our download page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p></div>
     </div>
   </section>
 
-  <!-- ═══ TROUBLESHOOTING ═══ -->
   <section class="help-section">
     <h2>Troubleshooting</h2>
-
     <h3>Vowmatic won't launch</h3>
     <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading from <a href="/download.html">our download page</a>.</p>
-
-    <h3>Clips not showing up in FCP / Resolve</h3>
-    <p>Make sure your footage drive is plugged in before opening the file Vowmatic created. It links to your original footage — if the drive isn't connected or was renamed, your editor won't find the clips. You can relink them manually in your editor.</p>
-
+    <h3>Clips not showing up in your editor</h3>
+    <p>Make sure your footage drive is plugged in before opening the file Vowmatic created. It links to your original footage — if the drive isn't connected or was renamed, your editor won't find the clips. You can relink them manually.</p>
     <h3>Getting an error during scanning</h3>
-    <p>This usually means your internet connection dropped. Vowmatic needs internet for the clip-sorting step. Check your connection and try again. If it keeps happening, email us — we'll help.</p>
-
+    <p>This usually means your internet connection dropped. Vowmatic needs internet for the clip-sorting step. Check your connection and try again. If it keeps happening, email us.</p>
     <h3>Some clips got sorted into the wrong category</h3>
     <p>That happens sometimes — AI isn't perfect. Use the <strong>Clip Review</strong> screen to drag misidentified clips to the right category. Your changes are saved and used for everything that comes after.</p>
-
-    <h3>Premiere Pro: media shows as offline</h3>
-    <p>This means your footage drive wasn't connected when you imported the XML, or the drive letter changed. Go to <strong>File → Link Media</strong>, click <strong>Locate</strong> on any clip, navigate to it on your drive, and check <strong>"Relink others automatically."</strong> Premiere will chain-link the rest.</p>
-
-    <h3>Premiere Pro: autocut track shows wrong angle</h3>
-    <p>Make sure you imported the file ending in <code>_multitrack.xml</code> (not the selects file). The autocut should be on the top video track. If you only see synced cameras, the autocut file may not have been generated for that event — check that you selected the event for autocut in the review screen.</p>
   </section>
 
-  <!-- ═══ REPORT A BUG ═══ -->
   <section class="help-section">
     <h2>Report a Bug</h2>
     <p>Found something broken? We'd love to fix it. When you reach out, it helps to include:</p>
@@ -310,16 +239,14 @@ footer .footer-links a:hover { color: var(--text); }
     <p>Screenshots and screen recordings are extremely helpful. Send everything to the email below.</p>
   </section>
 
-  <!-- ═══ CONTACT ═══ -->
-  <section class="help-section" style="border-top: none; padding-top: 0;">
+  <section class="help-section" style="border-top:none;padding-top:0;">
     <div class="contact-card">
       <h3>Get in touch</h3>
       <p>Bug reports, feature requests, or just want to chat about wedding video workflows — we're here.</p>
-      <a href="/cdn-cgi/l/email-protection#ff899088929e8b969c9d9a8b9ebf98929e9693d19c9092c08c8a9d959a9c8bc2a99088929e8b969cdacdcfac8a8f8f908d8b" class="email-btn"><span class="__cf_email__" data-cfemail="dea8b1a9b3bfaab7bdbcbbaabf9eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</span></a>
+      <a href="mailto:bryan@vowmatic.ai" class="email-btn">bryan@vowmatic.ai</a>
       <p class="email-note">We typically respond within 24 hours.</p>
     </div>
   </section>
-
 </div>
 
 <div class="container-wide">
@@ -328,7 +255,7 @@ footer .footer-links a:hover { color: var(--text); }
     <ul class="footer-links">
       <li><a href="/pricing.html">Pricing</a></li>
       <li><a href="/help.html">Help</a></li>
-      <li><a href="/cdn-cgi/l/email-protection#a8dec7dfc5c9dcc1cbcacddcc9e8cfc5c9c1c486cbc7c5">Contact</a></li>
+      <li><a href="mailto:bryan@vowmatic.ai">Contact</a></li>
       <li><a href="/privacy.html">Privacy</a></li>
       <li><a href="/terms.html">Terms</a></li>
     </ul>
@@ -336,5 +263,15 @@ footer .footer-links a:hover { color: var(--text); }
   </footer>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-f
+<script>
+function showTab(nle){
+  document.querySelectorAll('.nle-tab').forEach(function(t){t.classList.remove('active')});
+  document.querySelectorAll('.nle-panel').forEach(function(p){p.classList.remove('active')});
+  document.querySelector('.nle-tab[onclick*="'+nle+'"]').classList.add('active');
+  document.getElementById('panel-'+nle).classList.add('active');
+}
+var hash=window.location.hash.replace('#','');
+if(hash==='premiere'||hash==='resolve'||hash==='fcp'){showTab(hash)}
+</script>
+</body>
+</html>

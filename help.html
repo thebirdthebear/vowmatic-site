@@ -160,7 +160,7 @@ footer .footer-links a:hover { color: var(--text); }
       <a href="/" class="nav-link">Home</a>
       <a href="/pricing.html" class="nav-link">Pricing</a>
       <a href="/help.html" class="nav-link" style="color: var(--text);">Help</a>
-      <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.1.0-app/Vowmatic.dmg" class="nav-cta">Download Free</a>
+      <a href="/download.html" class="nav-cta">Download Free</a>
     </div>
   </nav>
 </div>
@@ -186,9 +186,14 @@ footer .footer-links a:hover { color: var(--text); }
       <iframe src="https://www.loom.com/embed/5cc9f75a7cef417faab7fc6af4ee3683" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
+    <h3>Walkthrough: Premiere Pro</h3>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; margin: 16px 0 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
+      <iframe src="https://www.loom.com/embed/4338b0b030a3411ebc210a3899f306be" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+
 
     <h3>Install Vowmatic</h3>
-    <p><a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.1.0-app/Vowmatic.dmg" style="color: var(--accent); font-weight: 600;">Download Vowmatic.dmg</a> (includes everything you need).</p>
+    <p><a href="/download.html" style="color: var(--accent); font-weight: 600;">Download Vowmatic</a> (includes everything you need).</p>
     <ol class="step-list">
       <li>Open the downloaded <strong>Vowmatic.dmg</strong></li>
       <li>Drag <strong>Vowmatic</strong> to your <strong>Applications</strong> folder</li>
@@ -211,13 +216,14 @@ footer .footer-links a:hover { color: var(--text); }
     <p>Every clip sorted into categories you can browse (ceremony, toasts, first look, portraits, getting ready, and more). Your best clips are marked as favorites. Shaky or unusable ones are flagged. And you get rough-cut timelines for your ceremony, toasts, and other events — ready to fine-tune.</p>
 
     <h3>Premiere Pro: What to expect</h3>
-    <p>Premiere Pro gets a multi-track XML file. When you import it (<strong>File → Import</strong>), you'll see a sequence for each event (ceremony, toasts, etc.) with this layout:</p>
+    <p>Premiere Pro gets three XML files. Import them via <strong>File → Import</strong>:</p>
     <ol class="step-list">
-      <li><strong>Top video track</strong> — Vowmatic's suggested autocut edit. This is the rough cut with camera angles already chosen for you.</li>
-      <li><strong>Lower video tracks (V1–V4)</strong> — All your synced cameras at their correct positions. Blade through the autocut to reveal the camera you want underneath.</li>
-      <li><strong>Audio tracks</strong> — Board audio and lav mics, synced to video.</li>
+      <li><strong>premiere_selects.xml</strong> — All your clips organized into bins by event (ceremony, toasts, portraits, etc.) with favorites marked. This is your clip library.</li>
+      <li><strong>premiere_multitrack.xml</strong> — A sequence for each event with the autocut rough cut on the top track and all synced cameras on the tracks below. Blade through the autocut to reveal the camera you want.</li>
+      <li><strong>premiere_story.xml</strong> — The AI-assembled story edit with the best angle on top and all synced cameras below, same multi-track layout. This is your starting point for the highlight film.</li>
     </ol>
-    <p>To get Premiere's native multicam angle switching, select the synced camera clips on V1–V4, right-click, and choose <strong>Create Multi-Camera Source Sequence</strong>. Then you can use the multicam viewer to switch angles in real time — just like any multicam project.</p>
+    <p><strong>Audio:</strong> Board audio is active on all sequences. Lav mics (groom, officiant) are imported but muted — unmute them if you prefer lav audio.</p>
+    <p>To get Premiere's native multicam angle switching, select the synced camera clips on the lower tracks, right-click, and choose <strong>Create Multi-Camera Source Sequence</strong>. Then you can use the multicam viewer to switch angles in real time — just like any multicam project.</p>
     <p>Premiere may ask you to relink media on import. Click <strong>Locate</strong>, navigate to any one clip on your footage drive, and check <strong>"Relink others automatically"</strong> — Premiere will find the rest.</p>
 
     <h3>Upgrading after your free wedding</h3>
@@ -263,7 +269,7 @@ footer .footer-links a:hover { color: var(--text); }
       </div>
       <div class="faq-item">
         <h3>How do I update Vowmatic?</h3>
-        <p>Download the latest DMG from <a href="https://github.com/thebirdthebear/wedding-analyzer/releases" style="color: var(--accent);">our releases page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p>
+        <p>Download the latest DMG from <a href="/download.html" style="color: var(--accent);">our download page</a> and replace the app in your Applications folder. Your settings and project data are preserved.</p>
       </div>
     </div>
   </section>
@@ -273,7 +279,7 @@ footer .footer-links a:hover { color: var(--text); }
     <h2>Troubleshooting</h2>
 
     <h3>Vowmatic won't launch</h3>
-    <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading the <a href="https://github.com/thebirdthebear/wedding-analyzer/releases/download/v1.1.0-app/Vowmatic.dmg">latest DMG</a>.</p>
+    <p>Make sure you're on macOS 12+. If macOS blocks the app with "cannot be verified," right-click the app and choose <strong>Open</strong> (this only happens once). If issues persist, try re-downloading from <a href="/download.html">our download page</a>.</p>
 
     <h3>Clips not showing up in FCP / Resolve</h3>
     <p>Make sure your footage drive is plugged in before opening the file Vowmatic created. It links to your original footage — if the drive isn't connected or was renamed, your editor won't find the clips. You can relink them manually in your editor.</p>

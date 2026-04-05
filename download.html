@@ -12,30 +12,150 @@
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2697047640663826');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2697047640663826&ev=PageView&noscript=1"/></noscript>
 <style>
-body{min-height:100vh;display:flex;flex-direction:column;}
-.dl-container{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:520px;margin:0 auto;padding:0 28px;}
-.dl-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px 40px;text-align:center;margin:40px 0;}
-.dl-card h1{font-family:'Instrument Serif',serif;font-size:32px;margin-bottom:10px;color:var(--ink);}
-.dl-card .subtitle{color:var(--text-dim);font-size:15px;margin-bottom:28px;}
-.form-group{display:flex;gap:10px;margin-bottom:14px;}
-.form-group input{flex:1;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:13px 18px;color:var(--text);font-size:14px;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color 0.2s;}
-.form-group input:focus{border-color:var(--accent);}
-.form-group input::placeholder{color:var(--text-muted);}
-.btn-download{background:var(--ink);color:var(--bg);border:none;padding:13px 24px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap;}
-.btn-download:hover{box-shadow:0 8px 24px rgba(0,0,0,0.12);transform:translateY(-1px);}
-.btn-download:disabled{opacity:0.5;cursor:default;transform:none;box-shadow:none;}
-.fine-print{color:var(--text-muted);font-size:12px;margin-top:6px;}
-.fine-print a{color:var(--accent);text-decoration:none;}
-.features-note{color:var(--text-dim);font-size:13px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border);line-height:1.7;}
-.download-success{display:none;}
-.download-success h2{font-family:'Instrument Serif',serif;font-size:26px;margin-bottom:8px;color:var(--ink);}
-.download-success p{color:var(--text-dim);font-size:14px;margin-bottom:16px;}
-.download-success .steps{text-align:left;background:var(--surface-2);border-radius:10px;padding:20px 24px;margin:20px 0;font-size:14px;line-height:2.1;color:var(--text-dim);}
-.download-success .steps strong{color:var(--text);}
-.download-success .steps .num{color:var(--accent);font-weight:700;}
-.download-direct{display:inline-block;color:var(--accent);font-size:13px;text-decoration:none;margin-top:10px;}
-.download-direct:hover{text-decoration:underline;}
-@media(max-width:768px){.dl-card{padding:32px 24px;}.form-group{flex-direction:column;}}
+/* ═══ NAV & FOOTER (must be here since shared.css may not include these) ═══ */
+nav {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  color: var(--text, #1A1816);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+.logo span { color: var(--accent, #8B6834); }
+.nav-right { display: flex; align-items: center; gap: 32px; }
+.nav-link {
+  color: var(--text-dim, #6B6560);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: color 0.25s;
+}
+.nav-link:hover { color: var(--text, #1A1816); }
+
+footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .logo { font-size: 20px; }
+.footer-links { display: flex; gap: 28px; list-style: none; padding: 0; margin: 0; }
+.footer-links a {
+  color: var(--text-muted, #9C9690);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: color 0.25s;
+}
+.footer-links a:hover { color: var(--text-dim, #6B6560); }
+.footer-copy { color: var(--text-muted, #9C9690); font-size: 11px; }
+
+/* ═══ PAGE LAYOUT ═══ */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+.dl-main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 28px; }
+.dl-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 960px; width: 100%; align-items: center; }
+
+/* ═══ DOWNLOAD CARD ═══ */
+.dl-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 48px 40px; text-align: center; }
+.dl-card h1 { font-family: 'Instrument Serif', serif; font-size: 32px; margin-bottom: 10px; color: var(--ink, #1A1816); }
+.dl-card .subtitle { color: var(--text-dim, #6B6560); font-size: 15px; margin-bottom: 28px; }
+.form-group { display: flex; gap: 10px; margin-bottom: 14px; }
+.form-group input {
+  flex: 1; background: var(--surface-2, #F3EFE8); border: 1px solid var(--border);
+  border-radius: 10px; padding: 13px 18px; color: var(--text, #1A1816); font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif; outline: none; transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--accent, #8B6834); }
+.form-group input::placeholder { color: var(--text-muted, #9C9690); }
+.btn-download {
+  background: var(--ink, #1A1816); color: var(--bg, #FAF8F4); border: none;
+  padding: 13px 24px; border-radius: 10px; font-weight: 700; font-size: 14px;
+  cursor: pointer; transition: all 0.3s; font-family: 'Plus Jakarta Sans', sans-serif; white-space: nowrap;
+}
+.btn-download:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-1px); }
+.btn-download:disabled { opacity: 0.5; cursor: default; transform: none; box-shadow: none; }
+.fine-print { color: var(--text-muted, #9C9690); font-size: 12px; margin-top: 6px; }
+.fine-print a { color: var(--accent, #8B6834); text-decoration: none; }
+.features-note { color: var(--text-dim, #6B6560); font-size: 13px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); line-height: 1.7; }
+.download-success { display: none; }
+.download-success h2 { font-family: 'Instrument Serif', serif; font-size: 26px; margin-bottom: 8px; color: var(--ink, #1A1816); }
+.download-success p { color: var(--text-dim, #6B6560); font-size: 14px; margin-bottom: 16px; }
+.download-success .steps { text-align: left; background: var(--surface-2, #F3EFE8); border-radius: 10px; padding: 20px 24px; margin: 20px 0; font-size: 14px; line-height: 2.1; color: var(--text-dim, #6B6560); }
+.download-success .steps strong { color: var(--text, #1A1816); }
+.download-success .steps .num { color: var(--accent, #8B6834); font-weight: 700; }
+.download-direct { display: inline-block; color: var(--accent, #8B6834); font-size: 13px; text-decoration: none; margin-top: 10px; }
+.download-direct:hover { text-decoration: underline; }
+
+/* ═══ APP MOCKUP ═══ */
+.app-mockup {
+  background: #1A1A1E; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+  position: relative; aspect-ratio: 4/3;
+}
+.app-titlebar { height: 36px; background: #111113; display: flex; align-items: center; padding: 0 14px; gap: 7px; }
+.app-dot { width: 10px; height: 10px; border-radius: 50%; }
+.app-dot.r { background: #FF5F57; }
+.app-dot.y { background: #FEBC2E; }
+.app-dot.g { background: #28C840; }
+.app-titlebar-text { flex: 1; text-align: center; color: #6B6966; font-size: 11px; font-weight: 500; letter-spacing: 0.3px; }
+.app-body { padding: 16px; height: calc(100% - 36px); position: relative; overflow: hidden; }
+
+.mock-progress { background: #222226; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+.mock-progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.mock-progress-label span { font-size: 11px; color: #9B9896; font-family: 'Plus Jakarta Sans', sans-serif; }
+.mock-progress-label strong { font-size: 11px; color: #D4A853; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
+.mock-bar-track { height: 4px; background: #2A292E; border-radius: 2px; overflow: hidden; }
+.mock-bar-fill { height: 100%; background: linear-gradient(90deg, #8B6834, #D4A853); border-radius: 2px; width: 0%; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.mock-clips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.mock-clip {
+  aspect-ratio: 16/9; border-radius: 5px; position: relative; overflow: hidden;
+  opacity: 0; transform: scale(0.92); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mock-clip.visible { opacity: 1; transform: scale(1); }
+.mock-clip-tag {
+  position: absolute; bottom: 3px; left: 3px; font-size: 7px; font-weight: 700;
+  padding: 2px 5px; border-radius: 3px; font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.3px; text-transform: uppercase;
+}
+.mock-clip-fav { position: absolute; top: 3px; right: 3px; font-size: 8px; opacity: 0; transition: opacity 0.3s; }
+.mock-clip.fav .mock-clip-fav { opacity: 1; }
+
+.tag-ceremony { background: rgba(94,160,230,0.85); color: #fff; }
+.tag-toasts { background: rgba(212,168,83,0.85); color: #1a1a1e; }
+.tag-portraits { background: rgba(180,120,200,0.85); color: #fff; }
+.tag-ready { background: rgba(92,184,92,0.75); color: #fff; }
+.tag-dance { background: rgba(230,120,140,0.85); color: #fff; }
+.tag-details { background: rgba(160,160,160,0.7); color: #fff; }
+
+.clip-bg-1 { background: linear-gradient(135deg, #2a3040 0%, #3a4555 100%); }
+.clip-bg-2 { background: linear-gradient(135deg, #352a28 0%, #4a3835 100%); }
+.clip-bg-3 { background: linear-gradient(135deg, #28352a 0%, #3a4a3d 100%); }
+.clip-bg-4 { background: linear-gradient(135deg, #35302a 0%, #4a4438 100%); }
+.clip-bg-5 { background: linear-gradient(135deg, #2a2835 0%, #3d384a 100%); }
+.clip-bg-6 { background: linear-gradient(135deg, #30352a 0%, #444a38 100%); }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .dl-layout { grid-template-columns: 1fr; gap: 32px; }
+  .dl-card { padding: 32px 24px; }
+  .form-group { flex-direction: column; }
+  .app-mockup { max-width: 480px; margin: 0 auto; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .nav-right { gap: 16px; }
+}
+@media (max-width: 480px) {
+  .mock-clips { grid-template-columns: repeat(3, 1fr); }
+}
 </style>
 </head>
 <body>
@@ -50,28 +170,52 @@ body{min-height:100vh;display:flex;flex-direction:column;}
   </nav>
 </div>
 
-<div class="dl-container">
-  <div class="dl-card">
-    <div id="formState">
-      <h1>Download Vowmatic</h1>
-      <p class="subtitle">Free for Mac — your first wedding is on us.</p>
-      <div class="form-group">
-        <input type="email" id="downloadEmail" placeholder="Your email address" required>
-        <button class="btn-download" id="downloadBtn" onclick="startDownload()">Download</button>
+<div class="dl-main">
+  <div class="dl-layout">
+    <!-- LEFT: APP MOCKUP ANIMATION -->
+    <div class="app-mockup" id="appMockup">
+      <div class="app-titlebar">
+        <div class="app-dot r"></div>
+        <div class="app-dot y"></div>
+        <div class="app-dot g"></div>
+        <span class="app-titlebar-text">Vowmatic</span>
       </div>
-      <p class="fine-print">We'll send you tips and updates. No spam. <a href="/privacy.html">Privacy policy</a></p>
-      <div class="features-note">macOS 12+ required. 521 MB download. Includes everything — no Python, no Terminal, no dependencies. Works with Final Cut Pro, DaVinci Resolve, and Premiere Pro.</div>
+      <div class="app-body">
+        <div class="mock-progress">
+          <div class="mock-progress-label">
+            <span id="progressPhase">Analyzing clips...</span>
+            <strong id="progressPct">0%</strong>
+          </div>
+          <div class="mock-bar-track">
+            <div class="mock-bar-fill" id="progressBar"></div>
+          </div>
+        </div>
+        <div class="mock-clips" id="clipGrid"></div>
+      </div>
     </div>
-    <div id="successState" class="download-success">
-      <h2>Your download is starting</h2>
-      <p>Check your Downloads folder for <strong>Vowmatic.dmg</strong></p>
-      <div class="steps">
-        <span class="num">1.</span> Open <strong>Vowmatic.dmg</strong><br>
-        <span class="num">2.</span> Drag <strong>Vowmatic</strong> to <strong>Applications</strong><br>
-        <span class="num">3.</span> Double-click to launch — first wedding is free<br>
+
+    <!-- RIGHT: DOWNLOAD FORM -->
+    <div class="dl-card">
+      <div id="formState">
+        <h1>Download Vowmatic</h1>
+        <p class="subtitle">Free for Mac — your first wedding is on us.</p>
+        <div class="form-group">
+          <input type="email" id="downloadEmail" placeholder="Your email address" required>
+          <button class="btn-download" id="downloadBtn" onclick="startDownload()">Get Vowmatic Free</button>
+        </div>
+        <p class="fine-print">We'll send you tips and updates. No spam. <a href="/privacy.html">Privacy policy</a></p>
+        <div class="features-note">macOS 12+ required &middot; 521 MB download &middot; Works with Final Cut Pro, DaVinci Resolve, and Premiere Pro.</div>
       </div>
-      <p class="fine-print">macOS may show a "developer cannot be verified" warning on first launch. Right-click the app and choose "Open" to bypass it.</p>
-      <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" class="download-direct">Download didn't start? Click here.</a>
+      <div id="successState" class="download-success">
+        <h2>Your download is starting</h2>
+        <p>Check your Downloads folder for <strong>Vowmatic.dmg</strong></p>
+        <div class="steps">
+          <span class="num">1.</span> Open <strong>Vowmatic.dmg</strong><br>
+          <span class="num">2.</span> Drag <strong>Vowmatic</strong> to <strong>Applications</strong><br>
+          <span class="num">3.</span> Double-click to launch — first wedding is free<br>
+        </div>
+        <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" class="download-direct">Download didn't start? Click here.</a>
+      </div>
     </div>
   </div>
 </div>
@@ -92,6 +236,89 @@ body{min-height:100vh;display:flex;flex-direction:column;}
 <script>
 function startDownload(){var email=document.getElementById('downloadEmail').value.trim();if(!email||!email.includes('@')){document.getElementById('downloadEmail').focus();document.getElementById('downloadEmail').style.borderColor='#c0392b';return;}var btn=document.getElementById('downloadBtn');btn.disabled=true;btn.textContent='Starting...';fetch("https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse",{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"entry.1351082672="+encodeURIComponent(email)});if(typeof gtag!=='undefined')gtag('event','download',{event_category:'engagement',event_label:'vowmatic_dmg',value:1});if(typeof fbq!=='undefined')fbq('track','Download');document.getElementById('formState').style.display='none';document.getElementById('successState').style.display='block';setTimeout(function(){window.location.href='https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg';},500);}
 document.getElementById('downloadEmail').addEventListener('keypress',function(e){if(e.key==='Enter')startDownload();});
+
+// ═══ APP MOCKUP ANIMATION ═══
+var clipData = [
+  { event: 'ceremony', tag: 'Ceremony', cls: 'tag-ceremony', bg: 1, fav: true },
+  { event: 'ceremony', tag: 'Ceremony', cls: 'tag-ceremony', bg: 4, fav: false },
+  { event: 'toasts', tag: 'Toasts', cls: 'tag-toasts', bg: 2, fav: true },
+  { event: 'portraits', tag: 'Portraits', cls: 'tag-portraits', bg: 3, fav: false },
+  { event: 'ready', tag: 'Getting Ready', cls: 'tag-ready', bg: 5, fav: false },
+  { event: 'ceremony', tag: 'Ceremony', cls: 'tag-ceremony', bg: 6, fav: false },
+  { event: 'dance', tag: 'First Dance', cls: 'tag-dance', bg: 2, fav: true },
+  { event: 'details', tag: 'Details', cls: 'tag-details', bg: 3, fav: false },
+  { event: 'toasts', tag: 'Toasts', cls: 'tag-toasts', bg: 1, fav: false },
+  { event: 'portraits', tag: 'Portraits', cls: 'tag-portraits', bg: 5, fav: true },
+  { event: 'ready', tag: 'Getting Ready', cls: 'tag-ready', bg: 4, fav: false },
+  { event: 'ceremony', tag: 'Ceremony', cls: 'tag-ceremony', bg: 6, fav: false }
+];
+
+var phases = [
+  { label: 'Scanning footage...', pct: 15 },
+  { label: 'Classifying clips...', pct: 40 },
+  { label: 'Rating quality...', pct: 65 },
+  { label: 'Building multicam...', pct: 85 },
+  { label: 'Complete', pct: 100 }
+];
+
+function runMockup() {
+  var grid = document.getElementById('clipGrid');
+  var bar = document.getElementById('progressBar');
+  var pctEl = document.getElementById('progressPct');
+  var phaseEl = document.getElementById('progressPhase');
+
+  grid.innerHTML = '';
+  clipData.forEach(function(c) {
+    var div = document.createElement('div');
+    div.className = 'mock-clip clip-bg-' + c.bg;
+    div.innerHTML = '<span class="mock-clip-tag ' + c.cls + '">' + c.tag + '</span><span class="mock-clip-fav">\u2B50</span>';
+    grid.appendChild(div);
+  });
+
+  var clips = grid.querySelectorAll('.mock-clip');
+  bar.style.width = '0%';
+  pctEl.textContent = '0%';
+  phaseEl.textContent = phases[0].label;
+  clips.forEach(function(c) { c.classList.remove('visible', 'fav'); });
+
+  var step = 0;
+  var clipBatch = Math.ceil(clips.length / phases.length);
+
+  function nextPhase() {
+    if (step >= phases.length) {
+      setTimeout(function() {
+        clipData.forEach(function(c, i) { if (c.fav) clips[i].classList.add('fav'); });
+      }, 400);
+      setTimeout(function() {
+        clips.forEach(function(c) { c.classList.remove('visible', 'fav'); });
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+        setTimeout(function() { bar.style.transition = ''; step = 0; nextPhase(); }, 300);
+      }, 4000);
+      return;
+    }
+
+    var phase = phases[step];
+    phaseEl.textContent = phase.label;
+    bar.style.width = phase.pct + '%';
+    pctEl.textContent = phase.pct + '%';
+
+    var start = step * clipBatch;
+    var end = Math.min(start + clipBatch, clips.length);
+    for (var i = start; i < end; i++) {
+      (function(idx, offset) {
+        setTimeout(function() { clips[idx].classList.add('visible'); }, offset * 120);
+      })(i, i - start);
+    }
+
+    step++;
+    setTimeout(nextPhase, 1800);
+  }
+
+  setTimeout(nextPhase, 600);
+}
+
+runMockup();
 </script>
 </body>
 </html>

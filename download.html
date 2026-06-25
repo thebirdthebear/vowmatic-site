@@ -194,9 +194,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
       </div>
     </div>
 
-    <!-- TEMP DOWNLOAD DISABLED 2026-05-27 — unverified build live; restore the block below once the build passes T039. -->
-    <!--
-    RIGHT: DOWNLOAD FORM
+    <!-- RIGHT: DOWNLOAD FORM (email gate → R2 download) -->
     <div class="dl-card">
       <div id="formState">
         <h1>Download Vowmatic</h1>
@@ -206,7 +204,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
           <button class="btn-download" id="downloadBtn" onclick="startDownload()">Get Vowmatic Free</button>
         </div>
         <p class="fine-print">We'll send you tips and updates. No spam. <a href="/privacy.html">Privacy policy</a></p>
-        <div class="features-note">macOS 12+ required · 521 MB download · Works with Final Cut Pro, DaVinci Resolve, and Premiere Pro.</div>
+        <div class="features-note">macOS 12+ required · 568 MB download · Works with Final Cut Pro, DaVinci Resolve, and Premiere Pro.</div>
       </div>
       <div id="successState" class="download-success">
         <h2>Your download is starting</h2>
@@ -218,10 +216,6 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
         </div>
         <a href="https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg" class="download-direct">Download didn't start? Click here.</a>
       </div>
-    </div>
-    END TEMP DOWNLOAD DISABLED -->
-    <div class="dl-card" style="text-align:center;padding:48px 40px;">
-      <p style="color:var(--text-dim,#6B6560);font-size:16px;line-height:1.7;">Coming soon — download temporarily unavailable.</p>
     </div>
   </div>
 </div>
@@ -240,10 +234,9 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 </div>
 
 <script>
-/* TEMP DOWNLOAD DISABLED 2026-05-27 — restore once build passes T039.
+// Download form: email capture (Google Form) -> R2 download redirect.
 function startDownload(){var email=document.getElementById('downloadEmail').value.trim();if(!email||!email.includes('@')){document.getElementById('downloadEmail').focus();document.getElementById('downloadEmail').style.borderColor='#c0392b';return;}var btn=document.getElementById('downloadBtn');btn.disabled=true;btn.textContent='Starting...';fetch("https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse",{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"entry.1351082672="+encodeURIComponent(email)});if(typeof gtag!=='undefined')gtag('event','download',{event_category:'engagement',event_label:'vowmatic_dmg',value:1});if(typeof fbq!=='undefined')fbq('track','Download');document.getElementById('formState').style.display='none';document.getElementById('successState').style.display='block';setTimeout(function(){window.location.href='https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg';},500);}
 document.getElementById('downloadEmail').addEventListener('keypress',function(e){if(e.key==='Enter')startDownload();});
-END TEMP DOWNLOAD DISABLED */
 
 // ═══ APP MOCKUP ANIMATION ═══
 var clipData = [

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vowmatic — Help & Support</title>
 <meta name="description" content="Get started with Vowmatic, troubleshoot common issues, and contact support.">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0NYCHRR4FP');</script>
@@ -14,29 +14,29 @@
 <style>
 /* ═══ NAV & FOOTER ═══ */
 nav{padding:24px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
-.logo{font-family:'Instrument Serif',serif;font-size:26px;color:var(--text,#1A1816);text-decoration:none;letter-spacing:-0.3px;}
-.logo span{color:var(--accent,#8B6834);}
+.logo{font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text,#17191D);text-decoration:none;}
+.logo span{color:var(--accent,#3B72B0);}
 .nav-right{display:flex;align-items:center;gap:32px;}
 .nav-link{color:var(--text-dim,#6B6560);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.2px;transition:color 0.25s;}
-.nav-link:hover{color:var(--text,#1A1816);}
-.nav-cta{background:var(--ink,#1A1816);color:var(--bg,#FAF8F4);padding:9px 22px;border-radius:6px;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:0.2px;transition:all 0.3s;}
+.nav-link:hover{color:var(--text,#17191D);}
+.nav-cta{background:var(--ink,#17191D);color:#fff;padding:9px 22px;border-radius:7px;text-decoration:none;font-weight:600;font-size:13px;letter-spacing:0.2px;transition:all 0.3s;}
 .nav-cta:hover{opacity:0.85;}
 footer{padding:32px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-footer .logo{font-size:20px;}
+footer .logo{font-size:13px;}
 .footer-links{display:flex;gap:28px;list-style:none;padding:0;margin:0;}
 .footer-links a{color:var(--text-muted,#9C9690);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.2px;transition:color 0.25s;}
 .footer-links a:hover{color:var(--text-dim,#6B6560);}
 .footer-copy{color:var(--text-muted,#9C9690);font-size:11px;}
 
 .help-section{padding:36px 0;border-top:1px solid var(--border);}
-.help-section h2{font-family:'Instrument Serif',serif;font-size:26px;margin-bottom:20px;color:var(--ink);}
+.help-section h2{font-family:var(--font-heading);font-size:25px;font-weight:650;letter-spacing:-0.02em;margin-bottom:20px;color:var(--ink);}
 .help-section h3{font-size:14px;font-weight:650;margin-top:22px;margin-bottom:6px;color:var(--accent);}
 .help-section p{color:var(--text-dim);font-size:14px;line-height:1.75;margin-bottom:10px;}
 .help-section a{color:var(--accent);}
 .help-section code{background:var(--surface-2);padding:2px 8px;border-radius:4px;font-size:12px;color:var(--accent);}
 .help-section strong{color:var(--text);}
 
-.code-block{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:10px 0 14px;font-family:monospace;font-size:12px;color:var(--accent);}
+.code-block{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin:10px 0 14px;font-family:var(--font-mono);font-size:12px;color:var(--accent);}
 .code-block code{flex:1;word-break:break-all;}
 
 .step-list{list-style:none;counter-reset:helpsteps;margin:14px 0;}
@@ -45,7 +45,7 @@ footer .logo{font-size:20px;}
 .step-list li strong{color:var(--text);}
 
 .nle-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);}
-.nle-tab{padding:12px 24px;border:1px solid var(--border);border-bottom:none;border-radius:10px 10px 0 0;background:var(--surface);color:var(--text-muted);font-size:13px;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:all 0.2s;position:relative;bottom:-1px;}
+.nle-tab{padding:12px 24px;border:1px solid var(--border);border-bottom:none;border-radius:10px 10px 0 0;background:var(--surface);color:var(--text-muted);font-size:13px;font-weight:600;font-family:var(--font-body);cursor:pointer;transition:all 0.2s;position:relative;bottom:-1px;}
 .nle-tab:hover{color:var(--text);background:var(--surface-2);}
 .nle-tab.active{color:var(--accent);background:var(--bg);border-color:var(--border);border-bottom-color:var(--bg);}
 .nle-panel{display:none;padding:24px 0 0;}
@@ -66,8 +66,8 @@ footer .logo{font-size:20px;}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px;margin-top:20px;text-align:center;}
 .contact-card h3{font-size:17px;font-weight:650;margin-bottom:8px;margin-top:0;color:var(--ink);}
 .contact-card p{color:var(--text-dim);font-size:14px;margin-bottom:18px;}
-.contact-card .email-btn{display:inline-block;background:var(--ink);color:var(--bg);padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:650;font-size:14px;transition:all 0.3s;}
-.contact-card .email-btn:hover{box-shadow:0 8px 24px rgba(0,0,0,0.12);transform:translateY(-1px);}
+.contact-card .email-btn{display:inline-block;background:var(--ink);color:#fff;padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.3s;}
+.contact-card .email-btn:hover{box-shadow:0 8px 24px rgba(20,22,26,0.16);transform:translateY(-1px);}
 .contact-card .email-note{color:var(--text-muted);font-size:12px;margin-top:10px;margin-bottom:0;}
 
 @media(max-width:768px){.faq-grid{grid-template-columns:1fr;}.nle-tabs{flex-wrap:wrap;}.nle-tab{flex:1;text-align:center;padding:10px 14px;font-size:12px;}footer{flex-direction:column;gap:16px;text-align:center;}.nav-right{gap:16px;}.nav-link.hide-mobile{display:none;}}

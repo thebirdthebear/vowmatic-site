@@ -1,25 +1,33 @@
-/* Vowmatic shared theme — warm light */
+/* Vowmatic shared theme — Cutting Room (cool-neutral light)
+   Ports the app's ui_theme.py "cutting-room" language to the marketing site:
+   cool graphite ground, Geist / Geist Mono sans-only type, near-monochrome
+   chrome, color reserved for meaning (blue = signal/action, green = safe/done,
+   gold = warnings only → not used decoratively here). No warm gold, no serif. */
 :root {
-  --bg: #FAF8F4;
-  --bg-warm: #F3EFE8;
+  --bg: #F6F7F9;
+  --bg-warm: #EDEFF2;
   --surface: #FFFFFF;
-  --surface-tint: #F7F4EE;
-  --surface-2: #F0EDE6;
-  --border: rgba(0,0,0,0.07);
-  --border-hover: rgba(0,0,0,0.14);
-  --text: #1A1816;
-  --text-body: #3D3A36;
-  --text-dim: #6B6560;
-  --text-muted: #9C9690;
-  --accent: #8B6834;
-  --accent-light: #B8924E;
-  --accent-bg: rgba(139, 104, 52, 0.06);
-  --accent-border: rgba(139, 104, 52, 0.15);
-  --accent-glow: rgba(139, 104, 52, 0.08);
-  --ink: #1A1816;
-  --green: #3D8B3D;
-  --green-bg: rgba(61, 139, 61, 0.06);
-  --green-border: rgba(61, 139, 61, 0.15);
+  --surface-tint: #F1F3F6;
+  --surface-2: #E7EAEE;
+  --border: rgba(20,22,26,0.08);
+  --border-hover: rgba(20,22,26,0.16);
+  --text: #17191D;
+  --text-body: #363A40;
+  --text-dim: #5C616A;
+  --text-muted: #8C929B;
+  --accent: #3B72B0;
+  --accent-hover: #2E5E96;
+  --accent-light: #6E9BD1;
+  --accent-bg: rgba(59, 114, 176, 0.07);
+  --accent-border: rgba(59, 114, 176, 0.20);
+  --accent-glow: rgba(59, 114, 176, 0.08);
+  --ink: #17191D;
+  --green: #3F9068;
+  --green-bg: rgba(63, 144, 104, 0.07);
+  --green-border: rgba(63, 144, 104, 0.18);
+  --font-body: 'Geist', -apple-system, 'Helvetica Neue', sans-serif;
+  --font-heading: 'Geist', -apple-system, 'Helvetica Neue', sans-serif;
+  --font-mono: 'Geist Mono', 'SF Mono', ui-monospace, monospace;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,7 +35,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -49,11 +57,13 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .logo {
-  font-family: 'Instrument Serif', serif;
-  font-size: 26px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--text);
   text-decoration: none;
-  letter-spacing: -0.3px;
 }
 .logo span { color: var(--accent); }
 .nav-right { display: flex; align-items: center; gap: 32px; }
@@ -68,9 +78,9 @@ nav {
 .nav-link:hover { color: var(--text); }
 .nav-cta {
   background: var(--ink);
-  color: var(--bg);
+  color: #fff;
   padding: 9px 22px;
-  border-radius: 6px;
+  border-radius: 7px;
   text-decoration: none;
   font-weight: 600;
   font-size: 13px;
@@ -85,21 +95,21 @@ nav {
   align-items: center;
   gap: 10px;
   background: var(--ink);
-  color: var(--bg);
+  color: #fff;
   padding: 14px 28px;
   border-radius: 8px;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.2px;
   transition: all 0.3s;
   border: none;
   cursor: pointer;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(20,22,26,0.16);
 }
 .btn-secondary {
   display: inline-flex;
@@ -115,11 +125,11 @@ nav {
   border: 1px solid var(--border);
   transition: all 0.3s;
   cursor: pointer;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
 }
 .btn-secondary:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(20,22,26,0.05);
 }
 .btn-accent {
   display: inline-flex;
@@ -131,15 +141,16 @@ nav {
   border-radius: 8px;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   border: none;
   transition: all 0.3s;
   cursor: pointer;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
 }
 .btn-accent:hover {
+  background: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(139, 104, 52, 0.2);
+  box-shadow: 0 8px 24px rgba(59, 114, 176, 0.24);
 }
 
 /* ═══ TYPOGRAPHY ═══ */
@@ -148,9 +159,10 @@ nav {
   padding: 60px 0 48px;
 }
 .page-header h1 {
-  font-family: 'Instrument Serif', serif;
-  font-size: clamp(36px, 5vw, 48px);
-  letter-spacing: -0.5px;
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 5vw, 46px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
   margin-bottom: 12px;
   color: var(--ink);
 }
@@ -167,8 +179,9 @@ nav {
   align-items: center;
   gap: 8px;
   color: var(--accent);
+  font-family: var(--font-mono);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -190,7 +203,7 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-footer .logo { font-size: 20px; }
+footer .logo { font-size: 13px; }
 .footer-links { display: flex; gap: 28px; list-style: none; }
 .footer-links a {
   color: var(--text-muted);
@@ -209,7 +222,7 @@ footer .logo { font-size: 20px; }
   font-weight: 650;
   margin-top: 36px;
   margin-bottom: 10px;
-  color: var(--accent);
+  color: var(--ink);
 }
 .content-page h3 {
   font-size: 15px;
@@ -225,6 +238,7 @@ footer .logo { font-size: 20px; }
   margin-bottom: 14px;
 }
 .content-page a { color: var(--accent); }
+.content-page a:hover { color: var(--accent-hover); }
 .content-page strong { color: var(--text); }
 .content-page ul, .content-page ol {
   color: var(--text-dim);
@@ -238,6 +252,7 @@ footer .logo { font-size: 20px; }
   background: var(--surface-2);
   padding: 2px 8px;
   border-radius: 4px;
+  font-family: var(--font-mono);
   font-size: 13px;
   color: var(--accent);
 }

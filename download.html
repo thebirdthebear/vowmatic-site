@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download Vowmatic — Free for Mac</title>
 <meta name="description" content="Download Vowmatic for Mac. AI-powered wedding video editing — sorts clips, syncs cameras, builds multicam edits.">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/shared.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NYCHRR4FP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-0NYCHRR4FP');</script>
@@ -21,13 +21,15 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .logo {
-  font-family: 'Instrument Serif', serif;
-  font-size: 26px;
-  color: var(--text, #1A1816);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text, #17191D);
   text-decoration: none;
-  letter-spacing: -0.3px;
 }
-.logo span { color: var(--accent, #8B6834); }
+.logo span { color: var(--accent, #3B72B0); }
 .nav-right { display: flex; align-items: center; gap: 32px; }
 .nav-link {
   color: var(--text-dim, #6B6560);
@@ -37,7 +39,7 @@ nav {
   letter-spacing: 0.2px;
   transition: color 0.25s;
 }
-.nav-link:hover { color: var(--text, #1A1816); }
+.nav-link:hover { color: var(--text, #17191D); }
 
 footer {
   padding: 32px 0;
@@ -46,7 +48,7 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-footer .logo { font-size: 20px; }
+footer .logo { font-size: 13px; }
 .footer-links { display: flex; gap: 28px; list-style: none; padding: 0; margin: 0; }
 .footer-links a {
   color: var(--text-muted, #9C9690);
@@ -66,42 +68,42 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ═══ DOWNLOAD CARD ═══ */
 .dl-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 48px 40px; text-align: center; }
-.dl-card h1 { font-family: 'Instrument Serif', serif; font-size: 32px; margin-bottom: 10px; color: var(--ink, #1A1816); }
+.dl-card h1 { font-family: var(--font-heading); font-size: 30px; font-weight: 650; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--ink, #17191D); }
 .dl-card .subtitle { color: var(--text-dim, #6B6560); font-size: 15px; margin-bottom: 28px; }
 .form-group { display: flex; gap: 10px; margin-bottom: 14px; }
 .form-group input {
-  flex: 1; background: var(--surface-2, #F3EFE8); border: 1px solid var(--border);
-  border-radius: 10px; padding: 13px 18px; color: var(--text, #1A1816); font-size: 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif; outline: none; transition: border-color 0.2s;
+  flex: 1; background: var(--surface-2, #E7EAEE); border: 1px solid var(--border);
+  border-radius: 10px; padding: 13px 18px; color: var(--text, #17191D); font-size: 14px;
+  font-family: var(--font-body); outline: none; transition: border-color 0.2s;
 }
-.form-group input:focus { border-color: var(--accent, #8B6834); }
+.form-group input:focus { border-color: var(--accent, #3B72B0); }
 .form-group input::placeholder { color: var(--text-muted, #9C9690); }
 .btn-download {
-  background: var(--ink, #1A1816); color: var(--bg, #FAF8F4); border: none;
-  padding: 13px 24px; border-radius: 10px; font-weight: 700; font-size: 14px;
-  cursor: pointer; transition: all 0.3s; font-family: 'Plus Jakarta Sans', sans-serif; white-space: nowrap;
+  background: var(--ink, #17191D); color: #fff; border: none;
+  padding: 13px 24px; border-radius: 10px; font-weight: 600; font-size: 14px;
+  cursor: pointer; transition: all 0.3s; font-family: var(--font-body); white-space: nowrap;
 }
-.btn-download:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-1px); }
+.btn-download:hover { box-shadow: 0 8px 24px rgba(20,22,26,0.16); transform: translateY(-1px); }
 .btn-download:disabled { opacity: 0.5; cursor: default; transform: none; box-shadow: none; }
 .fine-print { color: var(--text-muted, #9C9690); font-size: 12px; margin-top: 6px; }
-.fine-print a { color: var(--accent, #8B6834); text-decoration: none; }
+.fine-print a { color: var(--accent, #3B72B0); text-decoration: none; }
 .features-note { color: var(--text-dim, #6B6560); font-size: 13px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); line-height: 1.7; }
 .download-success { display: none; }
-.download-success h2 { font-family: 'Instrument Serif', serif; font-size: 26px; margin-bottom: 8px; color: var(--ink, #1A1816); }
-.download-success p { color: var(--text-dim, #6B6560); font-size: 14px; margin-bottom: 16px; }
-.download-success .steps { text-align: left; background: var(--surface-2, #F3EFE8); border-radius: 10px; padding: 20px 24px; margin: 20px 0; font-size: 14px; line-height: 2.1; color: var(--text-dim, #6B6560); }
-.download-success .steps strong { color: var(--text, #1A1816); }
-.download-success .steps .num { color: var(--accent, #8B6834); font-weight: 700; }
-.download-direct { display: inline-block; color: var(--accent, #8B6834); font-size: 13px; text-decoration: none; margin-top: 10px; }
+.download-success h2 { font-family: var(--font-heading); font-size: 25px; font-weight: 650; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink, #17191D); }
+.download-success p { color: var(--text-dim, #5C616A); font-size: 14px; margin-bottom: 16px; }
+.download-success .steps { text-align: left; background: var(--surface-2, #E7EAEE); border-radius: 10px; padding: 20px 24px; margin: 20px 0; font-size: 14px; line-height: 2.1; color: var(--text-dim, #5C616A); }
+.download-success .steps strong { color: var(--text, #17191D); }
+.download-success .steps .num { color: var(--accent, #3B72B0); font-weight: 600; font-family: var(--font-mono); }
+.download-direct { display: inline-block; color: var(--accent, #3B72B0); font-size: 13px; text-decoration: none; margin-top: 10px; }
 .download-direct:hover { text-decoration: underline; }
 
 /* ═══ APP MOCKUP ═══ */
 .app-mockup {
-  background: #1A1A1E; border-radius: 14px; overflow: hidden;
+  background: #141518; border-radius: 14px; overflow: hidden;
   box-shadow: 0 24px 80px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
   position: relative; aspect-ratio: 4/3;
 }
-.app-titlebar { height: 36px; background: #111113; display: flex; align-items: center; padding: 0 14px; gap: 7px; }
+.app-titlebar { height: 36px; background: #101114; display: flex; align-items: center; padding: 0 14px; gap: 7px; }
 .app-dot { width: 10px; height: 10px; border-radius: 50%; }
 .app-dot.r { background: #FF5F57; }
 .app-dot.y { background: #FEBC2E; }
@@ -109,12 +111,12 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .app-titlebar-text { flex: 1; text-align: center; color: #6B6966; font-size: 11px; font-weight: 500; letter-spacing: 0.3px; }
 .app-body { padding: 16px; height: calc(100% - 36px); position: relative; overflow: hidden; }
 
-.mock-progress { background: #222226; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+.mock-progress { background: #1B1D21; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
 .mock-progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; }
-.mock-progress-label span { font-size: 11px; color: #9B9896; font-family: 'Plus Jakarta Sans', sans-serif; }
-.mock-progress-label strong { font-size: 11px; color: #D4A853; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
-.mock-bar-track { height: 4px; background: #2A292E; border-radius: 2px; overflow: hidden; }
-.mock-bar-fill { height: 100%; background: linear-gradient(90deg, #8B6834, #D4A853); border-radius: 2px; width: 0%; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.mock-progress-label span { font-size: 11px; color: #9B9896; font-family: var(--font-body); }
+.mock-progress-label strong { font-size: 11px; color: #6E9BD1; font-weight: 600; font-family: var(--font-body); }
+.mock-bar-track { height: 4px; background: #24262C; border-radius: 2px; overflow: hidden; }
+.mock-bar-fill { height: 100%; background: #6E9BD1; border-radius: 2px; width: 0%; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
 
 .mock-clips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .mock-clip {
@@ -124,7 +126,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .mock-clip.visible { opacity: 1; transform: scale(1); }
 .mock-clip-tag {
   position: absolute; bottom: 3px; left: 3px; font-size: 7px; font-weight: 700;
-  padding: 2px 5px; border-radius: 3px; font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 2px 5px; border-radius: 3px; font-family: var(--font-body);
   letter-spacing: 0.3px; text-transform: uppercase;
 }
 .mock-clip-fav { position: absolute; top: 3px; right: 3px; font-size: 8px; opacity: 0; transition: opacity 0.3s; }

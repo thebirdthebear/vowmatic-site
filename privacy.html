@@ -23,7 +23,7 @@
 </div>
 <div class="container-narrow content-page" style="padding-top:20px;padding-bottom:80px;">
 <h1 style="font-family:var(--font-heading);font-weight:650;letter-spacing:-0.02em;font-size:34px;margin-bottom:8px;">Privacy Policy</h1>
-<p class="last-updated">Last updated: March 23, 2026</p>
+<p class="last-updated">Last updated: July 17, 2026</p>
 
 <div class="highlight-box">
 <p style="color:var(--text);font-weight:600;">The short version:</p>
@@ -48,7 +48,7 @@
 
 <h3>Sent to AI Service (via our API proxy)</h3>
 <ul>
-  <li><strong>Frame thumbnails:</strong> Individual JPEG images extracted from your video footage, typically one frame every 30 seconds. These are small images (under 100KB each, approximately 1280 pixels wide) used for AI-powered clip classification ("is this ceremony or reception?") and quality assessment.</li>
+  <li><strong>Frame thumbnails:</strong> Individual JPEG images extracted from your video footage, typically one frame every 30 seconds. These are small images (under 100KB each, approximately 1280 pixels wide) used for AI-powered clip classification ("is this ceremony or reception?") and quality assessment. Because they are frames from wedding footage, these thumbnails will often show recognizable people — the couple and their guests.</li>
   <li><strong>Text prompts:</strong> Classification instructions and scoring prompts sent alongside thumbnails. These contain no personal information.</li>
   <li><strong>Transcript text:</strong> For story assembly scoring, text transcriptions (generated locally by Whisper) may be sent to the AI service for emotional scoring. These contain spoken words from your wedding audio but no identifying metadata.</li>
 </ul>
@@ -69,7 +69,7 @@
   <li>Data is processed for the request and not retained long-term</li>
   <li>Anthropic's full privacy policy is available at <a href="https://www.anthropic.com/privacy" target="_blank">anthropic.com/privacy</a></li>
 </ul>
-<p>Our API proxy does not store thumbnails. It logs only: timestamp, token identifier, model name, and token counts (for usage tracking and billing). No image data is logged.</p>
+<p>Our API proxy does not store thumbnails. It logs only: timestamp, token identifier, model name, and token counts (for usage tracking and billing). No image data is logged. These logs are retained for 90 days for billing and support purposes, then deleted.</p>
 
 <h2>4. Your API Token</h2>
 <p>Your API token identifies your Vowmatic account for usage tracking and access control. It is stored locally in <code>~/.wedding_analyzer/config.json</code> on your computer. We use it to:</p>
@@ -87,9 +87,10 @@
   <li><strong>Meta Pixel</strong> — anonymous conversion tracking for our advertising</li>
   <li><strong>Stripe</strong> — payment information for subscriptions, processed entirely by Stripe (we never see your card number)</li>
 </ul>
+<p>We do not sell personal information for money. If you are a California resident, our use of Google Analytics and Meta Pixel for advertising purposes may be considered a "share" of personal information under the CCPA/CPRA. You can exercise your opt-out rights as described in Section 6.</p>
 
 <h2>6. Your Rights</h2>
-<p>You can request deletion of any data we hold about you by emailing <a href="/cdn-cgi/l/email-protection#0c7a637b616d78656f6e69786d4c6b616d6560226f6361"><span class="__cf_email__" data-cfemail="83f5ecf4eee2f7eae0e1e6f7e2c3e4eee2eaefade0ecee">[email&#160;protected]</span></a>. Since Vowmatic processes footage locally, uninstalling the app removes all local processing data.</p>
+<p>You can request access to, correction of, or deletion of any data we hold about you — including opting out of the advertising-related sharing described in Section 5 — by emailing <a href="/cdn-cgi/l/email-protection#0c7a637b616d78656f6e69786d4c6b616d6560226f6361"><span class="__cf_email__" data-cfemail="83f5ecf4eee2f7eae0e1e6f7e2c3e4eee2eaefade0ecee">[email&#160;protected]</span></a>. Since Vowmatic processes footage locally, uninstalling the app removes all local processing data.</p>
 
 <h2>7. Changes</h2>
 <p>We may update this policy. Material changes will be communicated via email. The "last updated" date at the top always reflects the current version.</p>

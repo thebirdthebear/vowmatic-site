@@ -32,7 +32,7 @@ footer .logo{font-size:13px;}
 .hero h1 em{font-style:normal;color:var(--accent);}
 .hero p{color:var(--text-dim);font-size:16px;max-width:540px;margin:0 auto;line-height:1.7;}
 
-.billing-toggle{display:flex;align-items:center;justify-content:center;gap:14px;margin:44px 0 36px;font-size:14px;}
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:14px;margin:44px 0 8px;font-size:14px;}
 .billing-toggle span{color:var(--text-muted);transition:color 0.2s;font-weight:500;}
 .billing-toggle span.active{color:var(--text);font-weight:650;}
 .toggle-switch{width:48px;height:26px;background:var(--surface-2);border:1px solid var(--border);border-radius:13px;cursor:pointer;position:relative;transition:background 0.3s;}
@@ -40,6 +40,22 @@ footer .logo{font-size:13px;}
 .toggle-switch.annual::after{transform:translateX(22px);}
 .toggle-switch.annual{background:var(--accent-bg);border-color:var(--accent-border);}
 .save-badge{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;}
+.sub-note{text-align:center;color:var(--text-muted);font-size:12px;margin-bottom:36px;}
+
+/* ═══ SALE (remove this block + .sale-* markup when the launch sale ends) ═══ */
+:root{--sale:#B5482F;--sale-bg:rgba(181,72,47,0.08);--sale-border:rgba(181,72,47,0.22);}
+.promo-bar{background:linear-gradient(135deg,var(--sale-bg),var(--accent-bg));border-bottom:1px solid var(--sale-border);}
+.promo-bar-inner{max-width:1100px;margin:0 auto;padding:11px 28px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center;}
+.promo-bar-inner strong{color:var(--sale);font-weight:700;}
+.promo-bar-inner .sep{color:var(--text-muted);}
+.promo-bar-inner .countdown{font-family:var(--font-mono);font-size:12px;color:var(--text-dim);letter-spacing:0.2px;}
+.promo-bar-inner .countdown b{color:var(--text);font-weight:700;}
+.sale-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--sale-bg);border:1px solid var(--sale-border);color:var(--sale);font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px;}
+.price-was{color:var(--text-muted);font-size:15px;text-decoration:line-through;text-decoration-color:var(--sale);text-decoration-thickness:1.5px;margin-bottom:2px;}
+.amount.sale{color:var(--sale);}
+.sale-badge{position:absolute;top:16px;right:16px;background:var(--sale);color:#fff;padding:4px 11px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:0.4px;}
+.pricing-card{border-color:var(--sale-border);}
+.pricing-card:hover{border-color:var(--sale);}
 
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:40px;align-items:start;max-width:960px;margin:0 auto;}
 .pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 28px;position:relative;transition:all 0.3s;}
@@ -49,8 +65,8 @@ footer .logo{font-size:13px;}
 .popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:4px 18px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
 
 .card-tier{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);margin-bottom:6px;}
-.card-name{font-family:var(--font-heading);font-size:23px;font-weight:650;letter-spacing:-0.02em;margin-bottom:14px;color:var(--ink);}
-.price{margin-bottom:6px;}
+.card-name{font-family:var(--font-heading);font-size:23px;font-weight:650;letter-spacing:-0.02em;margin-bottom:16px;color:var(--ink);}
+.price{margin-bottom:6px;display:flex;align-items:baseline;gap:6px;}
 .price .amount{font-size:44px;font-weight:700;letter-spacing:-2px;color:var(--ink);}
 .price .period{color:var(--text-muted);font-size:14px;}
 .price-detail{color:var(--text-dim);font-size:13px;margin-bottom:20px;min-height:36px;line-height:1.6;}
@@ -106,6 +122,14 @@ footer .logo{font-size:13px;}
 </head>
 <body>
 
+<div class="promo-bar">
+  <div class="promo-bar-inner">
+    <span><strong>Launch Sale:</strong> 25% off every plan</span>
+    <span class="sep">&middot;</span>
+    <span class="countdown" id="countdown">ends Dec 31 &middot; <b id="daysLeft">—</b> days left</span>
+  </div>
+</div>
+
 <div class="container">
   <nav>
     <a href="/" class="logo">Vow<span>matic</span></a>
@@ -120,6 +144,7 @@ footer .logo{font-size:13px;}
 
 <div class="container">
   <section class="hero">
+    <div class="sale-eyebrow">25% off &middot; ends December 31</div>
     <h1>One tool. <em>Every feature.</em><br>Pick your pace.</h1>
     <p>Every plan includes the full Vowmatic toolkit — the AI highlight film, multicam autocut, clip classification, ratings, story assembly, and more. Just choose how many weddings you need.</p>
   </section>
@@ -130,34 +155,41 @@ footer .logo{font-size:13px;}
     <span id="annualLabel">Annual</span>
     <span class="save-badge">Save 20%</span>
   </div>
+  <p class="sub-note">Monthly bills at the sale price on every payment through Dec 31, then renews at standard rate. Annual locks in the sale rate for the full year. Credits keep it forever.</p>
 
   <section class="pricing-grid">
     <div class="pricing-card">
+      <div class="sale-badge">-25%</div>
       <div class="card-tier">Credit</div>
       <div class="card-name">Per Wedding</div>
-      <div class="price"><span class="amount">$29</span><span class="period"> / wedding</span></div>
+      <div class="price-was">$29</div>
+      <div class="price"><span class="amount sale">$22</span><span class="period"> / wedding</span></div>
       <div class="price-detail">No subscription. Credits never expire.<br>&nbsp;</div>
       <div class="card-desc">Try the full Vowmatic experience on a single project. Every feature included — no limits, no watermarks, no catch.</div>
-      <a href="https://buy.stripe.com/28E4gB3yCbgb7Q460Z3gk00" class="card-cta secondary">Buy a Credit</a>
+      <a href="https://buy.stripe.com/28E4gB3yCbgb7Q460Z3gk00?prefilled_promo_code=LAUNCH25" class="card-cta secondary">Buy a Credit</a>
     </div>
 
     <div class="pricing-card popular">
       <div class="popular-badge">Most Popular</div>
+      <div class="sale-badge">-25%</div>
       <div class="card-tier">Pro</div>
       <div class="card-name">3 Weddings / mo</div>
-      <div class="price"><span class="amount sub-price" data-monthly="59" data-annual="47">$59</span><span class="period sub-period"> / month</span></div>
-      <div class="price-detail sub-detail" data-monthly="$19.67 per wedding<br><span class='savings'>Save 32% vs credits</span>" data-annual="$15.67 per wedding &middot; billed annually<br><span class='savings'>Save 46% vs credits</span>">$19.67 per wedding<br><span class="savings">Save 32% vs credits</span></div>
+      <div class="price-was sub-was" data-monthly="$59" data-annual="$47">$59</div>
+      <div class="price"><span class="amount sale sub-price" data-monthly="44" data-annual="35">$44</span><span class="period sub-period"> / month</span></div>
+      <div class="price-detail sub-detail" data-monthly="$14.67 per wedding<br><span class='savings'>Save 33% vs credits</span>" data-annual="$11.67 per wedding &middot; billed annually<br><span class='savings'>Save 47% vs credits</span>">$14.67 per wedding<br><span class="savings">Save 33% vs credits</span></div>
       <div class="card-desc">For working videographers editing a few weddings per month. Additional weddings just $19 each.</div>
-      <a href="https://buy.stripe.com/bJecN7d9cac76M01KJ3gk01" class="card-cta primary sub-cta" data-monthly="https://buy.stripe.com/bJecN7d9cac76M01KJ3gk01" data-annual="https://buy.stripe.com/eVqdRb7OS4RNfiwblj3gk02">Subscribe</a>
+      <a href="https://buy.stripe.com/bJecN7d9cac76M01KJ3gk01?prefilled_promo_code=LAUNCH25MO" class="card-cta primary sub-cta" data-monthly="https://buy.stripe.com/bJecN7d9cac76M01KJ3gk01?prefilled_promo_code=LAUNCH25MO" data-annual="https://buy.stripe.com/eVqdRb7OS4RNfiwblj3gk02?prefilled_promo_code=LAUNCH25">Subscribe</a>
     </div>
 
     <div class="pricing-card">
+      <div class="sale-badge">-25%</div>
       <div class="card-tier">Studio</div>
       <div class="card-name">10 Weddings / mo</div>
-      <div class="price"><span class="amount sub-price" data-monthly="149" data-annual="119">$149</span><span class="period sub-period"> / month</span></div>
-      <div class="price-detail sub-detail" data-monthly="$14.90 per wedding<br><span class='savings'>Save 49% vs credits</span>" data-annual="$11.90 per wedding &middot; billed annually<br><span class='savings'>Save 59% vs credits</span>">$14.90 per wedding<br><span class="savings">Save 49% vs credits</span></div>
+      <div class="price-was sub-was" data-monthly="$149" data-annual="$119">$149</div>
+      <div class="price"><span class="amount sale sub-price" data-monthly="112" data-annual="89">$112</span><span class="period sub-period"> / month</span></div>
+      <div class="price-detail sub-detail" data-monthly="$11.20 per wedding<br><span class='savings'>Save 49% vs credits</span>" data-annual="$8.90 per wedding &middot; billed annually<br><span class='savings'>Save 60% vs credits</span>">$11.20 per wedding<br><span class="savings">Save 49% vs credits</span></div>
       <div class="card-desc">For studios and high-volume shooters. 10 weddings included, additional just $19 each. Priority support.</div>
-      <a href="https://buy.stripe.com/28E5kF6KOckf9Yc0GF3gk03" class="card-cta secondary sub-cta" data-monthly="https://buy.stripe.com/28E5kF6KOckf9Yc0GF3gk03" data-annual="https://buy.stripe.com/cNi8wR1qu2JF2vK9db3gk04">Subscribe</a>
+      <a href="https://buy.stripe.com/28E5kF6KOckf9Yc0GF3gk03?prefilled_promo_code=LAUNCH25MO" class="card-cta secondary sub-cta" data-monthly="https://buy.stripe.com/28E5kF6KOckf9Yc0GF3gk03?prefilled_promo_code=LAUNCH25MO" data-annual="https://buy.stripe.com/cNi8wR1qu2JF2vK9db3gk04?prefilled_promo_code=LAUNCH25">Subscribe</a>
     </div>
   </section>
 
@@ -205,7 +237,7 @@ footer .logo{font-size:13px;}
         <tr><td>Export to your editor</td><td class="check">&check; (from $69/mo)</td><td class="check">&check; (all plans)</td></tr>
         <tr><td>Your video never leaves your Mac</td><td class="dash">Upload required</td><td class="check">&check;</td></tr>
         <tr><td>FCP + Resolve</td><td class="check">&check;</td><td class="check">&check;</td></tr>
-        <tr class="compare-price-row"><td>Full-featured plan</td><td>$129/mo</td><td class="vowmatic-col">From $29</td></tr>
+        <tr class="compare-price-row"><td>Full-featured plan</td><td>$129/mo</td><td class="vowmatic-col">From $22 <span style="color:var(--sale);font-weight:700;">(25% off)</span></td></tr>
       </tbody>
     </table>
   </section>
@@ -215,6 +247,7 @@ footer .logo{font-size:13px;}
   <section class="faq">
     <h2>Questions</h2>
     <div class="faq-grid">
+      <div class="faq-item"><h3>How long does the sale last?</h3><p>25% off every plan through December 31. Monthly subscribers get the sale price on every payment through Dec 31, then renew at standard price starting January. Annual subscribers lock in the sale rate for the full year, since it's a single upfront payment. Credits bought during the sale keep that price forever, since they never expire.</p></div>
       <div class="faq-item"><h3>Is the free trial really free?</h3><p>Yes. Your first wedding includes everything — multicam edits, clip sorting, ratings, story builder, the works. No limits, no watermarks, no credit card.</p></div>
       <div class="faq-item"><h3>What if I need more weddings than my plan allows?</h3><p>Extra weddings are $19 each on Pro and Studio plans. Or upgrade to the next tier anytime.</p></div>
       <div class="faq-item"><h3>Does my footage get uploaded anywhere?</h3><p>No. Your video never leaves your Mac. Only small frame thumbnails are sent to the AI for clip sorting &mdash; your full video and audio files stay on your machine.</p></div>
@@ -230,6 +263,7 @@ footer .logo{font-size:13px;}
   <div class="section-divider"></div>
 
   <section class="bottom-cta">
+    <div class="sale-eyebrow">25% off &middot; ends December 31</div>
     <h2>Ready to get hours back?</h2>
     <p>Your first wedding is free. Every feature included. No credit card required.</p>
     <a href="/download.html" class="btn-primary">Download Free for Mac</a>
@@ -259,9 +293,16 @@ function toggleBilling(){
   document.getElementById('monthlyLabel').classList.toggle('active',!isAnnual);
   document.getElementById('annualLabel').classList.toggle('active',isAnnual);
   document.querySelectorAll('.sub-price').forEach(function(el){el.textContent='$'+(isAnnual?el.dataset.annual:el.dataset.monthly);});
+  document.querySelectorAll('.sub-was').forEach(function(el){el.textContent=isAnnual?el.dataset.annual:el.dataset.monthly;});
   document.querySelectorAll('.sub-detail').forEach(function(el){if(el.dataset.monthly&&el.dataset.annual){el.innerHTML=isAnnual?el.dataset.annual:el.dataset.monthly;}});
   document.querySelectorAll('.sub-cta').forEach(function(el){if(el.dataset.monthly&&el.dataset.annual){el.href=isAnnual?el.dataset.annual:el.dataset.monthly;}});
 }
+(function(){
+  var end=new Date(2026,11,31,23,59,59);
+  var now=new Date();
+  var days=Math.max(0,Math.ceil((end-now)/86400000));
+  document.getElementById('daysLeft').textContent=days;
+})();
 </script>
 </body>
 </html>

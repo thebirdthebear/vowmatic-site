@@ -49,6 +49,10 @@ fbq('track', 'PageView');
   --accent-bg: rgba(59, 114, 176, 0.07);
   --accent-border: rgba(59, 114, 176, 0.20);
   --ink: #17191D;
+  /* free-first-wedding treatment — values kept in sync with shared.css */
+  --green: #3F9068;
+  --green-bg: rgba(63, 144, 104, 0.07);
+  --green-border: rgba(63, 144, 104, 0.18);
   --font-body: 'Geist', -apple-system, 'Helvetica Neue', sans-serif;
   --font-heading: 'Geist', -apple-system, 'Helvetica Neue', sans-serif;
   --font-mono: 'Geist Mono', 'SF Mono', ui-monospace, monospace;
@@ -137,6 +141,65 @@ nav {
   width: 20px;
   height: 1.5px;
   background: var(--accent);
+}
+
+/* ═══ FREE-FIRST-WEDDING (green, deliberately distinct from the accent/sale treatments) ═══ */
+.hero-label.free {
+  background: var(--green-bg);
+  border: 1px solid var(--green-border);
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.hero-label.free::before { display: none; }
+.hero-label.free .tick { font-size: 13px; line-height: 1; }
+.hero-note strong { color: var(--green); font-weight: 700; }
+.free-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, var(--green-bg), var(--surface));
+  border: 1.5px solid var(--green-border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+.free-banner-mark {
+  flex: none;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; font-weight: 700; line-height: 1;
+}
+.free-banner-text { flex: 1; min-width: 0; }
+.free-banner-text strong {
+  display: block;
+  color: var(--ink);
+  font-size: 17px; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 5px;
+}
+.free-banner-text span { display: block; color: var(--text-dim); font-size: 14px; line-height: 1.6; }
+.free-banner-cta {
+  flex: none;
+  background: var(--green);
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 650; font-size: 14px;
+  white-space: nowrap;
+  transition: opacity 0.25s;
+}
+.free-banner-cta:hover { opacity: 0.87; }
+@media (max-width: 640px) {
+  .free-banner { flex-direction: column; align-items: flex-start; gap: 14px; padding: 20px; }
+  .free-banner-cta { width: 100%; text-align: center; }
 }
 
 .hero h1 {
@@ -566,7 +629,7 @@ footer .logo { font-size: 20px; }
   <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-text fade-up">
-      <div class="hero-label">Now Available — First Wedding Free</div>
+      <div class="hero-label free"><span class="tick">&check;</span> First wedding free &middot; every feature</div>
       <h1>Your wedding edits,<br><em>hours faster</em></h1>
       <p class="subtitle">Vowmatic sorts every clip, builds multicam edits of your ceremony and toasts, and drafts a complete highlight film from your best moments — you review it, tweak it, and export straight into your editor.</p>
       <div class="hero-actions">
@@ -579,7 +642,7 @@ footer .logo { font-size: 20px; }
           <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-      <p class="hero-note">macOS 12+ &middot; Every feature included &middot; No credit card required</p>
+      <p class="hero-note">macOS 12+ &middot; <strong>Your first wedding is completely free</strong> &middot; Every feature, no watermarks, no credit card</p>
     </div>
 
     <!-- ANIMATED APP MOCKUP -->
@@ -699,6 +762,20 @@ footer .logo { font-size: 20px; }
         <h3>Open and edit</h3>
         <p>Import into Final Cut Pro, Premiere Pro, or DaVinci Resolve.</p>
       </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══ FREE FIRST WEDDING ═══ -->
+  <section class="fade-up">
+    <div class="free-banner">
+      <div class="free-banner-mark">&check;</div>
+      <div class="free-banner-text">
+        <strong>Run all of that on your first wedding, free</strong>
+        <span>Not a limited demo — the complete toolkit. Multicam edits, the AI highlight film, clip sorting, ratings, story builder, export to your editor. No limits, no watermarks, no credit card.</span>
+      </div>
+      <a href="/download.html" class="free-banner-cta">Start free</a>
     </div>
   </section>
 

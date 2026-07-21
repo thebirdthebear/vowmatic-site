@@ -56,6 +56,22 @@ footer .logo{font-size:13px;}
 .sale-badge{position:absolute;top:16px;right:16px;background:var(--sale);color:#fff;padding:4px 11px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:0.4px;}
 .pricing-card{border-color:var(--sale-border);}
 .pricing-card:hover{border-color:var(--sale);}
+/* ═══ FREE-FIRST-WEDDING (green, deliberately distinct from the red sale treatment) ═══ */
+.free-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--green-bg);border:1px solid var(--green-border);color:var(--green);font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:22px;}
+.free-eyebrow .tick{font-size:13px;line-height:1;}
+.hero h1 .free{color:var(--green);font-style:normal;}
+.free-banner{display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,var(--green-bg),var(--surface));border:1.5px solid var(--green-border);border-radius:14px;padding:22px 26px;margin:0 0 34px;}
+.free-banner-mark{flex:none;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;line-height:1;}
+.free-banner-text{flex:1;min-width:0;}
+.free-banner-text strong{display:block;color:var(--ink);font-size:17px;font-weight:700;letter-spacing:-0.01em;margin-bottom:5px;}
+.free-banner-text span{display:block;color:var(--text-dim);font-size:14px;line-height:1.6;}
+.free-banner-text .qualifier{color:var(--text-body);font-weight:600;}
+.free-banner-cta{flex:none;background:var(--green);color:#fff;padding:11px 22px;border-radius:8px;text-decoration:none;font-weight:650;font-size:14px;letter-spacing:0.1px;white-space:nowrap;transition:opacity 0.25s;}
+.free-banner-cta:hover{opacity:0.87;}
+@media(max-width:640px){
+  .free-banner{flex-direction:column;align-items:flex-start;gap:14px;padding:20px;}
+  .free-banner-cta{width:100%;text-align:center;}
+}
 
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:40px;align-items:start;max-width:960px;margin:0 auto;}
 .pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 28px;position:relative;transition:all 0.3s;}
@@ -144,9 +160,9 @@ footer .logo{font-size:13px;}
 
 <div class="container">
   <section class="hero">
-    <div class="sale-eyebrow">25% off &middot; ends December 31</div>
-    <h1>One tool. <em>Every feature.</em><br>Pick your pace.</h1>
-    <p>Every plan includes the full Vowmatic toolkit — the AI highlight film, multicam autocut, clip classification, ratings, story assembly, and more. Just choose how many weddings you need.</p>
+    <div class="free-eyebrow"><span class="tick">&check;</span> First wedding free &middot; every feature</div>
+    <h1>Your first wedding is <span class="free">free.</span><br>Then pick your pace.</h1>
+    <p>Every plan includes the full Vowmatic toolkit — the AI highlight film, multicam autocut, clip classification, ratings, story assembly, and more. Run all of it on your first wedding at no charge. The plans below are for after that.</p>
   </section>
 
   <div class="billing-toggle">
@@ -156,6 +172,15 @@ footer .logo{font-size:13px;}
     <span class="save-badge">Save 20%</span>
   </div>
   <p class="sub-note">Monthly bills at the sale price on every payment through Dec 31, then renews at standard rate. Annual locks in the sale rate for the full year. Credits keep it forever.</p>
+
+  <div class="free-banner">
+    <div class="free-banner-mark">&check;</div>
+    <div class="free-banner-text">
+      <strong>Your first wedding is completely free</strong>
+      <span>Every single feature — multicam edits, the AI highlight film, clip sorting, ratings, story builder, the works. No limits, no watermarks, no credit card. <span class="qualifier">You only reach the pricing below after your free wedding is done.</span></span>
+    </div>
+    <a href="/download.html" class="free-banner-cta">Start free</a>
+  </div>
 
   <section class="pricing-grid">
     <div class="pricing-card">

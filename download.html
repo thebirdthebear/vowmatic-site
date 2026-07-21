@@ -87,6 +87,20 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 .btn-download:disabled { opacity: 0.5; cursor: default; transform: none; box-shadow: none; }
 .fine-print { color: var(--text-muted, #9C9690); font-size: 12px; margin-top: 6px; }
 .fine-print a { color: var(--accent, #3B72B0); text-decoration: none; }
+/* Optional phone + SMS opt-in. Kept visually lighter than the email row so the
+   primary download CTA does not lose weight (BUG-060). */
+.opt-row { text-align: left; margin-bottom: 10px; }
+.opt-row input[type="tel"] {
+  width: 100%; padding: 10px 12px; font-family: inherit; font-size: 13px;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--surface);
+  color: var(--ink, #17191D);
+}
+.opt-row input[type="tel"]:focus { border-color: var(--accent, #3B72B0); outline: none; }
+.opt-row input[type="tel"]::placeholder { color: var(--text-muted, #9C9690); }
+.consent { display: flex; align-items: flex-start; gap: 7px; margin-top: 8px; cursor: pointer; }
+.consent input { margin-top: 2px; flex-shrink: 0; }
+.consent span { color: var(--text-muted, #9C9690); font-size: 11px; line-height: 1.45; }
+.dl-error { display: none; color: #c0392b; font-size: 12px; margin-top: 8px; }
 .features-note { color: var(--text-dim, #6B6560); font-size: 13px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); line-height: 1.7; }
 .download-success { display: none; }
 .download-success h2 { font-family: var(--font-heading); font-size: 25px; font-weight: 650; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--ink, #17191D); }
@@ -205,6 +219,14 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
           <input type="email" id="downloadEmail" placeholder="Your email address" required>
           <button class="btn-download" id="downloadBtn" onclick="startDownload()">Get Vowmatic Free</button>
         </div>
+        <div class="opt-row">
+          <input type="tel" id="downloadPhone" placeholder="Phone (optional)" autocomplete="tel">
+          <label class="consent" for="smsConsent">
+            <input type="checkbox" id="smsConsent">
+            <span>Text me setup help. Message and data rates may apply; reply STOP to opt out.</span>
+          </label>
+        </div>
+        <p class="dl-error" id="dlError" role="alert"></p>
         <p class="fine-print">We'll send you tips and updates. No spam. <a href="/privacy.html">Privacy policy</a></p>
         <div class="features-note">macOS 12+ required · 568 MB download · Works with Final Cut Pro, DaVinci Resolve, and Premiere Pro.</div>
       </div>
@@ -236,9 +258,130 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 </div>
 
 <script>
-// Download form: email capture (Google Form) -> R2 download redirect.
-function startDownload(){var email=document.getElementById('downloadEmail').value.trim();if(!email||!email.includes('@')){document.getElementById('downloadEmail').focus();document.getElementById('downloadEmail').style.borderColor='#c0392b';return;}var btn=document.getElementById('downloadBtn');btn.disabled=true;btn.textContent='Starting...';fetch("https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse",{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"entry.1351082672="+encodeURIComponent(email)});if(typeof gtag!=='undefined')gtag('event','download',{event_category:'engagement',event_label:'vowmatic_dmg',value:1});if(typeof fbq!=='undefined')fbq('track','Download');document.getElementById('formState').style.display='none';document.getElementById('successState').style.display='block';setTimeout(function(){window.location.href='https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg';},500);}
-document.getElementById('downloadEmail').addEventListener('keypress',function(e){if(e.key==='Enter')startDownload();});
+// ═══ DOWNLOAD FORM: email capture -> R2 download ═══
+//
+// BUG-060. This used to POST the email to a Google Form with mode:"no-cors",
+// un-awaited. That response is opaque BY DESIGN, so a closed form, a rotated
+// entry ID or a Google rate-limit dropped the lead with ZERO error signal while
+// the download proceeded exactly as normal. Silent, unbounded lead loss.
+//
+// Now: an AWAITED POST to the Worker, which writes the lead to KV and reports
+// whether it landed. Two rules that must survive any future edit here:
+//
+//   1. THE DOWNLOAD ALWAYS PROCEEDS. Nobody is held hostage to our backend.
+//   2. A CAPTURE FAILURE IS ALWAYS REPORTED — to the visitor (so they can tell
+//      us) and to GA as `lead_capture_failed` (so we find out without them).
+//      Never fail silently again; that WAS the bug.
+var LEAD_ENDPOINT = 'https://wedding-analyzer-proxy.vowmaticbeta.workers.dev/v1/lead';
+var DMG_URL = 'https://pub-129fc5271e5a487c8ea84fe8679d385a.r2.dev/Vowmatic.dmg';
+
+// TRANSITIONAL DUAL-WRITE. The Google Form is confirmed still receiving rows
+// (verified 2026-07-21), so it stays as a belt-and-braces second copy until the
+// KV list shows parity with it. Then delete this function and its call.
+// It is still blind and un-awaited — that is fine for a SECOND copy, and is
+// exactly why it cannot remain the only one.
+function mirrorToGoogleForm(email) {
+  try {
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSfdpDnuOl7nb9ROteJDNr4ZRRWCIoiVV8qSkPMXqqblevjT5Q/formResponse', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'entry.1351082672=' + encodeURIComponent(email)
+    });
+  } catch (e) { /* second copy; never let it affect the visitor */ }
+}
+
+function beginDownload() {
+  document.getElementById('formState').style.display = 'none';
+  document.getElementById('successState').style.display = 'block';
+  setTimeout(function () { window.location.href = DMG_URL; }, 500);
+}
+
+function startDownload() {
+  var emailEl = document.getElementById('downloadEmail');
+  var email = emailEl.value.trim();
+  if (!email || !email.includes('@')) {
+    emailEl.focus();
+    emailEl.style.borderColor = '#c0392b';
+    return;
+  }
+
+  var btn = document.getElementById('downloadBtn');
+  var errEl = document.getElementById('dlError');
+  btn.disabled = true;
+  btn.textContent = 'Starting...';
+  errEl.style.display = 'none';
+
+  var phone = document.getElementById('downloadPhone').value.trim();
+  var consent = document.getElementById('smsConsent').checked;
+
+  mirrorToGoogleForm(email);
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'download', { event_category: 'engagement', event_label: 'vowmatic_dmg', value: 1 });
+  }
+  if (typeof fbq !== 'undefined') fbq('track', 'Download');
+
+  // 8s ceiling: a hung Worker must not strand someone in front of a dead
+  // "Starting..." button. On timeout we report the failure and still deliver.
+  var ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+
+  fetch(LEAD_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      phone: phone,
+      sms_consent: consent && !!phone,
+      source: 'download'
+    }),
+    signal: ctl ? ctl.signal : undefined
+  })
+    .then(function (r) { return r.json().catch(function () { return {}; }); })
+    .then(function (data) {
+      clearTimeout(timer);
+      if (data && data.stored) {
+        beginDownload();
+        return;
+      }
+      reportCaptureFailure(data && data.error ? data.error : 'unknown');
+    })
+    .catch(function (err) {
+      clearTimeout(timer);
+      reportCaptureFailure(err && err.name === 'AbortError' ? 'timeout' : 'network');
+    });
+}
+
+// The lead did not land. Say so out loud, in both directions — then hand over
+// the download anyway, because that is what the visitor actually came for.
+function reportCaptureFailure(reason) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'lead_capture_failed', { event_category: 'error', event_label: reason });
+  }
+  var errEl = document.getElementById('dlError');
+  errEl.textContent = "We couldn't save your email — your download is starting anyway. "
+    + 'If you want updates, email bryan@vowmatic.ai.';
+  errEl.style.display = 'block';
+  setTimeout(beginDownload, 1800);
+}
+
+// Prefill from the homepage capture (?e=) so the same address is never asked
+// for twice. The Worker keys leads by email, so the second capture coalesces
+// onto the same record rather than duplicating it.
+(function prefillFromHomepage() {
+  try {
+    var e = new URLSearchParams(window.location.search).get('e');
+    if (e && e.includes('@')) document.getElementById('downloadEmail').value = e.trim();
+  } catch (err) { /* prefill is a convenience, never a blocker */ }
+})();
+
+document.getElementById('downloadEmail').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') startDownload();
+});
+document.getElementById('downloadPhone').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') startDownload();
+});
 
 // ═══ APP MOCKUP ANIMATION ═══
 var clipData = [
@@ -323,5 +466,6 @@ function runMockup() {
 
 runMockup();
 </script>
+<script defer src="/chat.js"></script>
 </body>
 </html>

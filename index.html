@@ -557,6 +557,25 @@ nav {
 }
 .final-cta p { color: var(--text-dim); font-size: 15px; margin-bottom: 36px; position: relative; }
 
+/* Homepage email capture (BUG-060 — the homepage previously captured nothing;
+   every CTA bounced to /download.html and an unconverted visitor left no trace). */
+.cta-capture { position: relative; max-width: 440px; margin: 0 auto; }
+.cta-capture-row { display: flex; gap: 10px; }
+.cta-capture input {
+  flex: 1; padding: 13px 15px; font-family: inherit; font-size: 14px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface); color: var(--ink);
+}
+.cta-capture input:focus { border-color: var(--accent); outline: none; }
+.cta-capture input::placeholder { color: var(--text-muted, #9C9690); }
+.cta-capture .btn-primary { white-space: nowrap; }
+.cta-note { color: var(--text-muted, #9C9690); font-size: 12px; margin-top: 10px; }
+.cta-alt { display: block; margin-top: 14px; font-size: 13px; color: var(--text-dim); }
+@media (max-width: 560px) {
+  .cta-capture-row { flex-direction: column; }
+  .cta-capture .btn-primary { width: 100%; justify-content: center; }
+}
+
 /* ═══ FOOTER ═══ */
 footer {
   padding: 32px 0;
@@ -797,10 +816,17 @@ footer .logo { font-size: 20px; }
   <section class="final-cta fade-up">
     <h2>Try it on your next wedding</h2>
     <p>Your first wedding is free. Every feature included. No credit card required.</p>
-    <a href="/download.html" class="btn-primary" onclick="trackDownload()">
-      Download Free for Mac
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="cta-capture">
+      <div class="cta-capture-row">
+        <input type="email" id="ctaEmail" placeholder="Your email address" autocomplete="email" required>
+        <button class="btn-primary" id="ctaBtn" onclick="captureAndGo()">
+          Download Free
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="cta-note" id="ctaNote">macOS 12+ &middot; No spam, unsubscribe anytime &middot; <a href="/privacy.html">Privacy</a></p>
+      <a href="/download.html" class="cta-alt" onclick="trackDownload()">Or go straight to the download &rarr;</a>
+    </div>
   </section>
 
 </div>
@@ -826,6 +852,64 @@ function trackDownload() {
   gtag('event', 'click_download', { event_category: 'engagement', event_label: 'homepage' });
   if (typeof fbq === 'function') fbq('track', 'Lead');
 }
+
+// ═══ HOMEPAGE EMAIL CAPTURE (BUG-060) ═══
+//
+// The homepage used to capture NOTHING — every CTA bounced straight to
+// /download.html, so a visitor who did not complete the download left no trace
+// at all. Now the address is captured here first, then handed to the download
+// page (which coalesces onto the same KV record, keyed by email).
+//
+// Same two rules as download.html: the visitor ALWAYS reaches the download, and
+// a capture failure is ALWAYS reported rather than swallowed.
+var LEAD_ENDPOINT = 'https://wedding-analyzer-proxy.vowmaticbeta.workers.dev/v1/lead';
+
+function captureAndGo() {
+  var el = document.getElementById('ctaEmail');
+  var email = el.value.trim();
+
+  // No address typed — just send them on. An empty box is not an error, and
+  // this button must never become a wall between a visitor and the download.
+  if (!email) { trackDownload(); window.location.href = '/download.html'; return; }
+  if (!email.includes('@')) { el.focus(); el.style.borderColor = '#c0392b'; return; }
+
+  var btn = document.getElementById('ctaBtn');
+  btn.disabled = true;
+  btn.textContent = 'One moment...';
+  trackDownload();
+
+  // Prefilled so the download page does not ask for the same address twice.
+  var onward = '/download.html?e=' + encodeURIComponent(email);
+  var done = false;
+  function go() { if (!done) { done = true; window.location.href = onward; } }
+
+  // Hard 6s ceiling — the visitor moves on regardless of our backend.
+  setTimeout(go, 6000);
+
+  fetch(LEAD_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: 'homepage' })
+  })
+    .then(function (r) { return r.json().catch(function () { return {}; }); })
+    .then(function (data) {
+      if (!data || !data.stored) {
+        gtag('event', 'lead_capture_failed', {
+          event_category: 'error',
+          event_label: 'homepage:' + ((data && data.error) || 'unknown')
+        });
+      }
+      go();
+    })
+    .catch(function () {
+      gtag('event', 'lead_capture_failed', { event_category: 'error', event_label: 'homepage:network' });
+      go();
+    });
+}
+
+document.getElementById('ctaEmail').addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') captureAndGo();
+});
 
 // ═══ SCROLL ANIMATIONS ═══
 const observer = new IntersectionObserver((entries) => {
@@ -945,5 +1029,6 @@ function runMockup() {
 runMockup();
 </script>
 
+<script defer src="/chat.js"></script>
 </body>
 </html>

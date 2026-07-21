@@ -23,7 +23,7 @@
  * ─────────────────────────────────────────────────────────────────────────────
  */
 (function () {
-  var CRISP_WEBSITE_ID = '';  // ← paste the Crisp Website ID here to switch chat on
+  var CRISP_WEBSITE_ID = '65c9e5f6-369c-42d4-9d4b-4c53060c3ab4';  // ← paste the Crisp Website ID here to switch chat on
 
   if (!CRISP_WEBSITE_ID) return;  // not configured — stay completely inert
 

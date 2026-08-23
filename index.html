@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vowmatic — AI Wedding Edits & Highlight Films</title>
-<meta name="description" content="Vowmatic sorts your clips, builds multicam edits, and drafts a complete highlight film from your best moments — you review, swap shots, and export to your editor. First wedding free.">
+<meta name="description" content="Vowmatic sorts your clips, builds multicam edits, and cuts a highlight film rough draft from your best moments — delivered straight into your editor. First wedding free.">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Google Analytics -->
@@ -468,7 +468,7 @@ nav {
 
 .workflow-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   margin-top: 56px;
   position: relative;
@@ -477,8 +477,8 @@ nav {
   content: '';
   position: absolute;
   top: 24px;
-  left: calc(10% + 10px);
-  right: calc(10% + 10px);
+  left: calc(12.5% + 10px);
+  right: calc(12.5% + 10px);
   height: 1px;
   background: var(--border-hover);
 }
@@ -650,7 +650,7 @@ footer .logo { font-size: 20px; }
     <div class="hero-text fade-up">
       <div class="hero-label free"><span class="tick">&check;</span> First wedding free &middot; every feature</div>
       <h1>Your wedding edits,<br><em>hours faster</em></h1>
-      <p class="subtitle">Vowmatic sorts every clip, builds multicam edits of your ceremony and toasts, and drafts a complete highlight film from your best moments — you review it, tweak it, and export straight into your editor.</p>
+      <p class="subtitle">Vowmatic sorts every clip, builds multicam edits of your ceremony and toasts, and cuts a highlight film rough draft from your best moments — delivered straight into your editor, ready for you to shape.</p>
       <div class="hero-actions">
         <a href="/download.html" class="btn-primary" onclick="trackDownload()">
           Download Free for Mac
@@ -701,8 +701,8 @@ footer .logo { font-size: 20px; }
         <div class="bento-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.82 2H4.18A2.18 2.18 0 0 0 2 4.18v15.64A2.18 2.18 0 0 0 4.18 22h15.64A2.18 2.18 0 0 0 22 19.82V4.18A2.18 2.18 0 0 0 19.82 2z"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/></svg>
         </div>
-        <h3>A Highlight Film, Drafted For You</h3>
-        <p>Vowmatic scans all your footage for the two-to-five-second peak moments, weaves them into a full highlight film — getting ready through the dance floor — and hands you a review board where you drag, swap, and pin shots before export. You direct; it does the digging.</p>
+        <h3>A Highlight Film Rough Draft</h3>
+        <p>Vowmatic scans all your footage for the two-to-five-second peak moments and cuts them into a rough draft of your highlight film — getting ready through the dance floor. It lands in Final Cut, Premiere, or Resolve automatically, as an ordinary timeline you cut, trim, and reorder like any other. It does the digging; you direct.</p>
       </div>
 
       <div class="bento-card span-5">
@@ -753,7 +753,7 @@ footer .logo { font-size: 20px; }
   <section class="workflow fade-up" id="how">
     <div class="section-header">
       <div class="section-label">Workflow</div>
-      <h2>Five steps to your first edit</h2>
+      <h2>Four steps to your first edit</h2>
     </div>
     <div class="workflow-grid">
       <div class="workflow-step">
@@ -769,17 +769,12 @@ footer .logo { font-size: 20px; }
       <div class="workflow-step">
         <div class="step-marker">3</div>
         <h3>Let it run</h3>
-        <p>Syncs cameras, builds multicam edits, organizes everything. ~30 min, hands-free.</p>
+        <p>Syncs cameras, builds multicam edits, cuts the highlight film rough draft. Several hours, hands-free.</p>
       </div>
       <div class="workflow-step">
         <div class="step-marker">4</div>
-        <h3>Review the film</h3>
-        <p>Approve, swap, or reorder highlight-film shots — you have final say.</p>
-      </div>
-      <div class="workflow-step">
-        <div class="step-marker">5</div>
         <h3>Open and edit</h3>
-        <p>Import into Final Cut Pro, Premiere Pro, or DaVinci Resolve.</p>
+        <p>Import into Final Cut Pro, Premiere Pro, or DaVinci Resolve. The rough draft is a normal timeline — yours to shape.</p>
       </div>
     </div>
   </section>
@@ -792,7 +787,7 @@ footer .logo { font-size: 20px; }
       <div class="free-banner-mark">&check;</div>
       <div class="free-banner-text">
         <strong>Run all of that on your first wedding, free</strong>
-        <span>Not a limited demo — the complete toolkit. Multicam edits, the AI highlight film, clip sorting, ratings, story builder, export to your editor. No limits, no watermarks, no credit card.</span>
+        <span>Not a limited demo — the complete toolkit. Multicam edits, the AI highlight film rough draft, clip sorting, ratings, story builder, export to your editor. No limits, no watermarks, no credit card.</span>
       </div>
       <a href="/download.html" class="free-banner-cta">Start free</a>
     </div>
@@ -969,7 +964,7 @@ var phases = [
   { label: 'Building multicam...', pct: 70 },
   { label: 'Casting b-roll...', pct: 84 },
   { label: 'Planning the highlight film...', pct: 96 },
-  { label: 'Highlight film ready \u2014 your review', pct: 100 }
+  { label: 'Rough draft ready \u2014 open in your editor', pct: 100 }
 ];
 
 function runMockup() {
